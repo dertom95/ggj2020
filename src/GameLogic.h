@@ -20,7 +20,8 @@ public:
     ~GameLogic();
 
     void Setup(VariantMap& engineParameters_);
-    void LoadFromFile(String sceneName,Node* node=nullptr);
+    void LoadFromFile(String sceneName,Node* node);
+    void LoadFromFile(String sceneName,Scene* scene=nullptr);
     void Start();
     inline Scene* GetScene() { return mScene; }
 

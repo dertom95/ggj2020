@@ -72,13 +72,24 @@ void GameLogic::LoadFromFile(String sceneName, Node* loadInto)
     auto cache = GetSubsystem<ResourceCache>();
     XMLFile* file = cache->GetResource<XMLFile>(sceneName);
     if (file){
-        if (loadInto != nullptr) {
+        loadInto->LoadXML(file->GetRoot());
+    } else {
+        URHO3D_LOGERRORF("no scene %s",sceneName.CString());
+    }
+}
+
+void GameLogic::LoadFromFile(String sceneName, Scene* loadInto)
+{
+    auto cache = GetSubsystem<ResourceCache>();
+    XMLFile* file = cache->GetResource<XMLFile>(sceneName);
+    if (file){
+        if (loadInto){
             loadInto->LoadXML(file->GetRoot());
         } else {
             mScene->LoadXML(file->GetRoot());
         }
     } else {
-        URHO3D_LOGERROR("no scene");
+        URHO3D_LOGERRORF("no scene: %s",sceneName.CString());
     }
 }
 
