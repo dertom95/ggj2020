@@ -21,7 +21,7 @@ public:
 
     void Init();
     bool FindPath(Vector3 from, Vector3 to, PODVector<Vector3>& dest);
-    void MoveTo(SharedPtr<Node> node,Vector3 gotoPosition);
+    void MoveTo(Vector3 gotoPosition,Node* node=nullptr);
     inline void ShowDebug(bool show) { mDrawDebug = show; }
 
 #ifdef GAME_ENABLE_DEBUG_TOOLS

@@ -76,22 +76,16 @@ void GameNavigation::HandleUpdate(StringHash eventType, VariantMap &data)
         if (input->GetMouseButtonPress(MOUSEB_MIDDLE)){
             Drawable* hitDrawable;
             if (gl->MouseRaycast(2500.0f,tempMoveTo,hitDrawable)){
-
-                CrowdAgent* ca = mScene->GetComponent<CrowdAgent>(true);
-                if (ca) {
-                    MoveTo(SharedPtr<Node>(ca->GetNode()),tempMoveTo);
-                }
+                // move all CrowdAgents of the scene ( you can specify a node from which all crowdagents will be targeted)
+                MoveTo(tempMoveTo);
             }
         }
 
         if (input->GetNumTouches()>0){
             Drawable* hitDrawable;
             if (gl->TouchRaycast(0,2500.0f,tempMoveTo,hitDrawable)){
-
-                CrowdAgent* ca = mScene->GetComponent<CrowdAgent>(true);
-                if (ca) {
-                    MoveTo(SharedPtr<Node>(ca->GetNode()),tempMoveTo);
-                }
+                // move all CrowdAgents of the scene ( you can specify a node from which all crowdagents will be targeted)
+                MoveTo(tempMoveTo);
             }
         }
 
@@ -185,10 +179,10 @@ bool GameNavigation::FindPath(Vector3 from_, Vector3 to_, PODVector<Vector3>& de
     return dest.Size() > 0;
 }
 
-void GameNavigation::MoveTo(SharedPtr<Node> node,Vector3 gotoPosition)
+void GameNavigation::MoveTo(Vector3 gotoPosition,Node* node)
 {
     if (mCrowdManager){
-        mCrowdManager->SetCrowdTarget(gotoPosition,node.Get());
+        mCrowdManager->SetCrowdTarget(gotoPosition,node);
     }
 }
 
