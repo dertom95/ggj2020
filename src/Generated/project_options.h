@@ -1,5 +1,5 @@
 #define GAME_ENABLE_COMPONENT_EXPORTER
-#define GAME_ENABLE_DEBUG_TOOLS
+/* #undef GAME_ENABLE_DEBUG_TOOLS */
 
 #define PROJECT_NAME "minimal-urho3d"
-#define GIT_HASH "eaeec00"
+#define GIT_HASH "25a4149"

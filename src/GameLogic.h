@@ -49,6 +49,7 @@ private:
     void HandlePostRenderUpdate(StringHash eventType, VariantMap &eventData);
     void HandleKeyDown(StringHash eventType, VariantMap& eventData);
     void HandleControlClicked(StringHash eventType, VariantMap& eventData);
+    void HandlePhysics(StringHash eventType,VariantMap& eventData);
 
 
 #ifdef GAME_ENABLE_DEBUG_TOOLS

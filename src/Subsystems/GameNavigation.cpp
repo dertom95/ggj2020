@@ -14,8 +14,10 @@
 
 GameNavigation::GameNavigation(Context *ctx)
     : Object(ctx),
-      mDrawDebug(true),
-      tempTestMode(true)
+      mDrawDebug(true)
+#ifdef GAME_ENABLE_DEBUG_TOOLS
+    ,tempTestMode(true)
+#endif
 {
     SubscribeToEvent(E_UPDATE,URHO3D_HANDLER(GameNavigation,HandleUpdate));
 #ifdef GAME_ENABLE_DEBUG_TOOLS
@@ -38,6 +40,16 @@ void GameNavigation::Init()
 
     mCrowdManager = mScene->GetComponent<CrowdManager>(true);
     if (mCrowdManager){
+        // -- obstacle avoidance -- ( not know what this is doing)
+        CrowdObstacleAvoidanceParams params = mCrowdManager->GetObstacleAvoidanceParams(0);
+        // Set the params to "High (66)" setting
+        params.velBias = 0.5f;
+        params.adaptiveDivs = 7;
+        params.adaptiveRings = 3;
+        params.adaptiveDepth = 3;
+        mCrowdManager->SetObstacleAvoidanceParams(0, params);
+
+        // -- subscribe to crowdmanager-events --
         // Subscribe HandleCrowdAgentFailure() function for resolving invalidation issues with agents, during which we
         // use a larger extents for finding a point on the navmesh to fix the agent's position
         SubscribeToEvent(E_CROWD_AGENT_FAILURE, URHO3D_HANDLER(GameNavigation, HandleCrowdAgentFailure));
@@ -95,6 +107,7 @@ void GameNavigation::HandleUpdate(StringHash eventType, VariantMap &data)
 
 void GameNavigation::HandlePostRender(StringHash eventType, VariantMap &data)
 {
+#ifdef GAME_ENABLE_DEBUG_TOOLS
     if (mDrawDebug && mNavMesh) {
         mNavMesh->DrawDebugGeometry(true);
 
@@ -123,6 +136,7 @@ void GameNavigation::HandlePostRender(StringHash eventType, VariantMap &data)
             mCrowdManager->DrawDebugGeometry(true);
         }
     }
+#endif
 }
 
 

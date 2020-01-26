@@ -17,13 +17,15 @@ GameLogic::GameLogic(Context* ctx)
 GameLogic::~GameLogic(){
 }
 
+// ------------------------------- startup ---------------------------------------------------
+
 void GameLogic::Setup(VariantMap& engineParameters_)
 {
     engineParameters_[EP_FULL_SCREEN]=false;
     engineParameters_[EP_WINDOW_RESIZABLE]=true;
     engineParameters_[EP_WINDOW_WIDTH]=1700;
     engineParameters_[EP_WINDOW_HEIGHT]=1000;
-    engineParameters_[EP_WINDOW_TITLE]=String(PROJECT_NAME);
+    engineParameters_[EP_WINDOW_TITLE]=String(PROJECT_NAME); // get the name from the CMake ProjectName
     SubscribeToEvents();
 }
 
@@ -78,41 +80,23 @@ void GameLogic::SetupViewport()
     context_->RegisterSubsystem(mViewport);
 }
 
-void GameLogic::LoadFromFile(String sceneName, Node* loadInto)
-{
-    auto cache = GetSubsystem<ResourceCache>();
-    XMLFile* file = cache->GetResource<XMLFile>(sceneName);
-    if (file){
-        loadInto->LoadXML(file->GetRoot());
-    } else {
-        URHO3D_LOGERRORF("no scene %s",sceneName.CString());
-    }
-}
-
-void GameLogic::LoadFromFile(String sceneName, Scene* loadInto)
-{
-    auto cache = GetSubsystem<ResourceCache>();
-    XMLFile* file = cache->GetResource<XMLFile>(sceneName);
-    if (file){
-        if (loadInto){
-            loadInto->LoadXML(file->GetRoot());
-        } else {
-            mScene->LoadXML(file->GetRoot());
-        }
-    } else {
-        URHO3D_LOGERRORF("no scene: %s",sceneName.CString());
-    }
-}
-
 void GameLogic::SubscribeToEvents()
 {
     SubscribeToEvent(E_UPDATE, URHO3D_HANDLER(GameLogic, HandleUpdate));
     SubscribeToEvent(E_POSTRENDERUPDATE, URHO3D_HANDLER(GameLogic, HandlePostRenderUpdate));
+
     SubscribeToEvent(E_KEYDOWN, URHO3D_HANDLER(GameLogic, HandleKeyDown));
+
+    SubscribeToEvent(E_PHYSICSCOLLISIONSTART, URHO3D_HANDLER(GameLogic, HandlePhysics));
+    SubscribeToEvent(E_PHYSICSCOLLISIONEND, URHO3D_HANDLER(GameLogic, HandlePhysics));
+
 #ifdef GAME_ENABLE_DEBUG_TOOLS
     SubscribeToEvent(E_CONSOLECOMMAND, URHO3D_HANDLER(GameLogic, HandleConsoleInput));
 #endif
 }
+
+
+// -------------------------------- handlers ----------------------------------------------
 
 void GameLogic::HandleUpdate(StringHash eventType, VariantMap &eventData)
 {
@@ -128,12 +112,44 @@ void GameLogic::HandleUpdate(StringHash eventType, VariantMap &eventData)
     }
 }
 
+void GameLogic::HandlePhysics(StringHash eventType, VariantMap &eventData)
+{
+    using namespace PhysicsCollision;
+
+    Node* nodeA = static_cast<Node*>(eventData[P_NODEA].GetPtr());
+    RigidBody* bodyA = static_cast<RigidBody*>(eventData[P_BODYA].GetPtr());
+
+    Node* nodeB = static_cast<Node*>(eventData[P_NODEB].GetPtr());
+    RigidBody* bodyB = static_cast<RigidBody*>(eventData[P_BODYB].GetPtr());
+
+    MemoryBuffer contacts(eventData[P_CONTACTS].GetBuffer());
+    bool isTrigger = eventData[P_TRIGGER].GetBool();
+
+    while (!contacts.IsEof())
+    {
+        Vector3 contactPosition = contacts.ReadVector3();
+        Vector3 contactNormal = contacts.ReadVector3();
+        float contactDistance = contacts.ReadFloat();
+        float contactImpulse = contacts.ReadFloat();
+        // do something
+    }
+
+    String stTrigger = isTrigger ? "[Trigger]" : "";
+
+    if (eventType == E_PHYSICSCOLLISIONSTART){
+        URHO3D_LOGINFOF("START: %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
+    }
+    else if (eventType == E_PHYSICSCOLLISIONEND){
+        URHO3D_LOGINFOF("END  : %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
+    }
+}
+
+
 void GameLogic::HandlePostRenderUpdate(StringHash eventType, VariantMap &eventData)
 {
     if (mRenderPhysics) {
         mScene->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
     }
-
 }
 
 void GameLogic::HandleKeyDown(StringHash eventType, VariantMap &eventData)
@@ -161,6 +177,66 @@ void GameLogic::HandleKeyDown(StringHash eventType, VariantMap &eventData)
         }
     }
 #endif
+}
+
+void GameLogic::HandleControlClicked(StringHash eventType, VariantMap& eventData)
+{
+    // Get the Text control acting as the Window's title
+    auto* windowTitle = mWindow->GetChildStaticCast<Text>("WindowTitle", true);
+
+    // Get control that was clicked
+    auto* clicked = static_cast<UIElement*>(eventData[UIMouseClick::P_ELEMENT].GetPtr());
+
+    String name = "...?";
+    if (clicked)
+    {
+        // Get the name of the control that was clicked
+        name = clicked->GetName();
+    }
+
+    // Update the Window's title text
+    windowTitle->SetText("Hello " + name + "!");
+}
+
+#ifdef GAME_ENABLE_DEBUG_TOOLS
+void GameLogic::HandleConsoleInput(StringHash eventType, VariantMap& eventData)
+{
+    using namespace ConsoleCommand;
+    String command = eventData[P_COMMAND].GetString();
+    String id = eventData[P_ID].GetString();
+
+    if (command == "GIT_HASH"){
+        URHO3D_LOGINFOF("GIT-Hash: %s",String(GIT_HASH).CString());
+    }
+}
+#endif
+
+// ------------------------------- misc -------------------------------------------------------
+
+void GameLogic::LoadFromFile(String sceneName, Node* loadInto)
+{
+    auto cache = GetSubsystem<ResourceCache>();
+    XMLFile* file = cache->GetResource<XMLFile>(sceneName);
+    if (file){
+        loadInto->LoadXML(file->GetRoot());
+    } else {
+        URHO3D_LOGERRORF("no scene %s",sceneName.CString());
+    }
+}
+
+void GameLogic::LoadFromFile(String sceneName, Scene* loadInto)
+{
+    auto cache = GetSubsystem<ResourceCache>();
+    XMLFile* file = cache->GetResource<XMLFile>(sceneName);
+    if (file){
+        if (loadInto){
+            loadInto->LoadXML(file->GetRoot());
+        } else {
+            mScene->LoadXML(file->GetRoot());
+        }
+    } else {
+        URHO3D_LOGERRORF("no scene: %s",sceneName.CString());
+    }
 }
 
 void GameLogic::PlaySound(String soundFile)
@@ -235,37 +311,7 @@ void GameLogic::SetupUI()
     SubscribeToEvent(E_UIMOUSECLICK, URHO3D_HANDLER(GameLogic, HandleControlClicked));
 }
 
-void GameLogic::HandleControlClicked(StringHash eventType, VariantMap& eventData)
-{
-    // Get the Text control acting as the Window's title
-    auto* windowTitle = mWindow->GetChildStaticCast<Text>("WindowTitle", true);
 
-    // Get control that was clicked
-    auto* clicked = static_cast<UIElement*>(eventData[UIMouseClick::P_ELEMENT].GetPtr());
-
-    String name = "...?";
-    if (clicked)
-    {
-        // Get the name of the control that was clicked
-        name = clicked->GetName();
-    }
-
-    // Update the Window's title text
-    windowTitle->SetText("Hello " + name + "!");
-}
-
-#ifdef GAME_ENABLE_DEBUG_TOOLS
-void GameLogic::HandleConsoleInput(StringHash eventType, VariantMap& eventData)
-{
-    using namespace ConsoleCommand;
-    String command = eventData[P_COMMAND].GetString();
-    String id = eventData[P_ID].GetString();
-
-    if (command == "GIT_HASH"){
-        URHO3D_LOGINFOF("GIT-Hash: %s",String(GIT_HASH).CString());
-    }
-}
-#endif
 
 void GameLogic::SetUIText(String text)
 {
