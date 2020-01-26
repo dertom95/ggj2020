@@ -69,7 +69,7 @@ message("created: ${CMAKE_CURRENT_BINARY_DIR}/project_options.h")
 message("All Sources: ${SOURCE_FILES}")
 
 # this is due to a problem of qtcreator grouping the files awkwardly since qtcreator 4.11 (nothing mandatory. remove if wanted)
-source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+# source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 # Setup target with resource copying
 setup_main_executable ()

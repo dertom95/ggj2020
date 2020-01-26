@@ -116,6 +116,10 @@ void StartupApplication::SetupComponentExporter()
     exporter->AddComponentHashToFilterList(Navigable::GetTypeStatic());
     exporter->AddComponentHashToFilterList(NavArea::GetTypeStatic());
     exporter->AddComponentHashToFilterList(NavigationMesh::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(DynamicNavigationMesh::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(CrowdAgent::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(CrowdManager::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(Obstacle::GetTypeStatic());
     exporter->AddComponentHashToFilterList(Octree::GetTypeStatic());
     exporter->AddComponentHashToFilterList(PhysicsWorld::GetTypeStatic());
     exporter->AddComponentHashToFilterList(DebugRenderer::GetTypeStatic());

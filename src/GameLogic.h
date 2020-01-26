@@ -11,6 +11,8 @@
 
 using namespace Urho3D;
 
+class GameNavigation;
+
 class GameLogic : public Object
 {
     URHO3D_OBJECT(GameLogic,Object);
@@ -30,6 +32,10 @@ public:
 
     void SetUIText(String text);
 
+    bool TouchRaycast(int fingerIdx,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
+    bool MouseRaycast(float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
+    bool Raycast(IntVector2 screenPos,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
+
 private:
     void SubscribeToEvents();
     void SetupSystems();
@@ -37,6 +43,7 @@ private:
     void SetupScene();
     void SetupInput();
     void SetupUI(); // some sample ui
+
 
     void HandleUpdate(StringHash eventType, VariantMap &eventData);
     void HandlePostRenderUpdate(StringHash eventType, VariantMap &eventData);
@@ -48,6 +55,7 @@ private:
     void HandleConsoleInput(StringHash eventType, VariantMap& eventData);
 #endif
     Node* mCameraNode;
+    Camera* mCamera;
     Scene* mScene;
     Viewport* mViewport;
 
@@ -57,4 +65,6 @@ private:
     SharedPtr<Window> mWindow;
     /// The UI's root UIElement.
     SharedPtr<UIElement> mUiRoot;
+
+    SharedPtr<GameNavigation> mGameNavigation;
 };

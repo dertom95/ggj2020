@@ -2,6 +2,8 @@
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Urho3DAll.h>
 
+#include "Subsystems/GameNavigation.h"
+
 
 GameLogic::GameLogic(Context* ctx)
     : Object(ctx),
@@ -21,6 +23,7 @@ void GameLogic::Setup(VariantMap& engineParameters_)
     engineParameters_[EP_WINDOW_RESIZABLE]=true;
     engineParameters_[EP_WINDOW_WIDTH]=1700;
     engineParameters_[EP_WINDOW_HEIGHT]=1000;
+    engineParameters_[EP_WINDOW_TITLE]=String(PROJECT_NAME);
     SubscribeToEvents();
 }
 
@@ -35,6 +38,8 @@ void GameLogic::Start()
 
 void GameLogic::SetupSystems()
 {
+    mGameNavigation = new GameNavigation(context_);
+    context_->RegisterSubsystem(mGameNavigation);
 }
 
 void GameLogic::SetupScene()
@@ -47,9 +52,15 @@ void GameLogic::SetupScene()
 
     mCameraNode = mScene->GetChild("Camera",true);
 
+    if (mCameraNode) {
+        mCamera = mCameraNode->GetComponent<Camera>();
+    }
+
     mMusicSource = mScene->CreateComponent<SoundSource>();
       // Set the sound type to music so that master volume control works correctly
     mMusicSource->SetSoundType(SOUND_MUSIC);
+
+    mGameNavigation->Init();
 }
 
 void GameLogic::SetupInput()
@@ -122,6 +133,7 @@ void GameLogic::HandlePostRenderUpdate(StringHash eventType, VariantMap &eventDa
     if (mRenderPhysics) {
         mScene->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
     }
+
 }
 
 void GameLogic::HandleKeyDown(StringHash eventType, VariantMap &eventData)
@@ -261,3 +273,48 @@ void GameLogic::SetUIText(String text)
     windowTitle->SetText(text);
 }
 
+bool GameLogic::MouseRaycast(float maxDistance, Vector3& hitPos, Drawable*& hitDrawable)
+{
+    hitDrawable = nullptr;
+
+    auto* ui = GetSubsystem<UI>();
+    IntVector2 pos = ui->GetCursorPosition();
+
+    return Raycast(pos,maxDistance,hitPos,hitDrawable);
+}
+
+bool GameLogic::TouchRaycast(int fingerIdx,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable)
+{
+    hitDrawable = nullptr;
+
+    Input* input = GetSubsystem<Input>();
+    if (!input->GetNumTouches()) return false;
+
+    IntVector2 pos = input->GetTouch(fingerIdx)->position_;
+
+    return Raycast(pos,maxDistance,hitPos,hitDrawable);
+}
+
+
+
+bool GameLogic::Raycast(IntVector2 screennPos,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable)
+{
+    hitDrawable = nullptr;
+
+    auto* graphics = GetSubsystem<Graphics>();
+    Scene* scene = GetSubsystem<Scene>();
+    Ray cameraRay = mCamera->GetScreenRay((float)screennPos.x_ / graphics->GetWidth(), (float)screennPos.y_ / graphics->GetHeight());
+    // Pick only geometry objects, not eg. zones or lights, only get the first (closest) hit
+    PODVector<RayQueryResult> results;
+    RayOctreeQuery query(results, cameraRay, RAY_TRIANGLE, maxDistance, DRAWABLE_GEOMETRY);
+    scene->GetComponent<Octree>()->RaycastSingle(query);
+    if (results.Size())
+    {
+        RayQueryResult& result = results[0];
+        hitPos = result.position_;
+        hitDrawable = result.drawable_;
+        return true;
+    }
+
+    return false;
+}
