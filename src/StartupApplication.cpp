@@ -16,14 +16,6 @@ StartupApplication::StartupApplication(Context* ctx) : Application(ctx)
 
 void StartupApplication::Setup()
 {
-    FileSystem* fs = GetSubsystem<FileSystem>();
-    auto resourcePath = fs->GetProgramDir() + "Data";
-
-    ResourceCache* cache=GetSubsystem<ResourceCache>();
-    cache->AddResourceDir(resourcePath);
-#ifdef GAME_ENABLE_COMPONENT_EXPORTER
-    SetupComponentExporter();
-#endif
     // register game
     game_ = new GameLogic(context_);
     context_->RegisterSubsystem(game_);
@@ -34,16 +26,12 @@ void StartupApplication::Setup()
 
 void StartupApplication::Start()
 {
-    game_->Start();
+    ResourceCache* cache = GetSubsystem<ResourceCache>();
 
-#ifdef GAME_ENABLE_COMPONENT_EXPORTER
-    // export registered components
-    ExportComponents(String(PROJECT_NAME)+"_components.json");
-#endif
+    game_->Start();
 
 #ifdef GAME_ENABLE_DEBUG_TOOLS
     // Get default style
-    ResourceCache* cache = GetSubsystem<ResourceCache>();
     XMLFile* xmlFile = cache->GetResource<XMLFile>("UI/DefaultStyle.xml");
     // Create console
     Console* console = engine_->CreateConsole();
@@ -54,6 +42,14 @@ void StartupApplication::Start()
     // Create debug HUD.
     DebugHud* debugHud = engine_->CreateDebugHud();
     debugHud->SetDefaultStyle(xmlFile);
+
+  #ifdef GAME_ENABLE_COMPONENT_EXPORTER
+    SetupComponentExporter();
+    // export registered components
+    ExportComponents(String(PROJECT_NAME)+"_components.json");
+  #endif
+
+
 #endif
 }
 
@@ -110,6 +106,7 @@ void StartupApplication::SetupComponentExporter()
     exporter->AddTextureFolder("Textures");
     exporter->AddModelFolder("Models");
     exporter->AddAnimationFolder("Models");
+    exporter->AddParticleFolder("Particle");
 
     exporter->AddComponentHashToFilterList(RigidBody::GetTypeStatic());
     exporter->AddComponentHashToFilterList(CollisionShape::GetTypeStatic());
@@ -125,6 +122,8 @@ void StartupApplication::SetupComponentExporter()
     exporter->AddComponentHashToFilterList(DebugRenderer::GetTypeStatic());
     exporter->AddComponentHashToFilterList(Zone::GetTypeStatic());
     exporter->AddComponentHashToFilterList(AnimationController::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(ParticleEmitter::GetTypeStatic());
+  //  exporter->AddComponentHashToFilterList(ParticleEmitter2D::GetTypeStatic());
 }
 
 void StartupApplication::ExportComponents(const String& outputPath)

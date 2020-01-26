@@ -131,6 +131,14 @@ void Urho3DNodeTreeExporter::ProcessFileSystem()
             }
         }
 
+        for (String path : m_particleFolders){
+            String dir = resDir+path;
+            fs->ScanDir(dirFiles,dir,"*.xml",SCAN_FILES,true);
+            for (String foundParticle : dirFiles){
+                auto particleResourceName = path+"/"+foundParticle;
+                particleFiles.Push(particleResourceName);
+            }
+        }
     }
 
     Sort(materialFiles.Begin(),materialFiles.End(),CompareString);
@@ -477,6 +485,11 @@ void Urho3DNodeTreeExporter::NodeAddEnumElement(JSONArray &elements, const Strin
     elements.Push(elem);
 }
 
+void Urho3DNodeTreeExporter::AddParticleFolder(const String &folder)
+{
+    m_particleFolders.Push(folder);
+}
+
 void Urho3DNodeTreeExporter::AddMaterialFolder(const String &folder)
 {
     m_materialFolders.Push(folder);
@@ -722,6 +735,26 @@ JSONObject Urho3DNodeTreeExporter::ExportComponents()
                                 NodeAddPropEnum(node,attr.name_,enumElems,true,"0");
                                 alreadyAdded = true;
 
+                            }
+                            else if (typeName == "ParticleEffect")
+                            {
+                                // dropdown to choose techniques available from the resource-path
+                                JSONArray enumElems;
+                                NodeAddEnumElement(enumElems,"none","None","No Particle","PARTICLE");
+
+                                for (String particle : particleFiles){
+                                    StringHash hash(particle);
+                                    String id(hash.Value() % 10000000);
+
+                                    NodeAddEnumElement(enumElems,"ParticleEffect;"+particle,particle,"Particle "+particle,"PARTICLE",id);
+                                }
+
+                                NodeAddPropEnum(node,attr.name_,enumElems,true,"0");
+                                alreadyAdded = true;
+
+                            }
+                            else {
+                                URHO3D_LOGWARNINGF("Could not process resource-type:%s",typeName.CString());
                             }
                         }
                     break;

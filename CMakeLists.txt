@@ -23,17 +23,23 @@ project (minimal-urho3d)
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/CMake/Modules)
 # Include UrhoCommon.cmake module after setting project name
 
-set (URHO3D_PACKAGING 1 CACHE BOOL "")
+# options
+option(GAME_ENABLE_DEBUG_TOOLS "Enable Debug-Tools(Editor,Console,Profiler)" ON)
+option(GAME_ENABLE_COMPONENT_EXPORTER "Enable Component-Export as JSON" ON)
+option(GAME_RETRIEVE_GIT_HASH "Retrieve current-githash" ON)
+
+if (GAME_ENABLE_DEBUG_TOOLS)
+    set (URHO3D_PACKAGING 0 CACHE BOOL "")
+else()
+    set (URHO3D_PACKAGING 1 CACHE BOOL "")
+endif()
+
 set (URHO3D_DEPLOYMENT_TARGET generic CACHE STRING "") # it is important to set this before running thorugh UrhoCommon
 
 include (UrhoCommon)
 
 # Define source files
 set (TARGET_NAME ${PROJECT_NAME})
-# options
-option(GAME_ENABLE_DEBUG_TOOLS "Enable Debug-Tools(Editor,Console,Profiler)" ON)
-option(GAME_ENABLE_COMPONENT_EXPORTER "Enable Component-Export as JSON" ON)
-option(GAME_RETRIEVE_GIT_HASH "Retrieve current-githash" ON)
 
 set(GIT_HASH "unknown")
 
