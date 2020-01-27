@@ -14,7 +14,7 @@
 
 GameNavigation::GameNavigation(Context *ctx)
     : Object(ctx),
-      mDrawDebug(true)
+      mDrawDebug(false)
 #ifdef GAME_ENABLE_DEBUG_TOOLS
     ,tempTestMode(true)
 #endif

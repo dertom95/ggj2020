@@ -110,6 +110,9 @@ void GameLogic::HandleUpdate(StringHash eventType, VariantMap &eventData)
 
     if (input->GetKeyPress(KEY_F3)){
         mRenderPhysics = !mRenderPhysics;
+        if (mGameNavigation){
+            mGameNavigation->ShowDebug(!mGameNavigation->IsShowDebug());
+        }
     }
 }
 
