@@ -123,6 +123,7 @@ void StartupApplication::SetupComponentExporter()
     exporter->AddComponentHashToFilterList(Zone::GetTypeStatic());
     exporter->AddComponentHashToFilterList(AnimationController::GetTypeStatic());
     exporter->AddComponentHashToFilterList(ParticleEmitter::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(RibbonTrail::GetTypeStatic());
   //  exporter->AddComponentHashToFilterList(ParticleEmitter2D::GetTypeStatic());
 }
 
