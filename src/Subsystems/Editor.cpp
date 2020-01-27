@@ -15,12 +15,15 @@ void Editor::InitEditor()
     if (initialized_) return;
 
     ResourceCache* cache = GetSubsystem<ResourceCache>();
-    bool foundEditorResources = cache->AddPackageFile("EditorData.pak");
+    cache->AddResourceDir("EditorData");
+//    bool foundEditorResources = cache->AddPackageFile("EditorData.pak");
 
-    if (!foundEditorResources){
-        URHO3D_LOGERROR("Could not init edito because file  'Editor.pak' was not found");
-        return;
-    }
+//    if (!foundEditorResources){
+//        URHO3D_LOGERROR("Could not init edito because file  'Editor.pak' was not found");
+//        return;
+//    }
+
+
 
     Scene* scene = GetSubsystem<Scene>();
     Renderer* renderer = GetSubsystem<Renderer>();
