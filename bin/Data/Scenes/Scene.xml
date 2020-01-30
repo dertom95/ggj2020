@@ -19,24 +19,6 @@
 			<attribute name="Fog End" value="500"/>
 		</component>
 		<node id="16777217">
-			<attribute name="Name" value="Box"/>
-			<attribute name="Position" value="25.6352 0.257446 1.58335"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1.78236 1.78236 1.78236"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-				<string value="Box"/>
-				<string value="Box_recursive"/>
-			</attribute>
-			<component id="18" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Box.xml"/>
-				<attribute name="groupOffset" value="0 0 18"/>
-			</component>
-		</node>
-		<node id="16777218">
 			<attribute name="Name" value="Camera"/>
 			<attribute name="Position" value="250.471 212.277 10.0966"/>
 			<attribute name="Rotation" value="0.916193 0.00768585 -0.0175928 -0.400276"/>
@@ -54,43 +36,217 @@
 				<attribute name="Far Clip" value="500.0"/>
 			</component>
 		</node>
-		<node id="16777219">
-			<attribute name="Name" value="Empty"/>
-			<attribute name="Position" value="28.4055 0.257446 16.9086"/>
+		<node id="16777218">
+			<attribute name="Name" value="Cube"/>
+			<attribute name="Position" value="0 0 0"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
+			<attribute name="Scale" value="12.0748 12.0748 12.0748"/>
 			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="16777227" type="NavArea">
-				<attribute name="Bounding Box Min" value="-10.0 -10.0 -10.0"/>
-				<attribute name="Bounding Box Max" value="10.0 10.0 10.0"/>
-				<attribute name="Area ID" value="1"/>
+			<component id="16777226" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777228" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777219">
+			<attribute name="Name" value="Cube.001"/>
+			<attribute name="Position" value="-3.72353 7.22814 -77.4247"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="12.0748 12.0748 12.0748"/>
+			<attribute name="Variables"/>
+			<component id="16777228" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.001.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777230" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
 			</component>
 		</node>
 		<node id="16777220">
-			<attribute name="Name" value="Ground"/>
-			<attribute name="Position" value="-0.680386 0 3.4372"/>
+			<attribute name="Name" value="Cube.002"/>
+			<attribute name="Position" value="20.057 -18.4201 -77.7832"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="157.034 157.034 157.034"/>
+			<attribute name="Scale" value="12.0748 12.0748 12.0748"/>
 			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection"/>
-				<string value="Collection_recursive"/>
-			</attribute>
-			<component id="16777227" type="StaticModel">
-				<attribute name="Model" value="Model;Models/453-Scene-Plane.mdl"/>
-				<attribute name="Material" value="Material;Materials/mat-ground.xml"/>
+			<component id="16777230" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.002.mdl"/>
+				<attribute name="Material" value="Material;"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777229" type="Navigable">
-				<attribute name="Recursive" value="False"/>
+			<component id="16777232" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
 			</component>
 		</node>
 		<node id="16777221">
+			<attribute name="Name" value="Cube.003"/>
+			<attribute name="Position" value="31.9731 -32.6433 -44.8862"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777232" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.003.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777234" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777222">
+			<attribute name="Name" value="Cube.004"/>
+			<attribute name="Position" value="-24.8825 23.7648 74.3813"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777234" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.004.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777236" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777223">
+			<attribute name="Name" value="Cube.005"/>
+			<attribute name="Position" value="24.4093 -29.8232 83.9673"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777236" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.005.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777238" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777224">
+			<attribute name="Name" value="Cube.006"/>
+			<attribute name="Position" value="3.72695 -6.85693 68.3355"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777238" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.006.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777240" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777225">
+			<attribute name="Name" value="Cube.007"/>
+			<attribute name="Position" value="19.1595 -22.1677 35.955"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777240" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.007.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777242" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777226">
+			<attribute name="Name" value="Cube.008"/>
+			<attribute name="Position" value="-24.715 24.9735 40.8652"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777242" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.008.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777244" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777227">
+			<attribute name="Name" value="Cube.009"/>
+			<attribute name="Position" value="33.3049 -36.2698 7.92152"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="6.70517 6.70517 6.70517"/>
+			<attribute name="Variables"/>
+			<component id="16777244" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.009.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777246" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777228">
+			<attribute name="Name" value="Cube.010"/>
+			<attribute name="Position" value="-18.4502 21.3473 -34.732"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="3.81761 3.81761 3.81761"/>
+			<attribute name="Variables"/>
+			<component id="16777246" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.010.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777248" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777229">
+			<attribute name="Name" value="Cube.011"/>
+			<attribute name="Position" value="2.72363 -1.21605 -41.6128"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="3.81761 3.81761 3.81761"/>
+			<attribute name="Variables"/>
+			<component id="16777248" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.011.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777250" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777230">
+			<attribute name="Name" value="Cube.012"/>
+			<attribute name="Position" value="-3.93498 2.81299 34.5189"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="3.81761 3.81761 3.81761"/>
+			<attribute name="Variables"/>
+			<component id="16777250" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.012.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777252" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777231">
+			<attribute name="Name" value="Cube.013"/>
+			<attribute name="Position" value="36.2401 -41.1049 48.1513"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="8.67424 8.67424 8.67424"/>
+			<attribute name="Variables"/>
+			<component id="16777252" type="StaticModel">
+				<attribute name="Model" value="Model;Models/453-Scene-Cube.013.mdl"/>
+				<attribute name="Material" value="Material;"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777254" type="Rotator">
+				<attribute name="Axis" value="10.0 20.0 30.0"/>
+			</component>
+		</node>
+		<node id="16777232">
 			<attribute name="Name" value="Light"/>
 			<attribute name="Position" value="-1.00545 53.3414 4.07625"/>
 			<attribute name="Rotation" value="0.954203 1.02398e-08 -0 0.299159"/>
@@ -100,1418 +256,14 @@
 				<string value="Collection"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777230" type="RotationFix"/>
-			<component id="16777232" type="Light">
+			<component id="16777255" type="RotationFix"/>
+			<component id="16777257" type="Light">
 				<attribute name="Is Enabled" value="true"/>
 				<attribute name="Light Type" value="Directional"/>
 				<attribute name="Specular Intensity" value="1.0"/>
 				<attribute name="Temperature" value="1000.0"/>
 				<attribute name="Color" value="1.0 1.0 1.0 1"/>
 				<attribute name="Cast Shadows" value="true"/>
-			</component>
-		</node>
-		<node id="16777222">
-			<attribute name="Name" value="Suzanne"/>
-			<attribute name="Position" value="28.4055 0.257446 -26.0849"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-				<string value="Suzanne"/>
-				<string value="Suzanne_recursive"/>
-			</attribute>
-			<component id="81" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777234" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777223">
-			<attribute name="Name" value="Suzanne.001"/>
-			<attribute name="Position" value="28.4055 0.257446 -36.4452"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="91" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777235" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777224">
-			<attribute name="Name" value="Suzanne.002"/>
-			<attribute name="Position" value="18.6304 0.257446 -36.4452"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="101" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777236" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777225">
-			<attribute name="Name" value="Suzanne.003"/>
-			<attribute name="Position" value="-60.9836 0.257446 47.5512"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="111" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777237" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777226">
-			<attribute name="Name" value="Suzanne.004"/>
-			<attribute name="Position" value="-60.9836 0.257446 37.1909"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="121" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777238" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777227">
-			<attribute name="Name" value="Suzanne.005"/>
-			<attribute name="Position" value="-70.7587 0.257446 37.1909"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="131" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777239" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777228">
-			<attribute name="Name" value="Suzanne.006"/>
-			<attribute name="Position" value="-97.6185 0.257446 -3.37131"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="141" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777240" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777229">
-			<attribute name="Name" value="Suzanne.007"/>
-			<attribute name="Position" value="-97.6185 0.257446 -13.7316"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="151" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777241" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777230">
-			<attribute name="Name" value="Suzanne.008"/>
-			<attribute name="Position" value="-107.394 0.257446 -13.7316"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="161" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777242" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777231">
-			<attribute name="Name" value="Suzanne.009"/>
-			<attribute name="Position" value="-69.4096 0.257446 -89.0969"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="171" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777243" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777232">
-			<attribute name="Name" value="Suzanne.010"/>
-			<attribute name="Position" value="-69.4096 0.257446 -99.4572"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="181" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777244" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777233">
-			<attribute name="Name" value="Suzanne.011"/>
-			<attribute name="Position" value="-79.1847 0.257446 -99.4572"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="191" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777245" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777234">
-			<attribute name="Name" value="Suzanne.012"/>
-			<attribute name="Position" value="56.9806 0.257446 -79.5718"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="201" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777246" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777235">
-			<attribute name="Name" value="Suzanne.013"/>
-			<attribute name="Position" value="56.9806 0.257446 -89.9321"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="211" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777247" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777236">
-			<attribute name="Name" value="Suzanne.014"/>
-			<attribute name="Position" value="47.2056 0.257446 -89.9321"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="221" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777248" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777237">
-			<attribute name="Name" value="Suzanne.015"/>
-			<attribute name="Position" value="111.933 0.257446 11.2826"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="231" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777249" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777238">
-			<attribute name="Name" value="Suzanne.016"/>
-			<attribute name="Position" value="111.933 0.257446 0.922367"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="241" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777250" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777239">
-			<attribute name="Name" value="Suzanne.017"/>
-			<attribute name="Position" value="102.158 0.257446 0.922367"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="251" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777251" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777240">
-			<attribute name="Name" value="Suzanne.018"/>
-			<attribute name="Position" value="-60.2509 0.257446 80.5225"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="261" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777252" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777241">
-			<attribute name="Name" value="Suzanne.019"/>
-			<attribute name="Position" value="-60.2509 0.257446 70.1623"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="271" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777253" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777242">
-			<attribute name="Name" value="Suzanne.020"/>
-			<attribute name="Position" value="-70.026 0.257446 70.1623"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="281" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777254" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777243">
-			<attribute name="Name" value="Suzanne.021"/>
-			<attribute name="Position" value="-11.5266 0.257446 82.7206"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="291" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777255" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777244">
-			<attribute name="Name" value="Suzanne.022"/>
-			<attribute name="Position" value="-11.5266 0.257446 72.3604"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="301" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777256" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777245">
-			<attribute name="Name" value="Suzanne.023"/>
-			<attribute name="Position" value="-21.3016 0.257446 72.3604"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="311" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777257" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777246">
-			<attribute name="Name" value="Suzanne.024"/>
-			<attribute name="Position" value="35.9522 0.257446 61.8299"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="321" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777258" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777247">
-			<attribute name="Name" value="Suzanne.025"/>
-			<attribute name="Position" value="35.9522 0.257446 51.4697"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="331" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777259" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777248">
-			<attribute name="Name" value="Suzanne.026"/>
-			<attribute name="Position" value="26.1772 0.257446 51.4697"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="341" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777260" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777249">
-			<attribute name="Name" value="Suzanne.027"/>
-			<attribute name="Position" value="80.2658 0.257446 91.5833"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="351" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777261" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777250">
-			<attribute name="Name" value="Suzanne.028"/>
-			<attribute name="Position" value="80.2658 0.257446 81.2231"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="361" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777262" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777251">
-			<attribute name="Name" value="Suzanne.029"/>
-			<attribute name="Position" value="70.4907 0.257446 81.2231"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="371" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777263" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777252">
-			<attribute name="Name" value="Suzanne.030"/>
-			<attribute name="Position" value="98.6242 0.257446 42.2054"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="381" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777264" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777253">
-			<attribute name="Name" value="Suzanne.031"/>
-			<attribute name="Position" value="98.6242 0.257446 31.8451"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="391" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777265" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777254">
-			<attribute name="Name" value="Suzanne.032"/>
-			<attribute name="Position" value="88.8492 0.257446 31.8451"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="401" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Suzanne.xml"/>
-				<attribute name="groupOffset" value="0 0 10"/>
-			</component>
-			<component id="16777266" type="CrowdAgent">
-				<attribute name="Target Position" value="0.0 0.0 0.0"/>
-				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
-				<attribute name="Requested Target Type" value="Velocity"/>
-				<attribute name="Max Accel" value="15.0"/>
-				<attribute name="Max Speed" value="5.0"/>
-				<attribute name="Radius" value="3.0"/>
-				<attribute name="Height" value="2.0"/>
-				<attribute name="Navigation Quality" value="High"/>
-			</component>
-		</node>
-		<node id="16777255">
-			<attribute name="Name" value="Tree1"/>
-			<attribute name="Position" value="0 0 0"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="411" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777256">
-			<attribute name="Name" value="Tree1.001"/>
-			<attribute name="Position" value="1.773e-06 0 51.7989"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1.62897 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="421" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777257">
-			<attribute name="Name" value="Tree1.002"/>
-			<attribute name="Position" value="-35.3148 0 -22.4528"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="431" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777258">
-			<attribute name="Name" value="Tree1.003"/>
-			<attribute name="Position" value="-57.047 0 12.1074"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="441" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777259">
-			<attribute name="Name" value="Tree1.004"/>
-			<attribute name="Position" value="-62.6309 0 -52.1836"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="451" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777260">
-			<attribute name="Name" value="Tree1.005"/>
-			<attribute name="Position" value="-1.05643 0 -92.4787"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="461" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777261">
-			<attribute name="Name" value="Tree1.006"/>
-			<attribute name="Position" value="40.446 0 -62.1442"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="471" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777262">
-			<attribute name="Name" value="Tree1.007"/>
-			<attribute name="Position" value="70.3278 0 -30.6023"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="481" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777263">
-			<attribute name="Name" value="Tree1.008"/>
-			<attribute name="Position" value="78.3264 0 49.3842"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="491" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777264">
-			<attribute name="Name" value="Tree1.009"/>
-			<attribute name="Position" value="57.1979 0 95.4141"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="501" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777265">
-			<attribute name="Name" value="Tree1.010"/>
-			<attribute name="Position" value="6.64039 0 121.07"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="511" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777266">
-			<attribute name="Name" value="Tree1.011"/>
-			<attribute name="Position" value="-52.0667 0 103.111"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="521" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777267">
-			<attribute name="Name" value="Tree1.012"/>
-			<attribute name="Position" value="-4.93109 0 35.6065"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="531" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777268">
-			<attribute name="Name" value="Tree1.013"/>
-			<attribute name="Position" value="-96.7599 0 -75.6796"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="541" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777269">
-			<attribute name="Name" value="Tree1.014"/>
-			<attribute name="Position" value="-45.4213 0 -78.3209"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="551" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777270">
-			<attribute name="Name" value="Tree1.015"/>
-			<attribute name="Position" value="-2.33814 0 -72.6951"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="561" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777271">
-			<attribute name="Name" value="Tree1.016"/>
-			<attribute name="Position" value="54.3233 0 -15.6749"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="571" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777272">
-			<attribute name="Name" value="Tree1.017"/>
-			<attribute name="Position" value="66.9639 0 33.3699"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="581" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777273">
-			<attribute name="Name" value="Tree1.018"/>
-			<attribute name="Position" value="43.9173 0 85.169"/>
-			<attribute name="Rotation" value="0.942325 -0 0.3347 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="591" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777274">
-			<attribute name="Name" value="Tree1.019"/>
-			<attribute name="Position" value="31.9764 0 -69.1618"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="601" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777275">
-			<attribute name="Name" value="Tree1.020"/>
-			<attribute name="Position" value="17.9412 0 -72.3077"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="611" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777276">
-			<attribute name="Name" value="Tree1.021"/>
-			<attribute name="Position" value="6.32575 0 -56.5785"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="621" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777277">
-			<attribute name="Name" value="Tree1.022"/>
-			<attribute name="Position" value="-11.5813 0 -63.1121"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="631" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777278">
-			<attribute name="Name" value="Tree1.023"/>
-			<attribute name="Position" value="-17.873 0 -82.2291"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="641" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777279">
-			<attribute name="Name" value="Tree1.024"/>
-			<attribute name="Position" value="-27.3105 0 -66.7419"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="651" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777280">
-			<attribute name="Name" value="Tree1.025"/>
-			<attribute name="Position" value="-42.7977 0 -61.6602"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="661" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777281">
-			<attribute name="Name" value="Tree1.026"/>
-			<attribute name="Position" value="-34.0862 0 -87.7949"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="671" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777282">
-			<attribute name="Name" value="Tree1.027"/>
-			<attribute name="Position" value="-59.0109 0 -69.1618"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="681" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777283">
-			<attribute name="Name" value="Tree1.028"/>
-			<attribute name="Position" value="-71.8363 0 -39.1553"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="691" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777284">
-			<attribute name="Name" value="Tree1.029"/>
-			<attribute name="Position" value="-75.7081 0 -21.9742"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="701" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777285">
-			<attribute name="Name" value="Tree1.030"/>
-			<attribute name="Position" value="-73.5302 0 -4.30913"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="711" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777286">
-			<attribute name="Name" value="Tree1.031"/>
-			<attribute name="Position" value="-66.0285 0 6.8223"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="721" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777287">
-			<attribute name="Name" value="Tree1.032"/>
-			<attribute name="Position" value="-49.3314 0 2.22453"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="731" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
-			</component>
-		</node>
-		<node id="16777288">
-			<attribute name="Name" value="Tree1.033"/>
-			<attribute name="Position" value="-43.0397 0 -12.5367"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="1 1 1"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Collection_recursive"/>
-				<string value="trees"/>
-				<string value="trees_recursive"/>
-			</attribute>
-			<component id="741" type="GroupInstance">
-				<attribute name="groupFilename" value="Objects/col_Tree1.xml"/>
-				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
 		</node>
 	</node>
