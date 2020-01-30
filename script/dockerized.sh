@@ -48,7 +48,7 @@ if [[ $(sudo docker version -f {{.Client.Version}}) =~ ^([0-9]+)\.0*([0-9]+)\. ]
         --mount type=bind,source="$PROJECT_DIR",target="$PROJECT_DIR" \
         -v $PROJECT_DIR/android/launcher-app:/Urho3D/android/launcher-app \
 	--mount source="$(id -u).urho3d_home_dir",target=/home/urho3d \
-	--name "dockerized$BuildEnvironment" \
+	--name "urho3d$BuildEnvironment" \
         "dertom95/urho3d$BuildEnvironment:$DBE_TAG" "$@"
 else
     echo "CAUTION: UNTESTED"
@@ -59,7 +59,7 @@ else
         --mount type=bind,source="$PROJECT_DIR",target="$PROJECT_DIR" \
 	--mount source="$(id -u).urho3d_home_dir",target=/home/urho3d \
         -v $PROJECT_DIR/android/launcher-app:/Urho3D/android/launcher-app \
-	--name "dockerized$BuildEnvironment" \
+	--name "urho3d$BuildEnvironment" \
         "dertom95/urho3d$BuildEnvironment:$DBE_TAG" "$@"
 fi
 
