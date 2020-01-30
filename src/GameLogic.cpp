@@ -4,6 +4,9 @@
 
 #include "Subsystems/GameNavigation.h"
 
+#ifdef GAME_ENABLE_LUA_SCRIPTING
+# include "Subsystems/LuaScripting.h"
+#endif
 
 GameLogic::GameLogic(Context* ctx)
     : Object(ctx),
@@ -39,10 +42,17 @@ void GameLogic::Start()
     SetupUI();
 }
 
+
 void GameLogic::SetupSystems()
 {
     mGameNavigation = new GameNavigation(context_);
     context_->RegisterSubsystem(mGameNavigation);
+#ifdef GAME_ENABLE_LUA_SCRIPTING
+    LuaScripting* luaScripting = new LuaScripting(context_);
+    luaScripting->Init("Scripts/main.lua");
+    context_->RegisterSubsystem(luaScripting);
+#endif
+
 }
 
 void GameLogic::SetupScene()
@@ -141,10 +151,10 @@ void GameLogic::HandlePhysics(StringHash eventType, VariantMap &eventData)
     String stTrigger = isTrigger ? "[Trigger]" : "";
 
     if (eventType == E_PHYSICSCOLLISIONSTART){
-        URHO3D_LOGINFOF("START: %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
+      //  URHO3D_LOGINFOF("START: %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
     }
     else if (eventType == E_PHYSICSCOLLISIONEND){
-        URHO3D_LOGINFOF("END  : %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
+//        URHO3D_LOGINFOF("END  : %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
     }
 }
 

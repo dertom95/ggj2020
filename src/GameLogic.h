@@ -44,7 +44,6 @@ private:
     void SetupInput();
     void SetupUI(); // some sample ui
 
-
     void HandleUpdate(StringHash eventType, VariantMap &eventData);
     void HandlePostRenderUpdate(StringHash eventType, VariantMap &eventData);
     void HandleKeyDown(StringHash eventType, VariantMap& eventData);
@@ -68,4 +67,6 @@ private:
     SharedPtr<UIElement> mUiRoot;
 
     SharedPtr<GameNavigation> mGameNavigation;
+
 };
+
