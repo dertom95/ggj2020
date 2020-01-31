@@ -12,6 +12,25 @@ function HandleUpdate(eventType,eventData)
      print("dt:"..eventData["TimeStep"])
 end
 
+Tester = ScriptObject()
+
+function Tester:Start()
+    self.userdata = self.node:GetVars()
+    self.testValue = 10
+    self:SubscribeToEvent("Update","Tester:HandleUpdate")
+end
+
+function Tester:HandleUpdate(eventType,eventData)
+    local dt = eventData["TimeStep"]
+    self.testValue = self.testValue + 1
+    print("UserData from blender:"..self.userdata["prefix"]:GetString())
+end
+
+
+
+
+
+
 -- example collision detection
 -- 
 -- function HandleNodeCollision(eventType, eventData)

@@ -139,6 +139,24 @@ void Urho3DNodeTreeExporter::ProcessFileSystem()
                 particleFiles.Push(particleResourceName);
             }
         }
+
+        for (String path : m_soundFolders){
+            String dir = resDir+path;
+            fs->ScanDir(dirFiles,dir,"*.ogg",SCAN_FILES,true);
+            for (String foundSound : dirFiles){
+                auto soundResourceName = path+"/"+foundSound;
+                soundFiles.Push(soundResourceName);
+            }
+        }
+
+        for (String path : m_soundFolders){
+            String dir = resDir+path;
+            fs->ScanDir(dirFiles,dir,"*.wav",SCAN_FILES,true);
+            for (String foundSound : dirFiles){
+                auto soundResourceName = path+"/"+foundSound;
+                soundFiles.Push(soundResourceName);
+            }
+        }
     }
 
     Sort(materialFiles.Begin(),materialFiles.End(),CompareString);
@@ -490,6 +508,11 @@ void Urho3DNodeTreeExporter::AddParticleFolder(const String &folder)
     m_particleFolders.Push(folder);
 }
 
+void Urho3DNodeTreeExporter::AddSoundFolder(const String &folder)
+{
+    m_soundFolders.Push(folder);
+}
+
 void Urho3DNodeTreeExporter::AddMaterialFolder(const String &folder)
 {
     m_materialFolders.Push(folder);
@@ -752,6 +775,21 @@ JSONObject Urho3DNodeTreeExporter::ExportComponents()
                                 NodeAddPropEnum(node,attr.name_,enumElems,true,"0");
                                 alreadyAdded = true;
 
+                            }
+                            else if (typeName == "Sound") {
+                                // dropdown to choose techniques available from the resource-path
+                                JSONArray enumElems;
+                                NodeAddEnumElement(enumElems,"none","None","No Sound","SOUND");
+
+                                for (String sound : soundFiles){
+                                    StringHash hash(sound);
+                                    String id(hash.Value() % 10000000);
+
+                                    NodeAddEnumElement(enumElems,"Sound;"+sound,sound,"Sound "+sound,"Sound",id);
+                                }
+
+                                NodeAddPropEnum(node,attr.name_,enumElems,true,"0");
+                                alreadyAdded = true;
                             }
                             else {
                                 URHO3D_LOGWARNINGF("Could not process resource-type:%s",typeName.CString());

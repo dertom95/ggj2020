@@ -1,0 +1,27 @@
+<node>
+	<attribute name="Position" value="0.0 -0.0 -0.0"/>
+	<node id="16777218">
+		<attribute name="Name" value="Cube"/>
+		<attribute name="Position" value="0 0 0"/>
+		<attribute name="Rotation" value="1 -0 -0 -0"/>
+		<attribute name="Scale" value="1 1 1"/>
+		<attribute name="Variables">
+			<variant hash="2155904274" type="String" value="tomte"/>
+		</attribute>
+		<attribute name="Tags">
+			<string value="Collection"/>
+			<string value="Collection_recursive"/>
+		</attribute>
+		<component id="16777226" type="AnimatedModel">
+			<attribute name="Model" value="Model;Models/827-Guy-Cube.001.mdl"/>
+			<attribute name="Material" value="Material;Materials/mat-guy.xml"/>
+			<attribute name="Cast Shadows" value="true"/>
+		</component>
+		<component id="16777228" type="PlayAnimation">
+			<attribute name="Animation" value="Animation;Models/ArmatureAction.ani"/>
+		</component>
+		<component id="16777229" type="LuaScriptInstance">
+			<attribute name="Script Object Type" value="Tester"/>
+		</component>
+	</node>
+</node>

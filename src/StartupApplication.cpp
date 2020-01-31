@@ -97,9 +97,7 @@ void StartupApplication::SetupComponentExporter()
 
     // include all Components that inherit from LogicComponent
     exporter->AddSuperComponentHashToFilterList(LogicComponent::GetTypeStatic());
-    // explicitly export those components
-    exporter->AddComponentHashToFilterList(Light::GetTypeStatic());
-    exporter->AddComponentHashToFilterList(Camera::GetTypeStatic());
+
 
     exporter->AddMaterialFolder("Materials");
     exporter->AddTechniqueFolder("Techniques");
@@ -107,7 +105,12 @@ void StartupApplication::SetupComponentExporter()
     exporter->AddModelFolder("Models");
     exporter->AddAnimationFolder("Models");
     exporter->AddParticleFolder("Particle");
+    exporter->AddSoundFolder("Sounds");
 
+    // explicitly export those components
+    exporter->AddComponentHashToFilterList(Light::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(Camera::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(SoundSource::GetTypeStatic());
     exporter->AddComponentHashToFilterList(RigidBody::GetTypeStatic());
     exporter->AddComponentHashToFilterList(CollisionShape::GetTypeStatic());
     exporter->AddComponentHashToFilterList(Navigable::GetTypeStatic());
@@ -124,6 +127,8 @@ void StartupApplication::SetupComponentExporter()
     exporter->AddComponentHashToFilterList(AnimationController::GetTypeStatic());
     exporter->AddComponentHashToFilterList(ParticleEmitter::GetTypeStatic());
     exporter->AddComponentHashToFilterList(RibbonTrail::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(LuaScriptInstance::GetTypeStatic());
+    exporter->AddComponentHashToFilterList(SoundSource3D::GetTypeStatic());
   //  exporter->AddComponentHashToFilterList(ParticleEmitter2D::GetTypeStatic());
 }
 

@@ -42,6 +42,7 @@ public:
     void AddAnimationFolder(const String& folder);
     void AddModelFolder(const String& folder);
     void AddParticleFolder(const String& folder);
+    void AddSoundFolder(const String& folder);
 
     void Export(String filename,bool exportComponentTree=true,bool exportMaterialTree=true);
 
@@ -88,6 +89,7 @@ private:
     Vector<String> m_modelFolders;
     Vector<String> m_animationFolders;
     Vector<String> m_particleFolders;
+    Vector<String> m_soundFolders;
 
     Vector<String> m_customUIFilenames;
 
@@ -97,5 +99,6 @@ private:
     Vector<String> modelFiles;
     Vector<String> animationFiles;
     Vector<String> particleFiles;
+    Vector<String> soundFiles;
 };
 #endif
