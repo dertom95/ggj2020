@@ -3,6 +3,7 @@
 #include <Urho3D/Urho3DAll.h>
 
 #include "Subsystems/GameNavigation.h"
+#include "Subsystems/Caravaner.h"
 
 #ifdef GAME_ENABLE_LUA_SCRIPTING
 # include "Subsystems/LuaScripting.h"
@@ -26,8 +27,8 @@ void GameLogic::Setup(VariantMap& engineParameters_)
 {
     engineParameters_[EP_FULL_SCREEN]=false;
     engineParameters_[EP_WINDOW_RESIZABLE]=true;
-    engineParameters_[EP_WINDOW_WIDTH]=1700;
-    engineParameters_[EP_WINDOW_HEIGHT]=1000;
+    engineParameters_[EP_WINDOW_WIDTH]=800;
+    engineParameters_[EP_WINDOW_HEIGHT]=600;
     engineParameters_[EP_WINDOW_TITLE]=String(PROJECT_NAME); // get the name from the CMake ProjectName
     engineParameters_[EP_RESOURCE_PATHS]="Data;CoreData";
     SubscribeToEvents();
@@ -47,6 +48,10 @@ void GameLogic::SetupSystems()
 {
     mGameNavigation = new GameNavigation(context_);
     context_->RegisterSubsystem(mGameNavigation);
+
+    mCaravaner = new Caravaner(context_);
+    context_->RegisterSubsystem(mCaravaner);
+
 #ifdef GAME_ENABLE_LUA_SCRIPTING
     LuaScripting* luaScripting = new LuaScripting(context_);
     luaScripting->Init("Scripts/main.lua");
@@ -60,20 +65,11 @@ void GameLogic::SetupScene()
     mScene = new Scene(context_);
     context_->RegisterSubsystem( mScene );
 
-    // Create scene subsystem components
-    LoadFromFile("Scenes/Scene.xml");
-
-    mCameraNode = mScene->GetChild("Camera",true);
-
-    if (mCameraNode) {
-        mCamera = mCameraNode->GetComponent<Camera>();
-    }
-
     mMusicSource = mScene->CreateComponent<SoundSource>();
       // Set the sound type to music so that master volume control works correctly
     mMusicSource->SetSoundType(SOUND_MUSIC);
 
-    mGameNavigation->Init();
+    mCaravaner->InitLevel("Scenes/LevelDummy.xml");
 }
 
 void GameLogic::SetupInput()
@@ -106,6 +102,15 @@ void GameLogic::SubscribeToEvents()
 #endif
 }
 
+
+void GameLogic::SetCameraNode(Node *cameraNode)
+{
+    mCameraNode = cameraNode;
+
+    if (mCameraNode) {
+        mCamera = mCameraNode->GetComponent<Camera>();
+    }
+}
 
 // -------------------------------- handlers ----------------------------------------------
 

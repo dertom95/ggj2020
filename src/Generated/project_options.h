@@ -2,5 +2,5 @@
 #define GAME_ENABLE_DEBUG_TOOLS
 #define GAME_ENABLE_LUA_SCRIPTING
 
-#define PROJECT_NAME "minimal-urho3d"
-#define GIT_HASH "3360135"
+#define PROJECT_NAME "Caravaner"
+#define GIT_HASH "d98ad44"

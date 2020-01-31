@@ -109,7 +109,7 @@ void GameNavigation::HandlePostRender(StringHash eventType, VariantMap &data)
 {
 #ifdef GAME_ENABLE_DEBUG_TOOLS
     if (mDrawDebug && mNavMesh) {
-        mNavMesh->DrawDebugGeometry(true);
+        mNavMesh->DrawDebugGeometry(false);
 
         Scene* scene_ = GetSubsystem<Scene>();
         DebugRenderer* debug = scene_->GetComponent<DebugRenderer>();

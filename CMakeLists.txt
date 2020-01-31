@@ -14,7 +14,7 @@ if (COMMAND cmake_policy)
 endif ()
 
 # Set project name
-project (minimal-urho3d)
+project (Caravaner)
 
 
 

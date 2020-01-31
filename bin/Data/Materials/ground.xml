@@ -1,0 +1,7 @@
+<material>
+	<texture name="Textures/ground_dummy_diffuse.png" unit="diffuse"/>
+	<cull value="ccw"/>
+	<shadowcull value="ccw"/>
+	<fill value="solid"/>
+	<technique loddistance="0" name="Techniques/Diff.xml" quality="0"/>
+</material>

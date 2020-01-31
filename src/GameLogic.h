@@ -12,6 +12,7 @@
 using namespace Urho3D;
 
 class GameNavigation;
+class Caravaner;
 
 class GameLogic : public Object
 {
@@ -36,6 +37,8 @@ public:
     bool MouseRaycast(float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
     bool Raycast(IntVector2 screenPos,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
 
+    void SetCameraNode(Node* cameraNode);
+
 private:
     void SubscribeToEvents();
     void SetupSystems();
@@ -43,6 +46,7 @@ private:
     void SetupScene();
     void SetupInput();
     void SetupUI(); // some sample ui
+
 
     void HandleUpdate(StringHash eventType, VariantMap &eventData);
     void HandlePostRenderUpdate(StringHash eventType, VariantMap &eventData);
@@ -67,6 +71,7 @@ private:
     SharedPtr<UIElement> mUiRoot;
 
     SharedPtr<GameNavigation> mGameNavigation;
+    SharedPtr<Caravaner> mCaravaner;
 
 };
 
