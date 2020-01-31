@@ -37,5 +37,8 @@
 		<component id="16777225" type="Navigable">
 			<attribute name="Recursive" value="False"/>
 		</component>
+		<component id="16777226" type="LuaScriptInstance">
+			<attribute name="Script Object Type" value="Rotator"/>
+		</component>
 	</node>
 </node>

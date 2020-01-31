@@ -1,15 +1,15 @@
 <scene id="1">
-	<component id="16777217" type="DynamicNavigationMesh">
-		<attribute name="Bounding Box Padding" value="1.0 1.0 1.0"/>
-		<attribute name="Draw NavAreas" value="True"/>
-	</component>
-	<component id="16777218" type="DebugRenderer"/>
-	<component id="16777219" type="Octree">
+	<component id="16777217" type="DebugRenderer"/>
+	<component id="16777218" type="Octree">
 		<attribute name="Bounding Box Min" value="-1000.0 -1000.0 -1000.0"/>
 		<attribute name="Bounding Box Max" value="1000.0 1000.0 1000.0"/>
 	</component>
-	<component id="16777220" type="PhysicsWorld">
+	<component id="16777219" type="PhysicsWorld">
 		<attribute name="Gravity" value="0.0 -9.8100004196167 0.0"/>
+	</component>
+	<component id="16777220" type="DynamicNavigationMesh">
+		<attribute name="Bounding Box Padding" value="1.0 1.0 1.0"/>
+		<attribute name="Draw NavAreas" value="True"/>
 	</component>
 	<node id="16777216">
 		<attribute name="Name" value="LevelDummy"/>
