@@ -70,6 +70,10 @@ void GameLogic::SetupScene()
     mMusicSource->SetSoundType(SOUND_MUSIC);
 
     mCaravaner->InitLevel("Scenes/LevelDummy.xml");
+
+    mPhysicsWorld = mScene->GetComponent<PhysicsWorld>();
+
+    mCaravaner->StartLevel();
 }
 
 void GameLogic::SetupInput()
@@ -381,5 +385,66 @@ bool GameLogic::Raycast(IntVector2 screennPos,float maxDistance, Vector3& hitPos
         return true;
     }
 
+    return false;
+}
+
+bool GameLogic::PhysicsRaycast(IntVector2 screenPos,float maxDistance, Vector3& hitPos, RigidBody*& hitDrawable,String tag)
+{
+    hitDrawable = nullptr;
+
+    auto* graphics = GetSubsystem<Graphics>();
+    Scene* scene = GetSubsystem<Scene>();
+    Ray cameraRay = mCamera->GetScreenRay((float)screenPos.x_ / graphics->GetWidth(), (float)screenPos.y_ / graphics->GetHeight());
+    // Pick only geometry objects, not eg. zones or lights, only get the first (closest) hit
+
+    PODVector<PhysicsRaycastResult> results;
+
+    mPhysicsWorld->Raycast(results,cameraRay,maxDistance);
+
+    if (results.Size() == 0){
+        return false;
+    }
+
+    for(auto result : results){
+        if (result.body_ && (tag=="" || result.body_->GetNode()->HasTag(tag))){
+            hitPos = result.position_;
+            hitDrawable = result.body_;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool GameLogic::TouchPhysicsRaycast(int fingerIdx, float maxDistance, Vector3 &hitPos, RigidBody *&hitRigidbody,String tag)
+{
+    hitRigidbody = nullptr;
+
+    Input* input = GetSubsystem<Input>();
+    if (!input->GetNumTouches()) return false;
+
+    IntVector2 pos = input->GetTouch(fingerIdx)->position_;
+
+    return PhysicsRaycast(pos,maxDistance,hitPos,hitRigidbody,tag);
+}
+
+bool GameLogic::MousePhysicsRaycast(float maxDistance, Vector3 &hitPos, RigidBody *&hitRigidbody,String tag)
+{
+    hitRigidbody = nullptr;
+
+    auto* ui = GetSubsystem<UI>();
+    IntVector2 pos = ui->GetCursorPosition();
+
+    return PhysicsRaycast(pos,maxDistance,hitPos,hitRigidbody,tag);
+}
+
+bool GameLogic::MouseOrTouchPhysicsRaycast(float maxDistance, Vector3 &hitPos, RigidBody *&hitRigidbody, String tag)
+{
+    if (MousePhysicsRaycast(maxDistance,hitPos,hitRigidbody,tag)){
+        return true;
+    }
+    if (TouchPhysicsRaycast(0,maxDistance,hitPos,hitRigidbody,tag)){
+        return true;
+    }
     return false;
 }

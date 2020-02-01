@@ -16,7 +16,7 @@ GameNavigation::GameNavigation(Context *ctx)
     : Object(ctx),
       mDrawDebug(false)
 #ifdef GAME_ENABLE_DEBUG_TOOLS
-    ,tempTestMode(true)
+    ,tempTestMode(false)
 #endif
 {
     SubscribeToEvent(E_UPDATE,URHO3D_HANDLER(GameNavigation,HandleUpdate));
@@ -193,10 +193,13 @@ bool GameNavigation::FindPath(Vector3 from_, Vector3 to_, PODVector<Vector3>& de
     return dest.Size() > 0;
 }
 
-void GameNavigation::MoveTo(Vector3 gotoPosition,Node* node)
+Vector3 GameNavigation::MoveTo(Vector3 gotoPosition,Node* node)
 {
     if (mCrowdManager){
-        mCrowdManager->SetCrowdTarget(gotoPosition,node);
+        Vector3 posOnNavmesh = mNavMesh->FindNearestPoint(gotoPosition);
+        mCrowdManager->SetCrowdTarget(posOnNavmesh,node);
+        return posOnNavmesh;
     }
+    return Vector3::ZERO;
 }
 

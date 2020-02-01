@@ -37,6 +37,11 @@ public:
     bool MouseRaycast(float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
     bool Raycast(IntVector2 screenPos,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
 
+    bool TouchPhysicsRaycast(int fingerIdx,float maxDistance, Vector3& hitPos, RigidBody*& hitRigidbody,String tag="");
+    bool MousePhysicsRaycast(float maxDistance, Vector3& hitPos, RigidBody*& hitRigidbody,String tag="");
+    bool PhysicsRaycast(IntVector2 screenPos,float maxDistance, Vector3& hitPos, RigidBody*& hitRigidbody,String tag="");
+    bool MouseOrTouchPhysicsRaycast(float maxDistance, Vector3& hitPos, RigidBody*& hitRigidbody,String tag="");
+
     void SetCameraNode(Node* cameraNode);
 
 private:
@@ -72,6 +77,7 @@ private:
 
     SharedPtr<GameNavigation> mGameNavigation;
     SharedPtr<Caravaner> mCaravaner;
+    SharedPtr<PhysicsWorld> mPhysicsWorld;
 
 };
 

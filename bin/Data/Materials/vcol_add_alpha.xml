@@ -1,0 +1,11 @@
+<material>
+	<cull value="ccw"/>
+	<shadowcull value="ccw"/>
+	<fill value="solid"/>
+	<parameter name="MatDiffColor" value="1 1 1 0.309936"/>
+	<parameter name="MatSpecColor" value="0 0 0 1"/>
+	<parameter name="MatEmissiveColor" value="0 0 0"/>
+	<parameter name="UOffset" value="1.0 0 0 0"/>
+	<parameter name="VOffset" value="0 1.0 0 0"/>
+	<technique loddistance="0" name="Techniques/NoTextureVColAddAlpha.xml" quality="0"/>
+</material>

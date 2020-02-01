@@ -21,9 +21,10 @@ public:
 
     void Init();
     bool FindPath(Vector3 from, Vector3 to, PODVector<Vector3>& dest);
-    void MoveTo(Vector3 gotoPosition,Node* node=nullptr);
+    Vector3 MoveTo(Vector3 gotoPosition,Node* node=nullptr);
     inline void ShowDebug(bool show) { mDrawDebug = show; }
     inline bool IsShowDebug() { return mDrawDebug; }
+    SharedPtr<NavigationMesh> GetNavMesh() { return mNavMesh; }
 
 #ifdef GAME_ENABLE_DEBUG_TOOLS
     inline void EnableTestMode(bool enable) { tempTestMode = enable; }

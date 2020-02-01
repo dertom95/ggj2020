@@ -1,6 +1,6 @@
 <node>
 	<attribute name="Position" value="1.0 -0.0 30.0"/>
-	<node id="16777225">
+	<node id="16777238">
 		<attribute name="Name" value="bridge_front"/>
 		<attribute name="Position" value="-1 0 -30"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -11,17 +11,17 @@
 			<string value="BridgeFront_recursive"/>
 			<string value="Collection_recursive"/>
 		</attribute>
-		<component id="16777240" type="StaticModel">
+		<component id="16777261" type="StaticModel">
 			<attribute name="Model" value="Model;Models/261-Scene-bridge_front.001.mdl"/>
 			<attribute name="Material" value="Material;Materials/vcol.xml"/>
 			<attribute name="Cast Shadows" value="true"/>
 		</component>
 	</node>
-	<node id="16777226">
+	<node id="16777239">
 		<attribute name="Name" value="bridge_front_col"/>
 		<attribute name="Position" value="1.6334 0 -30"/>
-		<attribute name="Rotation" value="1 -0 -1.54434e-09 -0"/>
-		<attribute name="Scale" value="3.75814 1 2.4651"/>
+		<attribute name="Rotation" value="1 -0 -0 -0"/>
+		<attribute name="Scale" value="1 1 1"/>
 		<attribute name="Variables"/>
 		<attribute name="Tags">
 			<string value="navonly"/>
@@ -29,15 +29,15 @@
 			<string value="BridgeFront_recursive"/>
 			<string value="Collection_recursive"/>
 		</attribute>
-		<component id="16777241" type="StaticModel">
+		<component id="16777262" type="StaticModel">
 			<attribute name="Model" value="Model;Models/261-Scene-bridge_front.mdl"/>
 			<attribute name="Material" value="Material;"/>
 			<attribute name="Cast Shadows" value="true"/>
 		</component>
-		<component id="16777243" type="Navigable">
+		<component id="16777264" type="Navigable">
 			<attribute name="Recursive" value="False"/>
 		</component>
-		<component id="16777244" type="LuaScriptInstance">
+		<component id="16777265" type="LuaScriptInstance">
 			<attribute name="Script Object Type" value="Rotator"/>
 		</component>
 	</node>

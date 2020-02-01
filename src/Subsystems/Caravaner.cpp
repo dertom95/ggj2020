@@ -2,11 +2,16 @@
 
 #include "../GameLogic.h"
 #include "GameNavigation.h"
+#include "../Components/CarawanComponents.h"
+#include "CaravanerEvents.h"
 
 Caravaner::Caravaner(Context* ctx)
-    : Object(ctx)
+    : Object(ctx),
+      mRunning(true),
+      mSelectionMode(false)
 {
     mGameLogic = GetSubsystem<GameLogic>();
+    SubscribeToEvent(E_UPDATE,URHO3D_HANDLER(Caravaner,HandleUpdate));
 }
 
 void Caravaner::InitLevel(String sceneName)
@@ -18,17 +23,117 @@ void Caravaner::InitLevel(String sceneName)
 
     mScene = GetSubsystem<Scene>();
 
-    Node* camNode = mScene->GetChild("Camera",true);
+    mCameraNode = mScene->GetChild("Camera",true);
 
-    if (!camNode) {
+    if (!mCameraNode) {
         URHO3D_LOGERRORF("NO CAMERA NODE in Scene: %s",sceneName.CString());
     }
-    mGameLogic->SetCameraNode( camNode );
+    mGameLogic->SetCameraNode( mCameraNode );
 
     PODVector<Node*> navonlyNodes;
     mScene->GetNodesWithTag(navonlyNodes,"navonly");
     for (Node* node : navonlyNodes){
         node->Remove();
     }
+    mCart = mScene->GetComponent<Cart>(true);
+    context_->RegisterSubsystem(mCart);
+
+    PODVector<Node*> nodes;
+    if (!mScene->GetNodesWithTag(nodes,"path_master")){
+        URHO3D_LOGERROR("NO path_master");
+        return;
+    }
+    mPathMaster = nodes[0];
+
+    int size = mPathMaster->GetChildren().Size();
+    for (int i=0; i < size; i++){
+        Node* pathElem = mPathMaster->GetChild(String("p")+String(i));
+        if (pathElem){
+            mPath.Push(pathElem);
+        }
+    }
+
+    if (mPath.Size()==0){
+        URHO3D_LOGERROR("NO PATH!");
+        return;
+    }
+
+    mCart->SetPath(mPath);
+    mLastCartPos = mCart->GetNode()->GetWorldPosition();
+    mCamTarget = mCameraNode->GetWorldPosition();
+
+    //GetComponentsRecursiver<Guy>(mGuys);
+
+    SetSelectionMode(false);
 }
 
+void Caravaner::StartLevel()
+{
+    mCart->SetMoving(true);
+    mScene->GetComponents<Guy>(mGuys,true);
+}
+
+void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
+{
+    using namespace Update;
+    float dt = data[P_TIMESTEP].GetFloat();
+
+    if (mRunning){
+        mCart->Tick(dt);
+
+        Input* input = GetSubsystem<Input>();
+        GameLogic* gl = GetSubsystem<GameLogic>();
+
+        if (input->GetMouseButtonPress(MOUSEB_LEFT)){
+            RigidBody* hitbody;
+            Vector3 hitPos;
+            // TODO?
+            String tag = mSelectionMode ? "" : "";
+            if (gl->MouseOrTouchPhysicsRaycast(2500.0f,hitPos,hitbody)){
+                int a=0;
+                Node* n = hitbody->GetNode();
+                String name = n->GetName();
+                URHO3D_LOGINFOF("HIT: %s",name.CString());
+
+                Guy* guy = n->GetComponent<Guy>();
+                if (guy){
+                    SetSelectionMode(true);
+                    mSelectedGuy = guy;
+                    mSelectedGuy->Select(true);
+                }
+                else if (mSelectionMode && mSelectedGuy){
+                    mSelectedGuy->Select(false);
+                    SetSelectionMode(false);
+                    mSelectedGuy->SetRequestWorkTarget(n);
+                    mSelectedGuy->RequestWorkMode(Guy::WM_PickupWood,true);
+                }
+            } else {
+                SetSelectionMode(false);
+            }
+        }
+
+        Vector3 cartPos = mCart->GetNode()->GetWorldPosition();
+        Vector3 cartDelta = cartPos - mLastCartPos;
+        cartDelta.y_ = 0;
+        mCamTarget += cartDelta;
+
+        Vector3 newCampos = mCameraNode->GetWorldPosition().Lerp(mCamTarget,0.05);
+        mCameraNode->SetWorldPosition(newCampos);
+        mLastCartPos = cartPos;
+
+        for (Guy* guy : mGuys) {
+            guy->Tick(dt);
+        }
+    }
+}
+
+void Caravaner::SetSelectionMode(bool setit){
+    mSelectionMode = setit;
+
+    PODVector<Node*> selectors;
+    mScene->GetChildrenWithTag(selectors,"selector",true);
+    for (Node* node : selectors){
+        node->SetEnabled(setit);
+    }
+
+}
