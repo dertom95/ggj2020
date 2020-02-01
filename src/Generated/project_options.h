@@ -3,4 +3,4 @@
 #define GAME_ENABLE_LUA_SCRIPTING
 
 #define PROJECT_NAME "Caravaner"
-#define GIT_HASH "d98ad44"
+#define GIT_HASH "d4d345e"

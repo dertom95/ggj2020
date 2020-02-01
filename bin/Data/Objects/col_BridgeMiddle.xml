@@ -1,8 +1,8 @@
 <node>
-	<attribute name="Position" value="0.0 -0.0 -0.0"/>
+	<attribute name="Position" value="-20.0 -0.0 30.0"/>
 	<node id="16777217">
 		<attribute name="Name" value="BridgeMiddle"/>
-		<attribute name="Position" value="20.4319 1 -30"/>
+		<attribute name="Position" value="20 0 -30"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
 		<attribute name="Scale" value="1 1 1"/>
 		<attribute name="Variables"/>
@@ -19,7 +19,7 @@
 	</node>
 	<node id="16777218">
 		<attribute name="Name" value="BridgeMiddle_col"/>
-		<attribute name="Position" value="14.6001 1 -30"/>
+		<attribute name="Position" value="14.1581 0 -30"/>
 		<attribute name="Rotation" value="1 -0 -1.54434e-09 -0"/>
 		<attribute name="Scale" value="3.75814 1 2.4651"/>
 		<attribute name="Variables"/>

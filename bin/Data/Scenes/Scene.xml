@@ -13,7 +13,7 @@
 		</component>
 		<node id="16777217">
 			<attribute name="Name" value="BridgeMiddle"/>
-			<attribute name="Position" value="20.4319 1 -30"/>
+			<attribute name="Position" value="20 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -30,7 +30,7 @@
 		</node>
 		<node id="16777218">
 			<attribute name="Name" value="BridgeMiddle_col"/>
-			<attribute name="Position" value="14.6001 1 -30"/>
+			<attribute name="Position" value="14.1581 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -1.54434e-09 -0"/>
 			<attribute name="Scale" value="3.75814 1 2.4651"/>
 			<attribute name="Variables"/>
@@ -71,6 +71,41 @@
 			</component>
 		</node>
 		<node id="16777220">
+			<attribute name="Name" value="Guy"/>
+			<attribute name="Position" value="1.85269e-07 0 5.41269"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="1 1 1"/>
+			<attribute name="Variables"/>
+			<attribute name="Tags">
+				<string value="Collection"/>
+				<string value="Collection_recursive"/>
+			</attribute>
+			<component id="59" type="GroupInstance">
+				<attribute name="groupFilename" value="Objects/col_Guy.xml"/>
+				<attribute name="groupOffset" value="0 0 30"/>
+			</component>
+		</node>
+		<node id="16777221">
+			<attribute name="Name" value="Icosphere"/>
+			<attribute name="Position" value="1.02686e-06 0 30"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="1 1 1"/>
+			<attribute name="Variables"/>
+			<attribute name="Tags">
+				<string value="Collection_recursive"/>
+				<string value="Guy"/>
+				<string value="Guy_recursive"/>
+			</attribute>
+			<component id="16777230" type="AnimatedModel">
+				<attribute name="Model" value="Model;Models/261-Scene-Icosphere.mdl"/>
+				<attribute name="Material" value="Material;Materials/vcol.xml"/>
+				<attribute name="Cast Shadows" value="true"/>
+			</component>
+			<component id="16777232" type="PlayAnimation">
+				<attribute name="Animation" value="Animation;Models/GuyJalk.ani"/>
+			</component>
+		</node>
+		<node id="16777222">
 			<attribute name="Name" value="Light"/>
 			<attribute name="Position" value="0 43.7642 0"/>
 			<attribute name="Rotation" value="0.966826 8.74319e-09 -0 0.255436"/>
@@ -80,8 +115,8 @@
 				<string value="Collection"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777231" type="RotationFix"/>
-			<component id="16777233" type="Light">
+			<component id="16777233" type="RotationFix"/>
+			<component id="16777235" type="Light">
 				<attribute name="Is Enabled" value="true"/>
 				<attribute name="Light Type" value="Directional"/>
 				<attribute name="Specular Intensity" value="1.0"/>
@@ -90,7 +125,7 @@
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777221">
+		<node id="16777223">
 			<attribute name="Name" value="Tree"/>
 			<attribute name="Position" value="-0.0404096 -1.48657e-08 0.152942"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -101,15 +136,15 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="16777234" type="StaticModel">
+			<component id="16777236" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Tree.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777222">
+		<node id="16777224">
 			<attribute name="Name" value="TreeCol"/>
-			<attribute name="Position" value="1.03708 0.241185 -3.58677"/>
+			<attribute name="Position" value="1.03708 0.241185 -0.322708"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="2.02059 1 2.02059"/>
 			<attribute name="Variables"/>
@@ -119,21 +154,21 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="16777235" type="StaticModel">
+			<component id="16777237" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-TreeCollision.mdl"/>
 				<attribute name="Material" value="Material;"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777237" type="Navigable">
+			<component id="16777239" type="Navigable">
 				<attribute name="Recursive" value="False"/>
 			</component>
-			<component id="16777238" type="LuaScriptInstance">
+			<component id="16777240" type="LuaScriptInstance">
 				<attribute name="Script Object Type" value="Rotator"/>
 			</component>
 		</node>
-		<node id="16777223">
+		<node id="16777225">
 			<attribute name="Name" value="bridge_front"/>
-			<attribute name="Position" value="-1 1 -30"/>
+			<attribute name="Position" value="-1 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -142,15 +177,15 @@
 				<string value="BridgeFront_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777238" type="StaticModel">
+			<component id="16777240" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-bridge_front.001.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777224">
+		<node id="16777226">
 			<attribute name="Name" value="bridge_front_col"/>
-			<attribute name="Position" value="1.6334 1 -30"/>
+			<attribute name="Position" value="1.6334 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -1.54434e-09 -0"/>
 			<attribute name="Scale" value="3.75814 1 2.4651"/>
 			<attribute name="Variables"/>
@@ -160,15 +195,15 @@
 				<string value="BridgeFront_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777239" type="StaticModel">
+			<component id="16777241" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-bridge_front.mdl"/>
 				<attribute name="Material" value="Material;"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777241" type="Navigable">
+			<component id="16777243" type="Navigable">
 				<attribute name="Recursive" value="False"/>
 			</component>
-			<component id="16777242" type="LuaScriptInstance">
+			<component id="16777244" type="LuaScriptInstance">
 				<attribute name="Script Object Type" value="Rotator"/>
 			</component>
 		</node>
