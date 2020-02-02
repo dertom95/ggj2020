@@ -78,8 +78,37 @@ void Caravaner::StartLevel()
     mGameOver=false;
     mCart->SetMoving(true);
     mScene->GetComponents<Guy>(mGuys,true);
-    mCart->status.livePower=10.0f;
+    mCart->status.livePower=100.0f;
     mTargetsInUse.Clear();
+}
+
+Node* Caravaner::GetNearestGuyCart(Node *from,float maxDist)
+{
+    float nearest = 100000000;
+    float distSqr = maxDist * maxDist;
+    Node* node = nullptr;
+
+    Vector3 pos = from->GetWorldPosition();
+
+    for(int i=0;i<mGuys.Size();i++){
+       Guy* g = mGuys[i];
+        if (g->GetNode()==from || g->mGuyType!=Guy::GT_Gatherer) {
+           continue;
+       }
+
+       float dist = (mGuys[i]->GetNode()->GetWorldPosition() - pos).LengthSquared();
+       if (dist < distSqr && dist < nearest){
+           node = mGuys[i]->GetNode();
+           nearest = dist;
+       }
+    }
+    return node;
+}
+
+void Caravaner::RemoveGuy(Guy *guy)
+{
+    mGuys.Remove(guy);
+    guy->GetNode()->Remove();
 }
 
 void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
@@ -89,8 +118,6 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
 
     if (mRunning){
         mCart->Tick(dt);
-
-
 
         Input* input = GetSubsystem<Input>();
         GameLogic* gl = GetSubsystem<GameLogic>();

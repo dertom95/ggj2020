@@ -36,6 +36,8 @@ public:
     inline bool IsRunning() { return mRunning; }
     inline bool IsGameOver() { return mGameOver; }
     void SetSelectionMode(bool setit,bool gathererOnly=false);
+    Node* GetNearestGuyCart(Node* from,float maxDist);
+    void RemoveGuy(Guy* guy);
 private:
     void CheckSelectedGuyWork(Node* n);
 

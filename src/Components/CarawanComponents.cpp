@@ -76,6 +76,7 @@ void Guy::DelayedStart()
     }
 
 
+
     SubscribeToEvent(E_CROWD_AGENT_STATE_CHANGED,URHO3D_HANDLER(Guy,HandleCrowdAgent));
 }
 
@@ -97,7 +98,7 @@ void Guy::RequestWorkMode(WorkMode newMode, bool force)
 bool Guy::CheckModeChange(bool force=false)
 {
     if (mWorkmode != mRequestedWorkmode || force){
-        if (mWorkmode == WM_Idle) {
+        if (mWorkmode == WM_Idle && mGuyType!=GT_Bandit) {
             if (mWorkTarget){
                 Cart* cart = GetSubsystem<Cart>();
                 cart->ReleaseSlot(mWorkTarget);
@@ -105,12 +106,14 @@ bool Guy::CheckModeChange(bool force=false)
             }
         }
 
-
         mWorkmode = mRequestedWorkmode;
         mWorkTarget = mRequestWorkTarget;
 
         if (mRequestedWorkmode == WM_Idle){
-            if (mGuyType == GT_Gatherer) {
+            if (mGuyType == GT_Bandit){
+                int a=0;
+            }
+            else if (mGuyType == GT_Gatherer) {
                 Cart* cart = GetSubsystem<Cart>();
                 mWorkTarget = cart->GetFreeSlot();
             }
@@ -141,6 +144,7 @@ bool Guy::CheckModeChange(bool force=false)
     return false;
 }
 
+
 float Guy::GetDistanceToWorkTarget()
 {
     if (!mWorkTarget) return -1.0f;
@@ -150,7 +154,16 @@ float Guy::GetDistanceToWorkTarget()
 }
 
 void Guy::Tick(float dt){
+
     bool stateChange = CheckModeChange();
+
+    if (mWorkmode != WM_Idle && !mWorkTarget){
+        mWorkTarget = nullptr;
+        mWorkmode = WM_Idle;
+        RequestWorkMode(WM_Idle);
+        return;
+    }
+
 
     if (mParticle && mParticle->IsEnabled()){
         mParticleTimer -= dt;
@@ -159,14 +172,52 @@ void Guy::Tick(float dt){
         }
     }
 
-    if (mWorkmode == WM_Idle){
+
+
+    if (mWorkmode == WM_Bandit_Attack){
+        float distance = GetDistanceToWorkTarget();
+
+        if (distance < 5) {
+            mCrowdAgent->SetMaxAccel(10.0f);
+            mCrowdAgent->SetMaxSpeed(2.5f);
+        } else {
+            mCrowdAgent->SetMaxAccel(10.0f);
+            mCrowdAgent->SetMaxSpeed(3.5f);
+        }
+
+        if (distance < 1.2f){
+            Guy* guy = mWorkTarget->GetComponent<Guy>();
+            Caravaner* cv = GetSubsystem<Caravaner>();
+            cv->RemoveGuy(guy);
+            RequestWorkMode(WM_Idle);
+        }
+        mWorkDestinationPos = MoveTo(mWorkTarget);
+    }
+    else if (mWorkmode == WM_Idle){
         mTimer -= dt;
+
 
         if (mTimer <= 0){
             mTimer = Random(DEFAULT_GUY_TIMER,DEFAULT_GUY_TIMER_MAX);
         } else {
             return;
         }
+
+        if (mGuyType == GT_Bandit){
+
+            Caravaner* cv = GetSubsystem<Caravaner>();
+            Node* n = cv->GetNearestGuyCart(node_,20.0f);
+            if (n){
+                URHO3D_LOGINFOF("Found: %s",n->GetName().CString());
+                //mWorkTarget = n;
+                SetRequestWorkTarget(n);
+                RequestWorkMode(WM_Bandit_Attack);
+            }
+
+            return;
+        }
+
+
 
         if (mWorkTarget){
             mWorkDestinationPos = MoveTo(mWorkTarget);

@@ -29,6 +29,8 @@
 #include <Urho3D/Navigation/CrowdAgent.h>
 #include <Urho3D/Graphics/ParticleEmitter.h>
 
+#include "../Subsystems/Caravaner.h"
+
 using namespace Urho3D;
 
 
@@ -60,7 +62,8 @@ public:
 
     enum WorkMode {
         WM_Idle=0,
-        WM_PickupWood, WM_WorkWood,WM_BRINGBACK_WOOD
+        WM_PickupWood, WM_WorkWood,WM_BRINGBACK_WOOD,
+        WM_Bandit_Attack
     };
 
     Guy(Context* ctx);
@@ -77,7 +80,6 @@ public:
     Vector3 MoveTo(Node* target);
     void Select(bool select);
     void Tick(float dt);
-
 
 
     void HandleCrowdAgent(StringHash eventType,VariantMap& data);
@@ -97,8 +99,6 @@ public:
 
 private:
     bool CheckModeChange(bool force);
-
-
 
     WorkMode mRequestedWorkmode;
     SharedPtr<Node> mRequestWorkTarget;

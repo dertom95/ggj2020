@@ -75,7 +75,7 @@
 			</component>
 		</node>
 	</node>
-	<node id="16777251">
+	<node id="16777254">
 		<attribute name="Name" value="Particle.001"/>
 		<attribute name="Position" value="0.0869611 10.1463 50"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -85,7 +85,7 @@
 			<string value="Guy_Soldier"/>
 			<string value="Guy_Soldier_recursive"/>
 		</attribute>
-		<component id="16777285" type="ParticleEmitter">
+		<component id="16777293" type="ParticleEmitter">
 			<attribute name="Is Enabled" value="False"/>
 			<attribute name="Effect" value="ParticleEffect;Particle/Dust.xml"/>
 		</component>
