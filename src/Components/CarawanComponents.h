@@ -93,15 +93,17 @@ public:
 
     float GetDistanceToWorkTarget();
 
+    WorkMode mWorkmode;
+    GuyType mGuyType;
+
 private:
     bool CheckModeChange(bool force);
 
 
-    WorkMode mWorkmode;
+
     WorkMode mRequestedWorkmode;
     SharedPtr<Node> mRequestWorkTarget;
 
-    GuyType mGuyType;
     SharedPtr<Node> mTarget;
     SharedPtr<CrowdAgent> mCrowdAgent;
     bool mSelected;
@@ -110,6 +112,9 @@ private:
 
     SharedPtr<Node> mWorkTarget;
     Vector3 mWorkDestinationPos;
+    SharedPtr<ParticleEmitter> mParticle;
+    float mParticleTimer;
+    float mCarryResourceAmount;
 };
 
 class Cart : public LogicComponent {

@@ -108,19 +108,22 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
                 URHO3D_LOGINFOF("HIT: %s",name.CString());
 
                 Guy* guy = n->GetComponent<Guy>();
-                if (guy){
-                    SetSelectionMode(true);
+                if (guy && guy->mWorkmode==Guy::WM_Idle && ( guy->mGuyType==Guy::GT_Gatherer || guy->mGuyType==Guy::GT_Soldier)){
+                    SetSelectionMode(true,guy->mGuyType==Guy::GT_Gatherer);
+                    if (mSelectedGuy){
+                        mSelectedGuy->Select(false);
+                    }
                     mSelectedGuy = guy;
                     mSelectedGuy->Select(true);
                 }
                 else if (mSelectionMode && mSelectedGuy){
-                    mSelectedGuy->Select(false);
-                    SetSelectionMode(false);
-                    mSelectedGuy->SetRequestWorkTarget(n);
-                    mSelectedGuy->RequestWorkMode(Guy::WM_PickupWood,true);
+                    CheckSelectedGuyWork(n);
                 }
             } else {
                 SetSelectionMode(false);
+                if (mSelectedGuy){
+                    mSelectedGuy->Select(false);
+                }
             }
         }
 
@@ -139,13 +142,45 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
     }
 }
 
-void Caravaner::SetSelectionMode(bool setit){
+void Caravaner::CheckSelectedGuyWork(Node* n)
+{
+    if (mSelectedGuy->mGuyType == Guy::GT_Gatherer && n->HasTag("soldier_only")){
+        return;
+    }
+
+    if (n->HasTag("resource")){
+        mSelectedGuy->Select(false);
+        SetSelectionMode(false);
+        mSelectedGuy->SetRequestWorkTarget(n);
+        mSelectedGuy->RequestWorkMode(Guy::WM_PickupWood,true);
+
+        mTargetsInUse.Insert(n);
+    }
+}
+
+void Caravaner::SetSelectionMode(bool setit,bool gathererOnly){
     mSelectionMode = setit;
 
     PODVector<Node*> selectors;
     mScene->GetChildrenWithTag(selectors,"selector",true);
-    for (Node* node : selectors){
-        node->SetEnabled(setit);
-    }
 
+    if (setit){
+        for (Node* node : selectors){
+            if (mTargetsInUse.Contains(node) || mTargetsInUse.Contains(node->GetParent())) {
+                node->SetEnabled(false);
+                continue;
+            }
+
+            if (gathererOnly && node->HasTag("soldier_only")) {
+                node->SetEnabled(false);
+                continue;
+            }
+
+            node->SetEnabled(true);
+        }
+    } else {
+        for (Node* node : selectors){
+            node->SetEnabled(false);
+        }
+    }
 }

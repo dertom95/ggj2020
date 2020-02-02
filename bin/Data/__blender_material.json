@@ -64,6 +64,20 @@
 									"number": "6646"
 								},
 								{
+									"id": "Materials/Smoke.xml",
+									"name": "Materials/Smoke.xml",
+									"description": "Material Materials/Smoke.xml",
+									"icon": "MATERIAL",
+									"number": "8454549"
+								},
+								{
+									"id": "Materials/SmokeSoft.xml",
+									"name": "Materials/SmokeSoft.xml",
+									"description": "Material Materials/SmokeSoft.xml",
+									"icon": "MATERIAL",
+									"number": "8068863"
+								},
+								{
 									"id": "Materials/Suzanne.xml",
 									"name": "Materials/Suzanne.xml",
 									"description": "Material Materials/Suzanne.xml",
@@ -1449,6 +1463,13 @@
 									"number": "7931164"
 								},
 								{
+									"id": "Textures/Smoke.dds",
+									"name": "Textures/Smoke.dds",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Smoke.dds",
+									"icon": "COLOR",
+									"number": "1242685"
+								},
+								{
 									"id": "Textures/UI.png",
 									"name": "Textures/UI.png",
 									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/Data/Textures/UI.png",
@@ -2321,6 +2342,13 @@
 				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Flare.dds",
 				"icon": "COLOR",
 				"number": "7931164"
+			},
+			{
+				"id": "Textures/Smoke.dds",
+				"name": "Textures/Smoke.dds",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Smoke.dds",
+				"icon": "COLOR",
+				"number": "1242685"
 			},
 			{
 				"id": "Textures/UI.png",

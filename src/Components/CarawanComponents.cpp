@@ -69,6 +69,12 @@ void Guy::DelayedStart()
     mCrowdAgent = node_->GetComponent<CrowdAgent>(true);
     Select(false);
     RequestWorkMode(WM_Idle,true);
+
+    mParticle = node_->GetParent()->GetComponent<ParticleEmitter>(true);
+    if (mParticle){
+        mParticle->SetEnabled(false);
+    }
+
     SubscribeToEvent(E_CROWD_AGENT_STATE_CHANGED,URHO3D_HANDLER(Guy,HandleCrowdAgent));
 }
 
@@ -118,7 +124,10 @@ bool Guy::CheckModeChange(bool force=false)
             mWorkDestinationPos = MoveTo(mWorkTarget);
         }
         else if (mRequestedWorkmode == WM_WorkWood){
-            mTimer = 2.0;
+
+            const Variant& time = mWorkTarget->GetVar("time");
+
+            mTimer = ToFloat(time.GetString());
         }
         else if (mRequestedWorkmode == WM_BRINGBACK_WOOD) {
             Cart* cart = GetSubsystem<Cart>();
@@ -142,6 +151,12 @@ float Guy::GetDistanceToWorkTarget()
 void Guy::Tick(float dt){
     bool stateChange = CheckModeChange();
 
+    if (mParticle && mParticle->IsEnabled()){
+        mParticleTimer -= dt;
+        if (mParticleTimer <= 0){
+            mParticle->SetEnabled(false);
+        }
+    }
 
     if (mWorkmode == WM_Idle){
         mTimer -= dt;
@@ -191,8 +206,17 @@ void Guy::Tick(float dt){
         mTimer -= dt;
         URHO3D_LOGINFOF("WM_WorkWood:%f",mTimer);
         if (mTimer <= 0){
+            if (mParticle){
+                mParticle->GetNode()->SetWorldPosition(mWorkTarget->GetWorldPosition());
+                mParticle->SetEnabled(true);
+                mParticleTimer = 1.5f;
+            }
+            mCarryResourceAmount = ToFloat(mWorkTarget->GetVar("resources").GetString());
+
+
             mWorkTarget->Remove();
             RequestWorkMode(WM_BRINGBACK_WOOD);
+
         }
     }
     else if (mWorkmode == WM_BRINGBACK_WOOD) {
@@ -203,7 +227,8 @@ void Guy::Tick(float dt){
         URHO3D_LOGINFOF("WM_BRINGBACK_WOOD:%f",distance);
         if (distance < 1.25f){
             Cart* cart = GetSubsystem<Cart>();
-            cart->AddResource(5.0f);
+
+            cart->AddResource(mCarryResourceAmount);
             RequestWorkMode(WM_Idle);
             return;
         }

@@ -32,11 +32,17 @@ public:
     inline void SetRunning(bool running) { mRunning = running; }
     inline bool IsRunning() { return mRunning; }
 
-    void SetSelectionMode(bool setit);
+    void SetSelectionMode(bool setit,bool gathererOnly=false);
 private:
+    void CheckSelectedGuyWork(Node* n);
+
     SharedPtr<Scene> mScene;
     SharedPtr<GameLogic> mGameLogic;
     SharedPtr<Cart> mCart;
+
+    HashSet<Node*> mTargetsInUse;
+
+
 
     PODVector<Guy*> mGuys;
 

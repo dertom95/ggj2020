@@ -16,7 +16,7 @@ GameNavigation::GameNavigation(Context *ctx)
     : Object(ctx),
       mDrawDebug(false)
 #ifdef GAME_ENABLE_DEBUG_TOOLS
-    ,tempTestMode(false)
+    ,tempTestMode(true)
 #endif
 {
     SubscribeToEvent(E_UPDATE,URHO3D_HANDLER(GameNavigation,HandleUpdate));
