@@ -250,7 +250,7 @@ void Guy::Tick(float dt){
     }
     else if (mWorkmode == WM_PickupWood) {
         float distance = GetDistanceToWorkTarget();
-        URHO3D_LOGINFOF("WoodPick:%f",distance);
+       // URHO3D_LOGINFOF("WoodPick:%f",distance);
         if ( distance < 1.3f) {
             RequestWorkMode(WM_WorkWood);
         }
@@ -258,7 +258,7 @@ void Guy::Tick(float dt){
     else if (mWorkmode == WM_WorkWood) {
 
         mTimer -= dt;
-        URHO3D_LOGINFOF("WM_WorkWood:%f",mTimer);
+    //    URHO3D_LOGINFOF("WM_WorkWood:%f",mTimer);
         if (mTimer <= 0){
             if (mParticle){
                 mParticle->GetNode()->SetWorldPosition(mWorkTarget->GetWorldPosition());
@@ -278,7 +278,7 @@ void Guy::Tick(float dt){
         MoveTo(cart->GetResourceSlot());
 
         float distance = GetDistanceToWorkTarget();
-        URHO3D_LOGINFOF("WM_BRINGBACK_WOOD:%f",distance);
+ //       URHO3D_LOGINFOF("WM_BRINGBACK_WOOD:%f",distance);
         if (distance < 1.3f){
             Cart* cart = GetSubsystem<Cart>();
 
@@ -292,7 +292,7 @@ void Guy::Tick(float dt){
         mCrowdAgent->SetMaxAccel(10.0f);
         mCrowdAgent->SetMaxSpeed(7.0f);
         float distance = GetDistanceToWorkTarget();
-        URHO3D_LOGINFOF("WM_ATTACK:%f",distance);
+       // URHO3D_LOGINFOF("WM_ATTACK:%f",distance);
         if (!mWorkTarget){
             RequestWorkMode(WM_Idle);
         }
