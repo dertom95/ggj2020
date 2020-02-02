@@ -27,6 +27,7 @@
 #include <Urho3D/Scene/LogicComponent.h>
 #include <Urho3D/Graphics/AnimationController.h>
 #include <Urho3D/Navigation/CrowdAgent.h>
+#include <Urho3D/Graphics/ParticleEmitter.h>
 
 using namespace Urho3D;
 
@@ -58,7 +59,8 @@ public:
     };
 
     enum WorkMode {
-        WM_Idle=0, WM_PickupWood=1, WM_PickupBridgePart=2, WM_BRINGBACK_WOOD=3, WM_PUTBRIDGE_PIECE=4
+        WM_Idle=0,
+        WM_PickupWood, WM_WorkWood,WM_BRINGBACK_WOOD
     };
 
     Guy(Context* ctx);
@@ -133,7 +135,10 @@ public:
 
     Node* GetFreeSlot();
     void ReleaseSlot(Node* node);
+    inline Node* GetResourceSlot() { return mBringResource; }
 
+    void AddResource(float f);
+    void EnableParticleBurst();
 private:
     float mSpeed;
 
@@ -143,6 +148,10 @@ private:
     Vector<Vector3> mPath;
     Vector3 mCurrentTarget;
     SharedPtr<CrowdAgent> mCrowdAgent;
+    SharedPtr<Node> mBringResource;
+
+    float mParticleTimer;
+    SharedPtr<ParticleEmitter> mParticleBurst;
     int mPathIdx;
 
     bool mMoving;

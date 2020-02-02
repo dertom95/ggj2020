@@ -11,7 +11,7 @@
 			<string value="BridgeMiddle_recursive"/>
 			<string value="Collection_recursive"/>
 		</attribute>
-		<component id="16777228" type="StaticModel">
+		<component id="16777230" type="StaticModel">
 			<attribute name="Model" value="Model;Models/261-Scene-Cube.003.mdl"/>
 			<attribute name="Material" value="Material;Materials/vcol.xml"/>
 			<attribute name="Cast Shadows" value="true"/>
@@ -29,15 +29,15 @@
 			<string value="BridgeMiddle_recursive"/>
 			<string value="Collection_recursive"/>
 		</attribute>
-		<component id="16777229" type="StaticModel">
+		<component id="16777231" type="StaticModel">
 			<attribute name="Model" value="Model;Models/261-Scene-Plane.mdl"/>
 			<attribute name="Material" value="Material;"/>
 			<attribute name="Cast Shadows" value="true"/>
 		</component>
-		<component id="16777231" type="Navigable">
+		<component id="16777233" type="Navigable">
 			<attribute name="Recursive" value="False"/>
 		</component>
-		<component id="16777232" type="LuaScriptInstance">
+		<component id="16777234" type="LuaScriptInstance">
 			<attribute name="Script Object Type" value="Rotator"/>
 		</component>
 	</node>

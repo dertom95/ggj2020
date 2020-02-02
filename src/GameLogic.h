@@ -31,7 +31,7 @@ public:
     void PlaySound(String soundFile);
     void PlayMusic(String musicFile);
 
-    void SetUIText(String text);
+    void SetUIText(String text,Color color = Color::WHITE);
 
     bool TouchRaycast(int fingerIdx,float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
     bool MouseRaycast(float maxDistance, Vector3& hitPos, Drawable*& hitDrawable);
@@ -72,6 +72,7 @@ private:
     bool mRenderPhysics;
 
     SharedPtr<Window> mWindow;
+    SharedPtr<Text> mWindowTitle;
     /// The UI's root UIElement.
     SharedPtr<UIElement> mUiRoot;
 

@@ -1,8 +1,32 @@
 <node>
 	<attribute name="Position" value="0.0 -0.0 -0.0"/>
-	<node id="16777234">
+	<node id="16777235">
+		<attribute name="Name" value="Cube"/>
+		<attribute name="Position" value="0.238248 -0.953428 0.18617"/>
+		<attribute name="Rotation" value="1 -0 -0 -0"/>
+		<attribute name="Scale" value="2.16971 2.16971 2.16971"/>
+		<attribute name="Variables"/>
+		<attribute name="Tags">
+			<string value="navonly"/>
+			<string value="Collection_recursive"/>
+			<string value="Tree"/>
+			<string value="Tree_recursive"/>
+		</attribute>
+		<component id="16777254" type="StaticModel">
+			<attribute name="Model" value="Model;Models/261-Scene-Cube.001.mdl"/>
+			<attribute name="Material" value="Material;"/>
+			<attribute name="Cast Shadows" value="true"/>
+		</component>
+		<component id="16777256" type="Navigable">
+			<attribute name="Recursive" value="False"/>
+		</component>
+		<component id="16777257" type="LuaScriptInstance">
+			<attribute name="Script Object Type" value="Rotator"/>
+		</component>
+	</node>
+	<node id="16777236">
 		<attribute name="Name" value="Empty"/>
-		<attribute name="Position" value="-0.0404096 -1.48657e-08 0.152942"/>
+		<attribute name="Position" value="0.238248 -0.953428 0.18617"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
 		<attribute name="Scale" value="1 1 1"/>
 		<attribute name="Variables"/>
@@ -11,11 +35,11 @@
 			<string value="Tree"/>
 			<string value="Tree_recursive"/>
 		</attribute>
-		<component id="16777252" type="CollisionShape">
+		<component id="16777258" type="CollisionShape">
 			<attribute name="Size" value="10.0 45.0 10.0"/>
 			<attribute name="Offset Position" value="0.0 20.0 0.0"/>
 		</component>
-		<component id="16777253" type="RigidBody">
+		<component id="16777259" type="RigidBody">
 			<attribute name="Mass" value="1.0"/>
 			<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
 			<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
@@ -26,13 +50,7 @@
 			<attribute name="Is Kinematic" value="True"/>
 			<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
 		</component>
-		<component id="16777254" type="Navigable">
-			<attribute name="Recursive" value="False"/>
-		</component>
-		<component id="16777255" type="LuaScriptInstance">
-			<attribute name="Script Object Type" value="Rotator"/>
-		</component>
-		<node id="16777235">
+		<node id="16777237">
 			<attribute name="Name" value="Selector"/>
 			<attribute name="Position" value="0 18.573 0"/>
 			<attribute name="Rotation" value="1 -0 -1.00514e-09 -0"/>
@@ -44,13 +62,13 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="16777255" type="StaticModel">
+			<component id="16777259" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Sphere.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol_add_alpha.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777236">
+		<node id="16777238">
 			<attribute name="Name" value="Tree"/>
 			<attribute name="Position" value="0 0 0"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -61,7 +79,7 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="16777256" type="StaticModel">
+			<component id="16777260" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Tree.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>

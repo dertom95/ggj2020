@@ -25,6 +25,7 @@
 			<attribute name="Angular Velocity" value="0.0 0.0 0.0"/>
 			<attribute name="Linear Factor" value="1.0 1.0 1.0"/>
 			<attribute name="Angular Factor" value="1.0 1.0 1.0"/>
+			<attribute name="Collision Mask" value="254"/>
 			<attribute name="Use Gravity" value="False"/>
 			<attribute name="Is Kinematic" value="True"/>
 			<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
@@ -35,9 +36,8 @@
 			<attribute name="Requested Target Type" value="Position"/>
 			<attribute name="Max Accel" value="15.0"/>
 			<attribute name="Max Speed" value="7.550000190734863"/>
-			<attribute name="Radius" value="1.0"/>
+			<attribute name="Radius" value="0.5"/>
 			<attribute name="Height" value="3.0"/>
-			<attribute name="Navigation Pushiness" value="None"/>
 			<attribute name="Navigation Quality" value="High"/>
 		</component>
 		<node id="16777218">
@@ -56,6 +56,10 @@
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
+			<component id="16777228" type="PlayAnimation">
+				<attribute name="Animation" value="Animation;Models/GuyJalk.ani"/>
+			</component>
+			<component id="16777229" type="LookToMoveDirection"/>
 		</node>
 		<node id="16777219">
 			<attribute name="Name" value="Icosphere.001"/>
@@ -69,7 +73,7 @@
 				<string value="Guy"/>
 				<string value="Guy_recursive"/>
 			</attribute>
-			<component id="16777227" type="StaticModel">
+			<component id="16777229" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Icosphere.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol_add_alpha.xml"/>
 				<attribute name="Cast Shadows" value="true"/>

@@ -71,6 +71,7 @@ void Caravaner::StartLevel()
 {
     mCart->SetMoving(true);
     mScene->GetComponents<Guy>(mGuys,true);
+    mCart->status.livePower=100.0f;
 }
 
 void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
@@ -81,8 +82,19 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
     if (mRunning){
         mCart->Tick(dt);
 
+
+
         Input* input = GetSubsystem<Input>();
         GameLogic* gl = GetSubsystem<GameLogic>();
+
+        int power = CeilToInt(mCart->status.livePower);
+        Color col = Color::WHITE;
+        if (power < 30)
+            col = Color::MAGENTA;
+        else if (power < 10)
+            col = Color::RED;
+
+        gl->SetUIText("Cart Condition:"+String(power), col );
 
         if (input->GetMouseButtonPress(MOUSEB_LEFT)){
             RigidBody* hitbody;

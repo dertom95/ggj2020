@@ -66,8 +66,10 @@
 				<string value="Collection_recursive"/>
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
+				<string value="Cart"/>
+				<string value="Cart_recursive"/>
 			</attribute>
-			<component id="40" type="GroupInstance">
+			<component id="42" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Cart.xml"/>
 				<attribute name="groupOffset" value="0 0 -70"/>
 			</component>
@@ -82,6 +84,8 @@
 				<string value="Collection_recursive"/>
 				<string value="Guys"/>
 				<string value="Guys_recursive"/>
+				<string value="Tree"/>
+				<string value="Tree_recursive"/>
 			</attribute>
 			<node id="16777221">
 				<attribute name="Name" value="Guy"/>
@@ -94,7 +98,7 @@
 					<string value="Guys"/>
 					<string value="Guys_recursive"/>
 				</attribute>
-				<component id="59" type="GroupInstance">
+				<component id="63" type="GroupInstance">
 					<attribute name="groupFilename" value="Objects/col_Guy.xml"/>
 					<attribute name="groupOffset" value="0 0 30"/>
 				</component>
@@ -110,7 +114,7 @@
 					<string value="Guys"/>
 					<string value="Guys_recursive"/>
 				</attribute>
-				<component id="69" type="GroupInstance">
+				<component id="73" type="GroupInstance">
 					<attribute name="groupFilename" value="Objects/col_Guy.xml"/>
 					<attribute name="groupOffset" value="0 0 30"/>
 				</component>
@@ -126,7 +130,7 @@
 					<string value="Guys"/>
 					<string value="Guys_recursive"/>
 				</attribute>
-				<component id="79" type="GroupInstance">
+				<component id="83" type="GroupInstance">
 					<attribute name="groupFilename" value="Objects/col_Guy.xml"/>
 					<attribute name="groupOffset" value="0 0 30"/>
 				</component>
@@ -165,7 +169,7 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="107" type="GroupInstance">
+			<component id="111" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -181,14 +185,14 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="117" type="GroupInstance">
+			<component id="121" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
 		</node>
 		<node id="16777227">
 			<attribute name="Name" value="Tree.002"/>
-			<attribute name="Position" value="7.12929 10.7852 -41.7753"/>
+			<attribute name="Position" value="-51.1799 0.400879 -29.0943"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="0.258797 0.258797 0.258797"/>
 			<attribute name="Variables"/>
@@ -197,7 +201,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="127" type="GroupInstance">
+			<component id="131" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -213,14 +217,14 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="137" type="GroupInstance">
+			<component id="141" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
 		</node>
 		<node id="16777229">
 			<attribute name="Name" value="Tree.004"/>
-			<attribute name="Position" value="-6.00389 11.8841 -46.5821"/>
+			<attribute name="Position" value="-39.9993 0.390146 -35.0056"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="0.209542 0.209542 0.209542"/>
 			<attribute name="Variables"/>
@@ -229,7 +233,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="147" type="GroupInstance">
+			<component id="151" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -245,7 +249,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="157" type="GroupInstance">
+			<component id="161" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -261,7 +265,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="167" type="GroupInstance">
+			<component id="171" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -277,7 +281,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="177" type="GroupInstance">
+			<component id="181" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -293,7 +297,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="187" type="GroupInstance">
+			<component id="191" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -309,7 +313,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="197" type="GroupInstance">
+			<component id="201" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -325,7 +329,7 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="207" type="GroupInstance">
+			<component id="211" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
@@ -341,12 +345,44 @@
 				<string value="Trees"/>
 				<string value="Trees_recursive"/>
 			</attribute>
-			<component id="217" type="GroupInstance">
+			<component id="221" type="GroupInstance">
 				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
 				<attribute name="groupOffset" value="0 0 0"/>
 			</component>
 		</node>
 		<node id="16777237">
+			<attribute name="Name" value="Tree.012"/>
+			<attribute name="Position" value="-70.9233 0.634115 -42.0954"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="0.209542 0.209542 0.209542"/>
+			<attribute name="Variables"/>
+			<attribute name="Tags">
+				<string value="Collection_recursive"/>
+				<string value="Trees"/>
+				<string value="Trees_recursive"/>
+			</attribute>
+			<component id="231" type="GroupInstance">
+				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
+				<attribute name="groupOffset" value="0 0 0"/>
+			</component>
+		</node>
+		<node id="16777238">
+			<attribute name="Name" value="Tree.013"/>
+			<attribute name="Position" value="-81.1161 0.940209 -28.9749"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="0.209542 0.209542 0.209542"/>
+			<attribute name="Variables"/>
+			<attribute name="Tags">
+				<string value="Collection_recursive"/>
+				<string value="Trees"/>
+				<string value="Trees_recursive"/>
+			</attribute>
+			<component id="241" type="GroupInstance">
+				<attribute name="groupFilename" value="Objects/col_Tree.xml"/>
+				<attribute name="groupOffset" value="0 0 0"/>
+			</component>
+		</node>
+		<node id="16777239">
 			<attribute name="Name" value="ground_nav"/>
 			<attribute name="Position" value="0 0 0"/>
 			<attribute name="Rotation" value="1 -0 -1.14732e-08 -0"/>
@@ -366,7 +402,7 @@
 				<attribute name="Recursive" value="False"/>
 			</component>
 		</node>
-		<node id="16777238">
+		<node id="16777240">
 			<attribute name="Name" value="ground_visual"/>
 			<attribute name="Position" value="0 0 0"/>
 			<attribute name="Rotation" value="1 -0 -1.14732e-08 -0"/>
@@ -382,7 +418,7 @@
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777239">
+		<node id="16777241">
 			<attribute name="Name" value="path"/>
 			<attribute name="Position" value="-77.8029 0.663212 -34.2719"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -394,7 +430,7 @@
 				<string value="CartPath_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<node id="16777240">
+			<node id="16777242">
 				<attribute name="Name" value="p0"/>
 				<attribute name="Position" value="66.8942 0 40.3118"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -409,7 +445,7 @@
 					<string value="Collection_recursive"/>
 				</attribute>
 			</node>
-			<node id="16777241">
+			<node id="16777243">
 				<attribute name="Name" value="p1"/>
 				<attribute name="Position" value="58.9647 -0.663206 25.8441"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -424,9 +460,9 @@
 					<string value="Collection_recursive"/>
 				</attribute>
 			</node>
-			<node id="16777242">
+			<node id="16777244">
 				<attribute name="Name" value="p2"/>
-				<attribute name="Position" value="68.4885 0 1.50194"/>
+				<attribute name="Position" value="7.06126 -0.0672679 -0.643139"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
 				<attribute name="Scale" value="1 1 1"/>
 				<attribute name="Variables">

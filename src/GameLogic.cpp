@@ -160,7 +160,7 @@ void GameLogic::HandlePhysics(StringHash eventType, VariantMap &eventData)
     String stTrigger = isTrigger ? "[Trigger]" : "";
 
     if (eventType == E_PHYSICSCOLLISIONSTART){
-      //  URHO3D_LOGINFOF("START: %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
+      URHO3D_LOGINFOF("START: %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
     }
     else if (eventType == E_PHYSICSCOLLISIONEND){
 //        URHO3D_LOGINFOF("END  : %s Collision between: %s(%i) <-> %s(%i)",stTrigger.CString(),nodeA->GetName().CString(),nodeA->GetID(),nodeB->GetName().CString(),nodeB->GetID());
@@ -204,21 +204,21 @@ void GameLogic::HandleKeyDown(StringHash eventType, VariantMap &eventData)
 
 void GameLogic::HandleControlClicked(StringHash eventType, VariantMap& eventData)
 {
-    // Get the Text control acting as the Window's title
-    auto* windowTitle = mWindow->GetChildStaticCast<Text>("WindowTitle", true);
+//    // Get the Text control acting as the Window's title
+//    auto* windowTitle = mWindow->GetChildStaticCast<Text>("WindowTitle", true);
 
-    // Get control that was clicked
-    auto* clicked = static_cast<UIElement*>(eventData[UIMouseClick::P_ELEMENT].GetPtr());
+//    // Get control that was clicked
+//    auto* clicked = static_cast<UIElement*>(eventData[UIMouseClick::P_ELEMENT].GetPtr());
 
-    String name = "...?";
-    if (clicked)
-    {
-        // Get the name of the control that was clicked
-        name = clicked->GetName();
-    }
+//    String name = "...?";
+//    if (clicked)
+//    {
+//        // Get the name of the control that was clicked
+//        name = clicked->GetName();
+//    }
 
-    // Update the Window's title text
-    windowTitle->SetText("Hello " + name + "!");
+//    // Update the Window's title text
+//    windowTitle->SetText("Hello " + name + "!");
 }
 
 #ifdef GAME_ENABLE_DEBUG_TOOLS
@@ -312,21 +312,22 @@ void GameLogic::SetupUI()
     titleBar->SetLayoutMode(LM_HORIZONTAL);
 
     // Create the Window title Text
-    auto* windowTitle = new Text(context_);
-    windowTitle->SetName("WindowTitle");
+    mWindowTitle = new Text(context_);
+    mWindowTitle->SetText("Die Karawane!");
+//    windowTitle->SetName("WindowTitle");
 
-    windowTitle->SetText("Hello GUI!");
+//    windowTitle->SetText("Hello GUI!");
 
     // Add the controls to the title bar
-    titleBar->AddChild(windowTitle);
+    titleBar->AddChild(mWindowTitle);
 
     // Add the title bar to the Window
     mWindow->AddChild(titleBar);
 
     // Apply styles
     mWindow->SetStyleAuto();
-    windowTitle->SetStyleAuto();
-    windowTitle->SetFontSize(18);
+    mWindowTitle->SetStyleAuto();
+    mWindowTitle->SetFontSize(28);
     // Subscribe to buttonClose release (following a 'press') events
  //   SubscribeToEvent(buttonClose, E_RELEASED, URHO3D_HANDLER(GameLogic, HandleClosePressed));
 
@@ -336,10 +337,11 @@ void GameLogic::SetupUI()
 
 
 
-void GameLogic::SetUIText(String text)
+void GameLogic::SetUIText(String text,Color color)
 {
-    auto* windowTitle = mWindow->GetChildStaticCast<Text>("WindowTitle", true);
-    windowTitle->SetText(text);
+    if (!mWindowTitle) return;
+    mWindowTitle->SetColor(color);
+    mWindowTitle->SetText(text);
 }
 
 bool GameLogic::MouseRaycast(float maxDistance, Vector3& hitPos, Drawable*& hitDrawable)
