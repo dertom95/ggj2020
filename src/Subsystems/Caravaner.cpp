@@ -8,6 +8,7 @@
 Caravaner::Caravaner(Context* ctx)
     : Object(ctx),
       mRunning(true),
+      mGameOver(false),
       mSelectionMode(false)
 {
     mGameLogic = GetSubsystem<GameLogic>();
@@ -62,6 +63,8 @@ void Caravaner::InitLevel(String sceneName)
     mLastCartPos = mCart->GetNode()->GetWorldPosition();
     mCamTarget = mCameraNode->GetWorldPosition();
 
+    mEndParticle = mScene->GetChild("EndParticle",true);
+
     //GetComponentsRecursiver<Guy>(mGuys);
 
     SetSelectionMode(false);
@@ -69,9 +72,12 @@ void Caravaner::InitLevel(String sceneName)
 
 void Caravaner::StartLevel()
 {
+    mRunning=true;
+    mGameOver=false;
     mCart->SetMoving(true);
     mScene->GetComponents<Guy>(mGuys,true);
-    mCart->status.livePower=100.0f;
+    mCart->status.livePower=10.0f;
+    mTargetsInUse.Clear();
 }
 
 void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
@@ -89,12 +95,27 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
 
         int power = CeilToInt(mCart->status.livePower);
         Color col = Color::WHITE;
-        if (power < 30)
-            col = Color::MAGENTA;
-        else if (power < 10)
+        if (power < 10)
             col = Color::RED;
+        else if (power < 10)
+            col = Color::MAGENTA;
 
         gl->SetUIText("Cart Condition:"+String(power), col );
+
+        if (mCart->status.livePower <= 0){
+            mGameOver = true;
+            mRunning = false;
+            gl->SetUIText("You lost! Shame on you  ;)      Restart by pressing ENTER");
+
+            ParticleEmitter* em = mEndParticle->GetComponent<ParticleEmitter>(true);
+            if (em){
+                mEndParticle->SetWorldPosition(mCart->GetNode()->GetWorldPosition());
+                em->SetEnabled(true);
+            }
+            mCart->GetNode()->Remove();
+            return;
+        }
+
 
         if (input->GetMouseButtonPress(MOUSEB_LEFT)){
             RigidBody* hitbody;

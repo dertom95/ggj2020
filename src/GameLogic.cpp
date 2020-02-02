@@ -125,7 +125,11 @@ void GameLogic::HandleUpdate(StringHash eventType, VariantMap &eventData)
 
     Input* input = GetSubsystem<Input>();
 
-    input->SetMouseVisible(!input->GetMouseButtonDown(MOUSEB_RIGHT));
+    //input->SetMouseVisible(!input->GetMouseButtonDown(MOUSEB_RIGHT));
+
+    if (input->GetKeyPress(KEY_RETURN)){
+        Start();
+    }
 
     if (input->GetKeyPress(KEY_F3)){
         mRenderPhysics = !mRenderPhysics;

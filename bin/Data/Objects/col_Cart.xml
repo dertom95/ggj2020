@@ -43,6 +43,22 @@
 			<attribute name="Navigation Quality" value="High"/>
 		</component>
 		<node id="16777227">
+			<attribute name="Name" value="Empty"/>
+			<attribute name="Position" value="0 9.25328 0"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="9.131 9.131 9.131"/>
+			<attribute name="Variables"/>
+			<attribute name="Tags">
+				<string value="Cart"/>
+				<string value="Cart_recursive"/>
+				<string value="Collection_recursive"/>
+			</attribute>
+			<component id="16777252" type="ParticleEmitter">
+				<attribute name="Is Enabled" value="False"/>
+				<attribute name="Effect" value="ParticleEffect;Particle/Burst.xml"/>
+			</component>
+		</node>
+		<node id="16777228">
 			<attribute name="Name" value="cart"/>
 			<attribute name="Position" value="0 0 0"/>
 			<attribute name="Rotation" value="0.707107 -0 -0.707107 -0"/>
@@ -53,12 +69,12 @@
 				<string value="Cart_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777251" type="StaticModel">
+			<component id="16777252" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-cart.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<node id="16777228">
+			<node id="16777229">
 				<attribute name="Name" value="wheels"/>
 				<attribute name="Position" value="-7.82792 1.05474 0.121186"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -70,13 +86,13 @@
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777252" type="StaticModel">
+				<component id="16777253" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-wheels.mdl"/>
 					<attribute name="Material" value="Material;Materials/vcol.xml"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
-			<node id="16777229">
+			<node id="16777230">
 				<attribute name="Name" value="wheels.001"/>
 				<attribute name="Position" value="8.09375 1.05474 0.121185"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -88,28 +104,12 @@
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777253" type="StaticModel">
+				<component id="16777254" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-wheels.002.mdl"/>
 					<attribute name="Material" value="Material;Materials/vcol.xml"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
-		</node>
-		<node id="16777230">
-			<attribute name="Name" value="particle_burst"/>
-			<attribute name="Position" value="0 8.16014 0"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
-			<attribute name="Scale" value="8.65927 8.65927 8.65927"/>
-			<attribute name="Variables"/>
-			<attribute name="Tags">
-				<string value="Cart"/>
-				<string value="Cart_recursive"/>
-				<string value="Collection_recursive"/>
-			</attribute>
-			<component id="16777255" type="ParticleEmitter">
-				<attribute name="Is Enabled" value="False"/>
-				<attribute name="Effect" value="ParticleEffect;Particle/Burst.xml"/>
-			</component>
 		</node>
 		<node id="16777231">
 			<attribute name="Name" value="s_slot1"/>
@@ -329,18 +329,18 @@
 			</component>
 		</node>
 	</node>
-	<node id="16777230">
-		<attribute name="Name" value="particle_burst"/>
-		<attribute name="Position" value="0 8.16014 0"/>
+	<node id="16777227">
+		<attribute name="Name" value="Empty"/>
+		<attribute name="Position" value="0 9.25328 0"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
-		<attribute name="Scale" value="8.65927 8.65927 8.65927"/>
+		<attribute name="Scale" value="9.131 9.131 9.131"/>
 		<attribute name="Variables"/>
 		<attribute name="Tags">
 			<string value="Cart"/>
 			<string value="Cart_recursive"/>
 			<string value="Collection_recursive"/>
 		</attribute>
-		<component id="16777255" type="ParticleEmitter">
+		<component id="16777252" type="ParticleEmitter">
 			<attribute name="Is Enabled" value="False"/>
 			<attribute name="Effect" value="ParticleEffect;Particle/Burst.xml"/>
 		</component>

@@ -17,6 +17,7 @@ using namespace Urho3D;
 
 namespace Urho3D {
     class Scene;
+    class ParticleEmitter;
 }
 
 
@@ -31,7 +32,7 @@ public:
     void HandleUpdate(StringHash eventType,VariantMap& data);
     inline void SetRunning(bool running) { mRunning = running; }
     inline bool IsRunning() { return mRunning; }
-
+    inline bool IsGameOver() { return mGameOver; }
     void SetSelectionMode(bool setit,bool gathererOnly=false);
 private:
     void CheckSelectedGuyWork(Node* n);
@@ -42,11 +43,12 @@ private:
 
     HashSet<Node*> mTargetsInUse;
 
-
+    SharedPtr<Node> mEndParticle;
 
     PODVector<Guy*> mGuys;
 
     bool mRunning;
+    bool mGameOver;
 
     SharedPtr<Node> mPathMaster;
     PODVector<Node*> mPath;
