@@ -62,7 +62,7 @@ public:
 
     enum WorkMode {
         WM_Idle=0,
-        WM_PickupWood, WM_WorkWood,WM_BRINGBACK_WOOD,
+        WM_PickupWood, WM_WorkWood,WM_BRINGBACK_WOOD,WM_ATTACK,
         WM_Bandit_Attack
     };
 

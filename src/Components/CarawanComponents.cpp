@@ -139,6 +139,10 @@ bool Guy::CheckModeChange(bool force=false)
             mWorkDestinationPos = MoveTo(mWorkTarget);
             mTimer = 1.0f;
         }
+        else if (mRequestedWorkmode == WM_ATTACK) {
+            mWorkDestinationPos = MoveTo(mWorkTarget);
+            mTimer = 1.0f;
+        }
         return true;
     }
     return false;
@@ -171,8 +175,6 @@ void Guy::Tick(float dt){
             mParticle->SetEnabled(false);
         }
     }
-
-
 
     if (mWorkmode == WM_Bandit_Attack){
         float distance = GetDistanceToWorkTarget();
@@ -281,6 +283,20 @@ void Guy::Tick(float dt){
             Cart* cart = GetSubsystem<Cart>();
 
             cart->AddResource(mCarryResourceAmount);
+            RequestWorkMode(WM_Idle);
+            return;
+        }
+    }
+    else if (mWorkmode == WM_ATTACK) {
+        MoveTo(mWorkTarget);
+        mCrowdAgent->SetMaxAccel(10.0f);
+        mCrowdAgent->SetMaxSpeed(7.0f);
+        float distance = GetDistanceToWorkTarget();
+        URHO3D_LOGINFOF("WM_ATTACK:%f",distance);
+        if (distance < 1.25f){
+            Caravaner* cv = GetSubsystem<Caravaner>();
+            Guy* bandit = mWorkTarget->GetComponent<Guy>();
+            cv->RemoveGuy(bandit);
             RequestWorkMode(WM_Idle);
             return;
         }

@@ -126,7 +126,7 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
         Color col = Color::WHITE;
         if (power < 10)
             col = Color::RED;
-        else if (power < 10)
+        else if (power < 20)
             col = Color::MAGENTA;
 
         gl->SetUIText("Cart Condition:"+String(power), col );
@@ -211,7 +211,15 @@ void Caravaner::CheckSelectedGuyWork(Node* n)
         return;
     }
 
-    if (n->HasTag("resource")){
+    if (n->HasTag("bandit")){
+        mSelectedGuy->Select(false);
+        SetSelectionMode(false);
+        mSelectedGuy->SetRequestWorkTarget(n);
+        mSelectedGuy->RequestWorkMode(Guy::WM_ATTACK,true);
+
+        mTargetsInUse.Insert(n);
+    }
+    else if (n->HasTag("resource")){
         mSelectedGuy->Select(false);
         SetSelectionMode(false);
         mSelectedGuy->SetRequestWorkTarget(n);
@@ -245,9 +253,26 @@ void Caravaner::SetSelectionMode(bool setit,bool gatherer){
 
             node->SetEnabled(true);
         }
+
+        if ( !gatherer ){
+            for (Guy* guy : mGuys){
+                if (guy->mGuyType == Guy::GT_Bandit){
+                    guy->Select(true);
+                }
+            }
+        }
+
     } else {
         for (Node* node : selectors){
             node->SetEnabled(false);
         }
+        if ( !gatherer ){
+            for (Guy* guy : mGuys){
+                if (guy->mGuyType == Guy::GT_Bandit){
+                    guy->Select(false);
+                }
+            }
+        }
+
     }
 }

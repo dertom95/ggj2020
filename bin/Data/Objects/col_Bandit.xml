@@ -7,6 +7,8 @@
 		<attribute name="Scale" value="1 1 1"/>
 		<attribute name="Variables"/>
 		<attribute name="Tags">
+			<string value="bandit"/>
+			<string value="soldier_only"/>
 			<string value="Bandit"/>
 			<string value="Bandit_recursive"/>
 		</attribute>
