@@ -147,6 +147,9 @@ void Caravaner::CheckSelectedGuyWork(Node* n)
     if (mSelectedGuy->mGuyType == Guy::GT_Gatherer && n->HasTag("soldier_only")){
         return;
     }
+    if (mSelectedGuy->mGuyType == Guy::GT_Soldier && !n->HasTag("soldier_only")){
+        return;
+    }
 
     if (n->HasTag("resource")){
         mSelectedGuy->Select(false);
@@ -158,7 +161,7 @@ void Caravaner::CheckSelectedGuyWork(Node* n)
     }
 }
 
-void Caravaner::SetSelectionMode(bool setit,bool gathererOnly){
+void Caravaner::SetSelectionMode(bool setit,bool gatherer){
     mSelectionMode = setit;
 
     PODVector<Node*> selectors;
@@ -171,7 +174,11 @@ void Caravaner::SetSelectionMode(bool setit,bool gathererOnly){
                 continue;
             }
 
-            if (gathererOnly && node->HasTag("soldier_only")) {
+            if (gatherer && node->HasTag("soldier_only")) {
+                node->SetEnabled(false);
+                continue;
+            }
+            else if (!gatherer && !node->HasTag("soldier_only")) {
                 node->SetEnabled(false);
                 continue;
             }

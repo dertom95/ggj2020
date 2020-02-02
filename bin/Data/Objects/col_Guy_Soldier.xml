@@ -40,7 +40,7 @@
 		<node id="16777221">
 			<attribute name="Name" value="Icosphere.002"/>
 			<attribute name="Position" value="0 0 0"/>
-			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Rotation" value="-1.62921e-07 -0 -1 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
 			<attribute name="Tags">
