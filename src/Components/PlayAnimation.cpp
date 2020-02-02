@@ -43,7 +43,7 @@ void PlayAnimation::DelayedStart()
     String animFile = animationFile.EndsWith(".ani")?animationFile : "Models/"+animationFile+".ani";
 
     animControl->PlayExclusive(animFile,0, true, 0.0f);
-    animControl->SetSpeed(animFile,speed);
+    animControl->SetSpeed(animFile,Random(0.8f,1.2f));
     animControl->SetAnimationEnabled(true);
 }
 

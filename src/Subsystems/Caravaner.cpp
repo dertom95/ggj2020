@@ -13,6 +13,8 @@ Caravaner::Caravaner(Context* ctx)
 {
     mGameLogic = GetSubsystem<GameLogic>();
     SubscribeToEvent(E_UPDATE,URHO3D_HANDLER(Caravaner,HandleUpdate));
+    SubscribeToEvent(E_ANIMATIONTRIGGER,URHO3D_HANDLER(Caravaner,HandleSoundTrigger));
+
 }
 
 void Caravaner::InitLevel(String sceneName)
@@ -113,6 +115,7 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
                 em->SetEnabled(true);
             }
             mCart->GetNode()->Remove();
+            gl->PlaySound("crash.ogg",0.3f);
             return;
         }
 
@@ -161,6 +164,15 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
             guy->Tick(dt);
         }
     }
+}
+
+void Caravaner::HandleSoundTrigger(StringHash eventType, VariantMap &data)
+{
+    using namespace AnimationTrigger;
+    Node* node = static_cast<Node*>(data[P_NODE].GetPtr());
+    String name = data[P_NAME].GetString();
+    URHO3D_LOGINFOF("SOUNDTRIGGER Node:%s Name:%s",node->GetName().CString(),name.CString());
+    GameLogic* gl = GetSubsystem<GameLogic>();
 }
 
 void Caravaner::CheckSelectedGuyWork(Node* n)

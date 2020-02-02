@@ -75,6 +75,7 @@ void Guy::DelayedStart()
         mParticle->SetEnabled(false);
     }
 
+
     SubscribeToEvent(E_CROWD_AGENT_STATE_CHANGED,URHO3D_HANDLER(Guy,HandleCrowdAgent));
 }
 

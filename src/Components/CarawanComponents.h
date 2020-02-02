@@ -81,7 +81,6 @@ public:
 
 
     void HandleCrowdAgent(StringHash eventType,VariantMap& data);
-
     void RequestWorkMode(WorkMode newMode, bool force=false);
     inline void SetRequestWorkTarget(Node* node) { mRequestWorkTarget = node; }
 

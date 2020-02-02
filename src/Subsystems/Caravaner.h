@@ -30,6 +30,8 @@ public:
     void InitLevel(String name);
     void StartLevel();
     void HandleUpdate(StringHash eventType,VariantMap& data);
+    void HandleSoundTrigger(StringHash eventType, VariantMap &data);
+
     inline void SetRunning(bool running) { mRunning = running; }
     inline bool IsRunning() { return mRunning; }
     inline bool IsGameOver() { return mGameOver; }

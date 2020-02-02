@@ -28,7 +28,7 @@ public:
     void Start();
     inline Scene* GetScene() { return mScene; }
 
-    void PlaySound(String soundFile);
+    void PlaySound(String soundFile,float gain=0.75f);
     void PlayMusic(String musicFile);
 
     void SetUIText(String text,Color color = Color::WHITE);
@@ -69,6 +69,8 @@ private:
     Viewport* mViewport;
 
     SoundSource* mMusicSource;
+    SoundSource* mSfxSource;
+
     bool mRenderPhysics;
 
     SharedPtr<Window> mWindow;

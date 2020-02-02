@@ -14,7 +14,9 @@ GameLogic::GameLogic(Context* ctx)
       mCameraNode(nullptr),
       mScene(nullptr),
       mViewport(nullptr),
-      mRenderPhysics(false)
+      mRenderPhysics(false),
+      mSfxSource(nullptr),
+      mMusicSource(nullptr)
 {
 }
 
@@ -68,7 +70,6 @@ void GameLogic::SetupScene()
     mMusicSource = mScene->CreateComponent<SoundSource>();
       // Set the sound type to music so that master volume control works correctly
     mMusicSource->SetSoundType(SOUND_MUSIC);
-
     mCaravaner->InitLevel("Scenes/LevelDummy.xml");
 
     mPhysicsWorld = mScene->GetComponent<PhysicsWorld>();
@@ -266,17 +267,19 @@ void GameLogic::LoadFromFile(String sceneName, Scene* loadInto)
     }
 }
 
-void GameLogic::PlaySound(String soundFile)
+void GameLogic::PlaySound(String soundFile,float gain)
 {
     auto* cache = GetSubsystem<ResourceCache>();
     auto* sound = cache->GetResource<Sound>("Sounds/"+soundFile);
 
-    auto* soundSource = mScene->CreateComponent<SoundSource>();
+    SoundSource* soundSource = mScene->CreateComponent<SoundSource>();
+
+
     // Component will automatically remove itself when the sound finished playing
     soundSource->SetAutoRemoveMode(REMOVE_COMPONENT);
     soundSource->Play(sound->GetDecoderStream());
     // In case we also play music, set the sound volume below maximum so that we don't clip the output
-    soundSource->SetGain(0.75f);
+    soundSource->SetGain(gain);
 }
 
 void GameLogic::PlayMusic(String musicFile)
@@ -285,7 +288,7 @@ void GameLogic::PlayMusic(String musicFile)
     auto* music = cache->GetResource<Sound>("Sounds/"+musicFile);
     // Set the song to loop
     music->SetLooped(true);
-    mMusicSource->SetGain(0.35f);
+    mMusicSource->SetGain(0.25f);
     mMusicSource->Play(music);
 }
 
