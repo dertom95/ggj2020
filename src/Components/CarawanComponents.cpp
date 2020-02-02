@@ -293,6 +293,10 @@ void Guy::Tick(float dt){
         mCrowdAgent->SetMaxSpeed(7.0f);
         float distance = GetDistanceToWorkTarget();
         URHO3D_LOGINFOF("WM_ATTACK:%f",distance);
+        if (!mWorkTarget){
+            RequestWorkMode(WM_Idle);
+        }
+
         if (distance < 1.25f){
             Caravaner* cv = GetSubsystem<Caravaner>();
             Guy* bandit = mWorkTarget->GetComponent<Guy>();

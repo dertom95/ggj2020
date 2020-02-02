@@ -321,6 +321,8 @@ void GameLogic::SetupUI()
     // Create the Window title Text
     mWindowTitle = new Text(context_);
     mWindowTitle->SetText("Die Karawane!");
+    auto t = new Text(context_);
+    t->SetText("Die Karawane!");
 //    windowTitle->SetName("WindowTitle");
 
 //    windowTitle->SetText("Hello GUI!");
@@ -328,13 +330,14 @@ void GameLogic::SetupUI()
     // Add the controls to the title bar
     titleBar->AddChild(mWindowTitle);
 
+
     // Add the title bar to the Window
     mWindow->AddChild(titleBar);
 
     // Apply styles
     mWindow->SetStyleAuto();
     mWindowTitle->SetStyleAuto();
-    mWindowTitle->SetFontSize(28);
+    mWindowTitle->SetFontSize(14);
     // Subscribe to buttonClose release (following a 'press') events
  //   SubscribeToEvent(buttonClose, E_RELEASED, URHO3D_HANDLER(GameLogic, HandleClosePressed));
 

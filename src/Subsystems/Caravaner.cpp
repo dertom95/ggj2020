@@ -129,7 +129,7 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
         else if (power < 20)
             col = Color::MAGENTA;
 
-        gl->SetUIText("Cart Condition:"+String(power), col );
+        gl->SetUIText("Cart Condition:"+String(power)+"    (green=>attack bandits/mills,orange=>trees)", col );
 
         if (mCart->status.livePower <= 0){
             mGameOver = true;

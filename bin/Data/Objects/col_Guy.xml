@@ -12,7 +12,7 @@
 			<string value="Guy_recursive"/>
 		</attribute>
 		<component id="16777223" type="CollisionShape">
-			<attribute name="Size" value="4.0 7.0 4.0"/>
+			<attribute name="Size" value="5.0 7.0 5.0"/>
 			<attribute name="Offset Position" value="0.0 2.5 0.0"/>
 		</component>
 		<component id="16777224" type="RigidBody">
