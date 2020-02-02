@@ -27,6 +27,7 @@
 #include "../Subsystems/CaravanerEvents.h"
 
 const float DEFAULT_GUY_TIMER = 0.5f;
+const float DEFAULT_GUY_TIMER_MAX = 1.0f;
 
 const char* guyTypeNames[] =
 {
@@ -146,7 +147,9 @@ void Guy::Tick(float dt){
         mTimer -= dt;
 
         if (mTimer <= 0){
-            mTimer = DEFAULT_GUY_TIMER;
+            mTimer = Random(DEFAULT_GUY_TIMER,DEFAULT_GUY_TIMER_MAX);
+        } else {
+            return;
         }
 
         if (mWorkTarget){

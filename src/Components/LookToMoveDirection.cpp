@@ -32,19 +32,19 @@ void LookToMoveDirection::Update(float timeStep)
 
     //URHO3D_LOGINFOF("LEGNTH:%f",length);
 
-    if (mAnimController && mAnimController->GetAnimations().Size()>0){
-        auto animControl = mAnimController->GetAnimations()[0];
-        if (length < 0.01){
-            animControl.setTime_=0;
-            mAnimController->SetEnabled(false);
-        }
-        else {
-            if (!mAnimController->IsEnabled())
-                mAnimController->SetEnabled(true);
+//    if (mAnimController && mAnimController->GetAnimations().Size()>0){
+//        auto animControl = mAnimController->GetAnimations()[0];
+//        if (length < 0.01){
+//            animControl.setTime_=0;
+//            mAnimController->SetEnabled(false);
+//        }
+//        else {
+//            if (!mAnimController->IsEnabled())
+//                mAnimController->SetEnabled(true);
 
-            animControl.speed_=length*2;
-        }
-    }
+//            animControl.speed_=length*2;
+//        }
+//    }
 
     Quaternion rot;
     rot.FromLookRotation(direction);

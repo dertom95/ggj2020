@@ -93,7 +93,7 @@
 		</node>
 		<node id="16777220">
 			<attribute name="Name" value="CarryierGuy.001"/>
-			<attribute name="Position" value="0.0869611 2.34819e-08 51.924"/>
+			<attribute name="Position" value="0.0869611 2.34819e-08 50"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
