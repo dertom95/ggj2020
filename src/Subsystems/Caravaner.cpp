@@ -156,7 +156,7 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
                 int a=0;
                 Node* n = hitbody->GetNode();
                 String name = n->GetName();
-                URHO3D_LOGINFOF("HIT: %s",name.CString());
+            //    URHO3D_LOGINFOF("HIT: %s",name.CString());
 
                 Guy* guy = n->GetComponent<Guy>();
                 if (guy && guy->mWorkmode==Guy::WM_Idle && ( guy->mGuyType==Guy::GT_Gatherer || guy->mGuyType==Guy::GT_Soldier)){
@@ -198,7 +198,7 @@ void Caravaner::HandleSoundTrigger(StringHash eventType, VariantMap &data)
     using namespace AnimationTrigger;
     Node* node = static_cast<Node*>(data[P_NODE].GetPtr());
     String name = data[P_NAME].GetString();
-    URHO3D_LOGINFOF("SOUNDTRIGGER Node:%s Name:%s",node->GetName().CString(),name.CString());
+   // URHO3D_LOGINFOF("SOUNDTRIGGER Node:%s Name:%s",node->GetName().CString(),name.CString());
     GameLogic* gl = GetSubsystem<GameLogic>();
 }
 

@@ -210,7 +210,7 @@ void Guy::Tick(float dt){
             Caravaner* cv = GetSubsystem<Caravaner>();
             Node* n = cv->GetNearestGuyCart(node_,20.0f);
             if (n){
-                URHO3D_LOGINFOF("Found: %s",n->GetName().CString());
+             //   URHO3D_LOGINFOF("Found: %s",n->GetName().CString());
                 //mWorkTarget = n;
                 SetRequestWorkTarget(n);
                 RequestWorkMode(WM_Bandit_Attack);
@@ -251,7 +251,7 @@ void Guy::Tick(float dt){
     else if (mWorkmode == WM_PickupWood) {
         float distance = GetDistanceToWorkTarget();
         URHO3D_LOGINFOF("WoodPick:%f",distance);
-        if ( distance < 1.1f) {
+        if ( distance < 1.3f) {
             RequestWorkMode(WM_WorkWood);
         }
     }
@@ -279,7 +279,7 @@ void Guy::Tick(float dt){
 
         float distance = GetDistanceToWorkTarget();
         URHO3D_LOGINFOF("WM_BRINGBACK_WOOD:%f",distance);
-        if (distance < 1.25f){
+        if (distance < 1.3f){
             Cart* cart = GetSubsystem<Cart>();
 
             cart->AddResource(mCarryResourceAmount);
@@ -297,7 +297,7 @@ void Guy::Tick(float dt){
             RequestWorkMode(WM_Idle);
         }
 
-        if (distance < 1.25f){
+        if (distance < 1.3f){
             Caravaner* cv = GetSubsystem<Caravaner>();
             Guy* bandit = mWorkTarget->GetComponent<Guy>();
             cv->RemoveGuy(bandit);
@@ -324,7 +324,7 @@ void Guy::HandleCrowdAgent(StringHash eventType, VariantMap &data)
     int target = data[P_CROWD_TARGET_STATE].GetInt();
     Vector3 pos = data[P_POSITION].GetVector3();
     String nodeName = static_cast<Node*>(data[P_NODE].GetPtr())->GetName();
-    URHO3D_LOGINFOF("CROWND: %i:%i pos:%s node:%s",mode,target,pos.ToString().CString(),nodeName.CString());
+    //URHO3D_LOGINFOF("CROWND: %i:%i pos:%s node:%s",mode,target,pos.ToString().CString(),nodeName.CString());
 }
 
 Cart::Cart(Context* ctx)
