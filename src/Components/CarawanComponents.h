@@ -133,7 +133,7 @@ public:
 
     Status status;
 
-    Node* GetFreeSlot();
+    Node* GetFreeSlot(bool soliderSlot = false);
     void ReleaseSlot(Node* node);
     inline Node* GetResourceSlot() { return mBringResource; }
 
@@ -144,6 +144,9 @@ private:
 
     PODVector<Node*> mWheels;
     PODVector<Node*> mFreeSlots;
+
+    PODVector<Node*> mSoldierSlots;
+
 
     Vector<Vector3> mPath;
     Vector3 mCurrentTarget;

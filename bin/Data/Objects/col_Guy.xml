@@ -11,14 +11,11 @@
 			<string value="Guy"/>
 			<string value="Guy_recursive"/>
 		</attribute>
-		<component id="16777223" type="Guy">
-			<attribute name="Partition Type" value="Gatherer"/>
-		</component>
-		<component id="16777224" type="CollisionShape">
+		<component id="16777223" type="CollisionShape">
 			<attribute name="Size" value="4.0 7.0 4.0"/>
 			<attribute name="Offset Position" value="0.0 2.5 0.0"/>
 		</component>
-		<component id="16777225" type="RigidBody">
+		<component id="16777224" type="RigidBody">
 			<attribute name="Mass" value="1.0"/>
 			<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
 			<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
@@ -30,7 +27,7 @@
 			<attribute name="Is Kinematic" value="True"/>
 			<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
 		</component>
-		<component id="16777226" type="CrowdAgent">
+		<component id="16777225" type="CrowdAgent">
 			<attribute name="Target Position" value="0.0 0.0 0.0"/>
 			<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
 			<attribute name="Requested Target Type" value="Position"/>
@@ -39,6 +36,9 @@
 			<attribute name="Radius" value="0.5"/>
 			<attribute name="Height" value="3.0"/>
 			<attribute name="Navigation Quality" value="High"/>
+		</component>
+		<component id="16777226" type="Guy">
+			<attribute name="Guy Type" value="Gatherer"/>
 		</component>
 		<node id="16777218">
 			<attribute name="Name" value="Icosphere"/>

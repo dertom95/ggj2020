@@ -52,8 +52,8 @@ void Guy::RegisterObject(Context* context)
 {
     context->RegisterFactory<Guy>("Guy");
 
-    URHO3D_ENUM_ACCESSOR_ATTRIBUTE("Partition Type", GetGuyType, SetGuyType, GuyType, guyTypeNames,
-        GT_Gatherer, AM_DEFAULT);
+    URHO3D_ENUM_ACCESSOR_ATTRIBUTE("Guy Type", GetGuyType, SetGuyType, GuyType, guyTypeNames,
+        GT_Soldier, AM_DEFAULT);
 
 }
 
@@ -102,8 +102,14 @@ bool Guy::CheckModeChange(bool force=false)
         mWorkTarget = mRequestWorkTarget;
 
         if (mRequestedWorkmode == WM_Idle){
-            Cart* cart = GetSubsystem<Cart>();
-            mWorkTarget = cart->GetFreeSlot();
+            if (mGuyType == GT_Gatherer) {
+                Cart* cart = GetSubsystem<Cart>();
+                mWorkTarget = cart->GetFreeSlot();
+            }
+            else if (mGuyType == GT_Soldier) {
+                Cart* cart = GetSubsystem<Cart>();
+                mWorkTarget = cart->GetFreeSlot(true);
+            }
         }
         else if (mRequestedWorkmode == WM_PickupWood){
             mCrowdAgent->SetMaxAccel(10.0f);
@@ -147,7 +153,15 @@ void Guy::Tick(float dt){
             mWorkDestinationPos = MoveTo(mWorkTarget);
         } else {
             Cart* cart = GetSubsystem<Cart>();
-            mWorkTarget = cart->GetFreeSlot();
+
+            if (mGuyType == GT_Gatherer) {
+                Cart* cart = GetSubsystem<Cart>();
+                mWorkTarget = cart->GetFreeSlot();
+            }
+            else if (mGuyType == GT_Soldier) {
+                Cart* cart = GetSubsystem<Cart>();
+                mWorkTarget = cart->GetFreeSlot(true);
+            }
         }
 
         if (mWorkTarget){
@@ -242,6 +256,13 @@ void Cart::DelayedStart()
         slot->SetEnabled(false);
     }
 
+    counter=1;
+
+    while ( slot = node_->GetChild(String("s_slot")+String(counter++),true)){
+        mSoldierSlots.Push(slot);
+        slot->SetEnabled(false);
+    }
+
 
     PODVector<Node*> pods;
     node_->GetChildrenWithTag(pods,"bring_resource",true);
@@ -254,17 +275,29 @@ void Cart::DelayedStart()
     SubscribeToEvent(node_,E_CROWD_AGENT_STATE_CHANGED,URHO3D_HANDLER(Cart,HandleCrowdManager));
 }
 
-Node* Cart::GetFreeSlot()
+Node* Cart::GetFreeSlot(bool soldierSlot)
 {
-    if (mFreeSlots.Size() == 0) return nullptr;
+    if (!soldierSlot){
+        if (mFreeSlots.Size() == 0) return nullptr;
 
-    Node* slot = mFreeSlots[0];
-    mFreeSlots.Erase(0);
-    return slot;
+        Node* slot = mFreeSlots[0];
+        mFreeSlots.Erase(0);
+        return slot;
+    } else {
+        if (mSoldierSlots.Size() == 0) return nullptr;
+
+        Node* slot = mSoldierSlots[0];
+        mSoldierSlots.Erase(0);
+        return slot;
+    }
 }
 
 void Cart::ReleaseSlot(Node *node){
-    mFreeSlots.Insert(0,node);
+    if (node->HasTag("slot")){
+        mFreeSlots.Insert(0,node);
+    } else {
+        mSoldierSlots.Insert(0,node);
+    }
 }
 
 void Cart::AddResource(float f)

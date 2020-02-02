@@ -22,14 +22,11 @@
 				<string value="Guy"/>
 				<string value="Guy_recursive"/>
 			</attribute>
-			<component id="16777223" type="Guy">
-				<attribute name="Partition Type" value="Gatherer"/>
-			</component>
-			<component id="16777224" type="CollisionShape">
+			<component id="16777223" type="CollisionShape">
 				<attribute name="Size" value="4.0 7.0 4.0"/>
 				<attribute name="Offset Position" value="0.0 2.5 0.0"/>
 			</component>
-			<component id="16777225" type="RigidBody">
+			<component id="16777224" type="RigidBody">
 				<attribute name="Mass" value="1.0"/>
 				<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
 				<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
@@ -41,7 +38,7 @@
 				<attribute name="Is Kinematic" value="True"/>
 				<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
 			</component>
-			<component id="16777226" type="CrowdAgent">
+			<component id="16777225" type="CrowdAgent">
 				<attribute name="Target Position" value="0.0 0.0 0.0"/>
 				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
 				<attribute name="Requested Target Type" value="Position"/>
@@ -50,6 +47,9 @@
 				<attribute name="Radius" value="0.5"/>
 				<attribute name="Height" value="3.0"/>
 				<attribute name="Navigation Quality" value="High"/>
+			</component>
+			<component id="16777226" type="Guy">
+				<attribute name="Guy Type" value="Gatherer"/>
 			</component>
 			<node id="16777218">
 				<attribute name="Name" value="Icosphere"/>
@@ -92,6 +92,81 @@
 			</node>
 		</node>
 		<node id="16777220">
+			<attribute name="Name" value="CarryierGuy.001"/>
+			<attribute name="Position" value="0.0869611 2.34819e-08 51.924"/>
+			<attribute name="Rotation" value="1 -0 -0 -0"/>
+			<attribute name="Scale" value="1 1 1"/>
+			<attribute name="Variables"/>
+			<attribute name="Tags">
+				<string value="Guy_Soldier"/>
+				<string value="Guy_Soldier_recursive"/>
+			</attribute>
+			<component id="16777231" type="CollisionShape">
+				<attribute name="Size" value="4.0 7.0 4.0"/>
+				<attribute name="Offset Position" value="0.0 2.5 0.0"/>
+			</component>
+			<component id="16777232" type="RigidBody">
+				<attribute name="Mass" value="1.0"/>
+				<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
+				<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
+				<attribute name="Angular Velocity" value="0.0 0.0 0.0"/>
+				<attribute name="Linear Factor" value="1.0 1.0 1.0"/>
+				<attribute name="Angular Factor" value="1.0 1.0 1.0"/>
+				<attribute name="Collision Mask" value="254"/>
+				<attribute name="Use Gravity" value="False"/>
+				<attribute name="Is Kinematic" value="True"/>
+				<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
+			</component>
+			<component id="16777233" type="CrowdAgent">
+				<attribute name="Target Position" value="0.0 0.0 0.0"/>
+				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
+				<attribute name="Requested Target Type" value="Position"/>
+				<attribute name="Max Accel" value="15.0"/>
+				<attribute name="Max Speed" value="7.550000190734863"/>
+				<attribute name="Radius" value="0.5"/>
+				<attribute name="Height" value="3.0"/>
+				<attribute name="Navigation Quality" value="High"/>
+			</component>
+			<component id="16777234" type="Guy"/>
+			<node id="16777221">
+				<attribute name="Name" value="Icosphere.002"/>
+				<attribute name="Position" value="0 0 0"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="Guy_Soldier"/>
+					<string value="Guy_Soldier_recursive"/>
+				</attribute>
+				<component id="16777234" type="AnimatedModel">
+					<attribute name="Model" value="Model;Models/261-Scene-CarrierMesh.001.mdl"/>
+					<attribute name="Material" value="Material;Materials/vcol.xml"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+				<component id="16777236" type="PlayAnimation">
+					<attribute name="Animation" value="Animation;Models/GuyJalk.ani"/>
+				</component>
+				<component id="16777237" type="LookToMoveDirection"/>
+			</node>
+			<node id="16777222">
+				<attribute name="Name" value="Icosphere.003"/>
+				<attribute name="Position" value="7.45058e-09 2.17477 -2.55023e-16"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="guy_selector"/>
+					<string value="Guy_Soldier"/>
+					<string value="Guy_Soldier_recursive"/>
+				</attribute>
+				<component id="16777237" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Icosphere.001.mdl"/>
+					<attribute name="Material" value="Material;Materials/vcol_add_alpha.xml"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+		</node>
+		<node id="16777223">
 			<attribute name="Name" value="BridgeMiddle"/>
 			<attribute name="Position" value="20 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -102,13 +177,13 @@
 				<string value="BridgeMiddle_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777230" type="StaticModel">
+			<component id="16777238" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Cube.003.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777221">
+		<node id="16777224">
 			<attribute name="Name" value="BridgeMiddle_col"/>
 			<attribute name="Position" value="14.1581 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -120,19 +195,19 @@
 				<string value="BridgeMiddle_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777231" type="StaticModel">
+			<component id="16777239" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Plane.mdl"/>
 				<attribute name="Material" value="Material;"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777233" type="Navigable">
+			<component id="16777241" type="Navigable">
 				<attribute name="Recursive" value="False"/>
 			</component>
-			<component id="16777234" type="LuaScriptInstance">
+			<component id="16777242" type="LuaScriptInstance">
 				<attribute name="Script Object Type" value="Rotator"/>
 			</component>
 		</node>
-		<node id="16777222">
+		<node id="16777225">
 			<attribute name="Name" value="Camera"/>
 			<attribute name="Position" value="6.92579 4.95831 7.35889"/>
 			<attribute name="Rotation" value="0.780483 0.208704 -0.336872 -0.483536"/>
@@ -142,15 +217,15 @@
 				<string value="Collection"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777235" type="RotationFix"/>
-			<component id="16777237" type="Camera">
+			<component id="16777243" type="RotationFix"/>
+			<component id="16777245" type="Camera">
 				<attribute name="Orthographic" value="false"/>
 				<attribute name="FOV" value="39.597755335771296"/>
 				<attribute name="Near Clip" value="0.10000000149011612"/>
 				<attribute name="Far Clip" value="100.0"/>
 			</component>
 		</node>
-		<node id="16777223">
+		<node id="16777226">
 			<attribute name="Name" value="Cart"/>
 			<attribute name="Position" value="-2.396e-06 0 -70"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -161,16 +236,16 @@
 				<string value="Cart_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777239" type="Cart">
+			<component id="16777247" type="Cart">
 				<attribute name="Speed" value="40.0"/>
 			</component>
-			<component id="16777240" type="LookToMoveDirection"/>
-			<component id="16777241" type="CollisionShape">
+			<component id="16777248" type="LookToMoveDirection"/>
+			<component id="16777249" type="CollisionShape">
 				<attribute name="Shape Type" value="Sphere"/>
 				<attribute name="Size" value="25.0 8.0 8.0"/>
 				<attribute name="Offset Position" value="0.0 0.0 0.0"/>
 			</component>
-			<component id="16777242" type="RigidBody">
+			<component id="16777250" type="RigidBody">
 				<attribute name="Mass" value="1.0"/>
 				<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
 				<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
@@ -182,7 +257,7 @@
 				<attribute name="Is Kinematic" value="True"/>
 				<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
 			</component>
-			<component id="16777243" type="CrowdAgent">
+			<component id="16777251" type="CrowdAgent">
 				<attribute name="Target Position" value="0.0 0.0 0.0"/>
 				<attribute name="Target Velocity" value="0.0 0.0 0.0"/>
 				<attribute name="Requested Target Type" value="Position"/>
@@ -192,7 +267,7 @@
 				<attribute name="Height" value="2.0"/>
 				<attribute name="Navigation Quality" value="High"/>
 			</component>
-			<node id="16777224">
+			<node id="16777227">
 				<attribute name="Name" value="cart"/>
 				<attribute name="Position" value="0 0 0"/>
 				<attribute name="Rotation" value="0.707107 -0 -0.707107 -0"/>
@@ -203,12 +278,12 @@
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777243" type="StaticModel">
+				<component id="16777251" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-cart.mdl"/>
 					<attribute name="Material" value="Material;Materials/vcol.xml"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
-				<node id="16777225">
+				<node id="16777228">
 					<attribute name="Name" value="wheels"/>
 					<attribute name="Position" value="-7.82792 1.05474 0.121186"/>
 					<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -220,13 +295,13 @@
 						<string value="Cart_recursive"/>
 						<string value="Collection_recursive"/>
 					</attribute>
-					<component id="16777244" type="StaticModel">
+					<component id="16777252" type="StaticModel">
 						<attribute name="Model" value="Model;Models/261-Scene-wheels.mdl"/>
 						<attribute name="Material" value="Material;Materials/vcol.xml"/>
 						<attribute name="Cast Shadows" value="true"/>
 					</component>
 				</node>
-				<node id="16777226">
+				<node id="16777229">
 					<attribute name="Name" value="wheels.001"/>
 					<attribute name="Position" value="8.09375 1.05474 0.121185"/>
 					<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -238,14 +313,14 @@
 						<string value="Cart_recursive"/>
 						<string value="Collection_recursive"/>
 					</attribute>
-					<component id="16777245" type="StaticModel">
+					<component id="16777253" type="StaticModel">
 						<attribute name="Model" value="Model;Models/261-Scene-wheels.002.mdl"/>
 						<attribute name="Material" value="Material;Materials/vcol.xml"/>
 						<attribute name="Cast Shadows" value="true"/>
 					</component>
 				</node>
 			</node>
-			<node id="16777227">
+			<node id="16777230">
 				<attribute name="Name" value="particle_burst"/>
 				<attribute name="Position" value="0 8.16014 0"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -256,103 +331,193 @@
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777247" type="ParticleEmitter">
+				<component id="16777255" type="ParticleEmitter">
 					<attribute name="Is Enabled" value="False"/>
 					<attribute name="Effect" value="ParticleEffect;Particle/Burst.xml"/>
 				</component>
 			</node>
-			<node id="16777228">
-				<attribute name="Name" value="slot1"/>
+			<node id="16777231">
+				<attribute name="Name" value="s_slot1"/>
 				<attribute name="Position" value="-7.08141e-07 0 -20.6886"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
 				<attribute name="Scale" value="1 1 1"/>
 				<attribute name="Variables"/>
 				<attribute name="Tags">
-					<string value="slot"/>
+					<string value="soldier_slot"/>
 					<string value="bring_resource"/>
 					<string value="Cart"/>
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777247" type="StaticModel">
+				<component id="16777255" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-Cube.mdl"/>
 					<attribute name="Material" value="Material;"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
-			<node id="16777229">
-				<attribute name="Name" value="slot2"/>
-				<attribute name="Position" value="16.1823 0 -40.9504"/>
-				<attribute name="Rotation" value="1 -0 -0 -0"/>
-				<attribute name="Scale" value="1 1 1"/>
-				<attribute name="Variables"/>
-				<attribute name="Tags">
-					<string value="slot"/>
-					<string value="Cart"/>
-					<string value="Cart_recursive"/>
-					<string value="Collection_recursive"/>
-				</attribute>
-				<component id="16777248" type="StaticModel">
-					<attribute name="Model" value="Model;Models/261-Scene-Cube.004.mdl"/>
-					<attribute name="Material" value="Material;"/>
-					<attribute name="Cast Shadows" value="true"/>
-				</component>
-			</node>
-			<node id="16777230">
-				<attribute name="Name" value="slot3"/>
-				<attribute name="Position" value="-13.284 0 -42.3996"/>
-				<attribute name="Rotation" value="1 -0 -0 -0"/>
-				<attribute name="Scale" value="1 1 1"/>
-				<attribute name="Variables"/>
-				<attribute name="Tags">
-					<string value="slot"/>
-					<string value="Cart"/>
-					<string value="Cart_recursive"/>
-					<string value="Collection_recursive"/>
-				</attribute>
-				<component id="16777249" type="StaticModel">
-					<attribute name="Model" value="Model;Models/261-Scene-Cube.005.mdl"/>
-					<attribute name="Material" value="Material;"/>
-					<attribute name="Cast Shadows" value="true"/>
-				</component>
-			</node>
-			<node id="16777231">
-				<attribute name="Name" value="slot4"/>
-				<attribute name="Position" value="0.966108 0 -41.192"/>
-				<attribute name="Rotation" value="1 -0 -0 -0"/>
-				<attribute name="Scale" value="1 1 1"/>
-				<attribute name="Variables"/>
-				<attribute name="Tags">
-					<string value="slot"/>
-					<string value="Cart"/>
-					<string value="Cart_recursive"/>
-					<string value="Collection_recursive"/>
-				</attribute>
-				<component id="16777250" type="StaticModel">
-					<attribute name="Model" value="Model;Models/261-Scene-Cube.006.mdl"/>
-					<attribute name="Material" value="Material;"/>
-					<attribute name="Cast Shadows" value="true"/>
-				</component>
-			</node>
 			<node id="16777232">
-				<attribute name="Name" value="slot5"/>
-				<attribute name="Position" value="-13.6865 0 -57.6963"/>
+				<attribute name="Name" value="s_slot2"/>
+				<attribute name="Position" value="-8.24444 0 -30.3813"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
 				<attribute name="Scale" value="1 1 1"/>
 				<attribute name="Variables"/>
 				<attribute name="Tags">
-					<string value="slot"/>
+					<string value="soldier_slot"/>
 					<string value="Cart"/>
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777251" type="StaticModel">
-					<attribute name="Model" value="Model;Models/261-Scene-Cube.007.mdl"/>
+				<component id="16777256" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.012.mdl"/>
 					<attribute name="Material" value="Material;"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
 			<node id="16777233">
+				<attribute name="Name" value="s_slot3"/>
+				<attribute name="Position" value="8.68639 0 -30.9103"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="soldier_slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777257" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.013.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777234">
+				<attribute name="Name" value="s_slot4"/>
+				<attribute name="Position" value="-14.724 0 -20.6056"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="soldier_slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777258" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.014.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777235">
+				<attribute name="Name" value="s_slot5"/>
+				<attribute name="Position" value="15.623 0 -20.431"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="soldier_slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777259" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.016.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777236">
+				<attribute name="Name" value="slot1"/>
+				<attribute name="Position" value="-13.1759 0 -50.1405"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777260" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.005.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777237">
+				<attribute name="Name" value="slot2"/>
+				<attribute name="Position" value="16.302 0 -47.598"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777261" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.004.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777238">
+				<attribute name="Name" value="slot3"/>
+				<attribute name="Position" value="-0.23704 0 -69.8438"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777262" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.018.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777239">
+				<attribute name="Name" value="slot4"/>
+				<attribute name="Position" value="0.224576 0 -44.9065"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777263" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.006.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777240">
+				<attribute name="Name" value="slot5"/>
+				<attribute name="Position" value="-13.7848 0 -64.3088"/>
+				<attribute name="Rotation" value="1 -0 -0 -0"/>
+				<attribute name="Scale" value="1 1 1"/>
+				<attribute name="Variables"/>
+				<attribute name="Tags">
+					<string value="slot"/>
+					<string value="Cart"/>
+					<string value="Cart_recursive"/>
+					<string value="Collection_recursive"/>
+				</attribute>
+				<component id="16777264" type="StaticModel">
+					<attribute name="Model" value="Model;Models/261-Scene-Cube.007.mdl"/>
+					<attribute name="Material" value="Material;"/>
+					<attribute name="Cast Shadows" value="true"/>
+				</component>
+			</node>
+			<node id="16777241">
 				<attribute name="Name" value="slot6"/>
 				<attribute name="Position" value="1.00636 0 -58.7027"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -364,15 +529,15 @@
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777252" type="StaticModel">
+				<component id="16777265" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-Cube.008.mdl"/>
 					<attribute name="Material" value="Material;"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
-			<node id="16777234">
+			<node id="16777242">
 				<attribute name="Name" value="slot7"/>
-				<attribute name="Position" value="16.3031 0 -58.5014"/>
+				<attribute name="Position" value="15.4356 0 -64.4285"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
 				<attribute name="Scale" value="1 1 1"/>
 				<attribute name="Variables"/>
@@ -382,14 +547,14 @@
 					<string value="Cart_recursive"/>
 					<string value="Collection_recursive"/>
 				</attribute>
-				<component id="16777253" type="StaticModel">
+				<component id="16777266" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-Cube.009.mdl"/>
 					<attribute name="Material" value="Material;"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
 		</node>
-		<node id="16777235">
+		<node id="16777243">
 			<attribute name="Name" value="Cube"/>
 			<attribute name="Position" value="0.238248 -0.953428 0.18617"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -401,19 +566,19 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="16777254" type="StaticModel">
+			<component id="16777267" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Cube.001.mdl"/>
 				<attribute name="Material" value="Material;"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777256" type="Navigable">
+			<component id="16777269" type="Navigable">
 				<attribute name="Recursive" value="False"/>
 			</component>
-			<component id="16777257" type="LuaScriptInstance">
+			<component id="16777270" type="LuaScriptInstance">
 				<attribute name="Script Object Type" value="Rotator"/>
 			</component>
 		</node>
-		<node id="16777236">
+		<node id="16777244">
 			<attribute name="Name" value="Empty"/>
 			<attribute name="Position" value="0.238248 -0.953428 0.18617"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -424,11 +589,11 @@
 				<string value="Tree"/>
 				<string value="Tree_recursive"/>
 			</attribute>
-			<component id="16777258" type="CollisionShape">
+			<component id="16777271" type="CollisionShape">
 				<attribute name="Size" value="10.0 45.0 10.0"/>
 				<attribute name="Offset Position" value="0.0 20.0 0.0"/>
 			</component>
-			<component id="16777259" type="RigidBody">
+			<component id="16777272" type="RigidBody">
 				<attribute name="Mass" value="1.0"/>
 				<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
 				<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
@@ -439,7 +604,7 @@
 				<attribute name="Is Kinematic" value="True"/>
 				<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
 			</component>
-			<node id="16777237">
+			<node id="16777245">
 				<attribute name="Name" value="Selector"/>
 				<attribute name="Position" value="0 18.573 0"/>
 				<attribute name="Rotation" value="1 -0 -1.00514e-09 -0"/>
@@ -451,13 +616,13 @@
 					<string value="Tree"/>
 					<string value="Tree_recursive"/>
 				</attribute>
-				<component id="16777259" type="StaticModel">
+				<component id="16777272" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-Sphere.mdl"/>
 					<attribute name="Material" value="Material;Materials/vcol_add_alpha.xml"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
-			<node id="16777238">
+			<node id="16777246">
 				<attribute name="Name" value="Tree"/>
 				<attribute name="Position" value="0 0 0"/>
 				<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -468,14 +633,14 @@
 					<string value="Tree"/>
 					<string value="Tree_recursive"/>
 				</attribute>
-				<component id="16777260" type="StaticModel">
+				<component id="16777273" type="StaticModel">
 					<attribute name="Model" value="Model;Models/261-Scene-Tree.mdl"/>
 					<attribute name="Material" value="Material;Materials/vcol.xml"/>
 					<attribute name="Cast Shadows" value="true"/>
 				</component>
 			</node>
 		</node>
-		<node id="16777239">
+		<node id="16777247">
 			<attribute name="Name" value="Light"/>
 			<attribute name="Position" value="0 43.7642 0"/>
 			<attribute name="Rotation" value="0.966826 8.74319e-09 -0 0.255436"/>
@@ -485,8 +650,8 @@
 				<string value="Collection"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777262" type="RotationFix"/>
-			<component id="16777264" type="Light">
+			<component id="16777275" type="RotationFix"/>
+			<component id="16777277" type="Light">
 				<attribute name="Is Enabled" value="true"/>
 				<attribute name="Light Type" value="Directional"/>
 				<attribute name="Specular Intensity" value="1.0"/>
@@ -495,7 +660,7 @@
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777240">
+		<node id="16777248">
 			<attribute name="Name" value="bridge_front"/>
 			<attribute name="Position" value="-1 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -506,13 +671,13 @@
 				<string value="BridgeFront_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777265" type="StaticModel">
+			<component id="16777278" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-bridge_front.001.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777241">
+		<node id="16777249">
 			<attribute name="Name" value="bridge_front_col"/>
 			<attribute name="Position" value="1.6334 0 -30"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -524,15 +689,15 @@
 				<string value="BridgeFront_recursive"/>
 				<string value="Collection_recursive"/>
 			</attribute>
-			<component id="16777266" type="StaticModel">
+			<component id="16777279" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-bridge_front.mdl"/>
 				<attribute name="Material" value="Material;"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777268" type="Navigable">
+			<component id="16777281" type="Navigable">
 				<attribute name="Recursive" value="False"/>
 			</component>
-			<component id="16777269" type="LuaScriptInstance">
+			<component id="16777282" type="LuaScriptInstance">
 				<attribute name="Script Object Type" value="Rotator"/>
 			</component>
 		</node>
