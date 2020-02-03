@@ -25,6 +25,7 @@
 #include <Urho3D/Urho3DAll.h>
 #include "../Subsystems/GameNavigation.h"
 #include "../Subsystems/CaravanerEvents.h"
+#include "../GameLogic.h"
 
 const float DEFAULT_GUY_TIMER = 0.5f;
 const float DEFAULT_GUY_TIMER_MAX = 1.0f;
@@ -44,7 +45,8 @@ Guy::Guy(Context* ctx)
       mWorkmode(WM_Idle),
       mRequestedWorkmode(WM_Idle),
       mSelected(false),
-      mTimer(0.0f)
+      mTimer(0.0f),
+      mGuyType(GT_Soldier)
 
 {
 }
@@ -190,7 +192,7 @@ void Guy::Tick(float dt){
         if (distance < 1.2f){
             Guy* guy = mWorkTarget->GetComponent<Guy>();
             Caravaner* cv = GetSubsystem<Caravaner>();
-            cv->RemoveGuy(guy);
+            cv->RemoveGuy(guy,true);
             RequestWorkMode(WM_Idle);
         }
         mWorkDestinationPos = MoveTo(mWorkTarget);
@@ -433,14 +435,16 @@ void Cart::SetPath(const PODVector<Node*>& pathNodes) {
     GameNavigation* gN = GetSubsystem<GameNavigation>();
     NavigationMesh* navMesh = gN->GetNavMesh();
 
+    int start = 0;
+
     mPath.Clear();
     for (Node* n : pathNodes){
         mPath.Push(navMesh->FindNearestPoint(n->GetWorldPosition()));
     }
-    mPathIdx=1;
-    mCurrentTarget = mPath[1];
+    mPathIdx=start+1;
+    mCurrentTarget = mPath[mPathIdx];
 
-    Vector3 firstPos = mPath[0];
+    Vector3 firstPos = mPath[start];
     node_->SetWorldPosition(firstPos);
 }
 
@@ -456,7 +460,7 @@ void Cart::CheckPath()
 {
     float distance = mCurrentTarget==Vector3::ZERO ? 0.0f : (node_->GetWorldPosition() - mCurrentTarget).Length();
 //URHO3D_LOGINFOF("Distance:%f",distance);
-    if (distance < 1.0f){
+    if (distance < 2.0f){
         mPathIdx++;
         if (mPathIdx < mPath.Size()){
             mCurrentTarget = mPath[mPathIdx];

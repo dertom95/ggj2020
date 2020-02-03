@@ -1414,6 +1414,20 @@
 							"type": "enumPreview",
 							"elements": [
 								{
+									"id": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+									"name": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+									"icon": "COLOR",
+									"number": "475446"
+								},
+								{
+									"id": "Textures/SlashTrail.png",
+									"name": "Textures/SlashTrail.png",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/SlashTrail.png",
+									"icon": "COLOR",
+									"number": "5741851"
+								},
+								{
 									"id": "Textures/guy_diffuse.png",
 									"name": "Textures/guy_diffuse.png",
 									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/guy_diffuse.png",
@@ -1435,11 +1449,11 @@
 									"number": "5903508"
 								},
 								{
-									"id": "Textures/colorgrid.png",
-									"name": "Textures/colorgrid.png",
-									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/colorgrid.png",
+									"id": "Textures/ground_with_ao.png",
+									"name": "Textures/ground_with_ao.png",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/ground_with_ao.png",
 									"icon": "COLOR",
-									"number": "8335437"
+									"number": "1027009"
 								},
 								{
 									"id": "Textures/UI.png",
@@ -1449,18 +1463,11 @@
 									"number": "4306310"
 								},
 								{
-									"id": "Textures/SlashTrail.png",
-									"name": "Textures/SlashTrail.png",
-									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/SlashTrail.png",
+									"id": "Textures/colorgrid.png",
+									"name": "Textures/colorgrid.png",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/colorgrid.png",
 									"icon": "COLOR",
-									"number": "5741851"
-								},
-								{
-									"id": "Textures/Smoke.dds",
-									"name": "Textures/Smoke.dds",
-									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Smoke.dds",
-									"icon": "COLOR",
-									"number": "1242685"
+									"number": "8335437"
 								},
 								{
 									"id": "Textures/Flare.dds",
@@ -1470,53 +1477,60 @@
 									"number": "7931164"
 								},
 								{
+									"id": "Textures/Smoke.dds",
+									"name": "Textures/Smoke.dds",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Smoke.dds",
+									"icon": "COLOR",
+									"number": "1242685"
+								},
+								{
 									"id": "Textures/UI.png",
 									"name": "Textures/UI.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/Data/Textures/UI.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/Data/Textures/UI.png",
 									"icon": "COLOR",
 									"number": "4306310"
 								},
 								{
+									"id": "Textures/RampExtreme.png",
+									"name": "Textures/RampExtreme.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/RampExtreme.png",
+									"icon": "COLOR",
+									"number": "9358078"
+								},
+								{
 									"id": "Textures/Spot.png",
 									"name": "Textures/Spot.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/Spot.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/Spot.png",
 									"icon": "COLOR",
 									"number": "8816884"
 								},
 								{
-									"id": "Textures/LUTIdentity.png",
-									"name": "Textures/LUTIdentity.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/LUTIdentity.png",
-									"icon": "COLOR",
-									"number": "6313101"
-								},
-								{
 									"id": "Textures/SpotWide.png",
 									"name": "Textures/SpotWide.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/SpotWide.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/SpotWide.png",
 									"icon": "COLOR",
 									"number": "9030087"
 								},
 								{
-									"id": "Textures/Ramp.png",
-									"name": "Textures/Ramp.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/Ramp.png",
-									"icon": "COLOR",
-									"number": "8141988"
-								},
-								{
 									"id": "Textures/RampWide.png",
 									"name": "Textures/RampWide.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/RampWide.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/RampWide.png",
 									"icon": "COLOR",
 									"number": "7183223"
 								},
 								{
-									"id": "Textures/RampExtreme.png",
-									"name": "Textures/RampExtreme.png",
-									"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/RampExtreme.png",
+									"id": "Textures/Ramp.png",
+									"name": "Textures/Ramp.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/Ramp.png",
 									"icon": "COLOR",
-									"number": "9358078"
+									"number": "8141988"
+								},
+								{
+									"id": "Textures/LUTIdentity.png",
+									"name": "Textures/LUTIdentity.png",
+									"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/LUTIdentity.png",
+									"icon": "COLOR",
+									"number": "6313101"
 								}
 							],
 							"default": "0",
@@ -2295,6 +2309,20 @@
 		],
 		"textures": [
 			{
+				"id": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+				"name": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+				"icon": "COLOR",
+				"number": "475446"
+			},
+			{
+				"id": "Textures/SlashTrail.png",
+				"name": "Textures/SlashTrail.png",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/SlashTrail.png",
+				"icon": "COLOR",
+				"number": "5741851"
+			},
+			{
 				"id": "Textures/guy_diffuse.png",
 				"name": "Textures/guy_diffuse.png",
 				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/guy_diffuse.png",
@@ -2316,11 +2344,11 @@
 				"number": "5903508"
 			},
 			{
-				"id": "Textures/colorgrid.png",
-				"name": "Textures/colorgrid.png",
-				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/colorgrid.png",
+				"id": "Textures/ground_with_ao.png",
+				"name": "Textures/ground_with_ao.png",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/ground_with_ao.png",
 				"icon": "COLOR",
-				"number": "8335437"
+				"number": "1027009"
 			},
 			{
 				"id": "Textures/UI.png",
@@ -2330,18 +2358,11 @@
 				"number": "4306310"
 			},
 			{
-				"id": "Textures/SlashTrail.png",
-				"name": "Textures/SlashTrail.png",
-				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/SlashTrail.png",
+				"id": "Textures/colorgrid.png",
+				"name": "Textures/colorgrid.png",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/colorgrid.png",
 				"icon": "COLOR",
-				"number": "5741851"
-			},
-			{
-				"id": "Textures/Smoke.dds",
-				"name": "Textures/Smoke.dds",
-				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Smoke.dds",
-				"icon": "COLOR",
-				"number": "1242685"
+				"number": "8335437"
 			},
 			{
 				"id": "Textures/Flare.dds",
@@ -2351,53 +2372,60 @@
 				"number": "7931164"
 			},
 			{
+				"id": "Textures/Smoke.dds",
+				"name": "Textures/Smoke.dds",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/Smoke.dds",
+				"icon": "COLOR",
+				"number": "1242685"
+			},
+			{
 				"id": "Textures/UI.png",
 				"name": "Textures/UI.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/Data/Textures/UI.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/Data/Textures/UI.png",
 				"icon": "COLOR",
 				"number": "4306310"
 			},
 			{
+				"id": "Textures/RampExtreme.png",
+				"name": "Textures/RampExtreme.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/RampExtreme.png",
+				"icon": "COLOR",
+				"number": "9358078"
+			},
+			{
 				"id": "Textures/Spot.png",
 				"name": "Textures/Spot.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/Spot.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/Spot.png",
 				"icon": "COLOR",
 				"number": "8816884"
 			},
 			{
-				"id": "Textures/LUTIdentity.png",
-				"name": "Textures/LUTIdentity.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/LUTIdentity.png",
-				"icon": "COLOR",
-				"number": "6313101"
-			},
-			{
 				"id": "Textures/SpotWide.png",
 				"name": "Textures/SpotWide.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/SpotWide.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/SpotWide.png",
 				"icon": "COLOR",
 				"number": "9030087"
 			},
 			{
-				"id": "Textures/Ramp.png",
-				"name": "Textures/Ramp.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/Ramp.png",
-				"icon": "COLOR",
-				"number": "8141988"
-			},
-			{
 				"id": "Textures/RampWide.png",
 				"name": "Textures/RampWide.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/RampWide.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/RampWide.png",
 				"icon": "COLOR",
 				"number": "7183223"
 			},
 			{
-				"id": "Textures/RampExtreme.png",
-				"name": "Textures/RampExtreme.png",
-				"description": "/home/ttrocha/_dev/projects/blender/urho3d-blender-runtime-ver2/build/native/bin/CoreData/Textures/RampExtreme.png",
+				"id": "Textures/Ramp.png",
+				"name": "Textures/Ramp.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/Ramp.png",
 				"icon": "COLOR",
-				"number": "9358078"
+				"number": "8141988"
+			},
+			{
+				"id": "Textures/LUTIdentity.png",
+				"name": "Textures/LUTIdentity.png",
+				"description": "/home/ttrocha/_dev/projects/games/urho3d-blender-runtime/build/native/bin/CoreData/Textures/LUTIdentity.png",
+				"icon": "COLOR",
+				"number": "6313101"
 			}
 		]
 	}

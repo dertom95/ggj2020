@@ -196,7 +196,7 @@ bool GameNavigation::FindPath(Vector3 from_, Vector3 to_, PODVector<Vector3>& de
 Vector3 GameNavigation::MoveTo(Vector3 gotoPosition,Node* node)
 {
     if (mCrowdManager){
-        Vector3 posOnNavmesh = mNavMesh->FindNearestPoint(gotoPosition);
+        Vector3 posOnNavmesh = mNavMesh->FindNearestPoint(gotoPosition,Vector3(10,10,10));
         mCrowdManager->SetCrowdTarget(posOnNavmesh,node);
         return posOnNavmesh;
     }

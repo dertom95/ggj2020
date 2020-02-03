@@ -1,7 +1,12 @@
 <material>
-	<texture name="Textures/ground_dummy_diffuse.png" unit="diffuse"/>
+	<texture name="Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg" unit="diffuse"/>
 	<cull value="ccw"/>
 	<shadowcull value="ccw"/>
 	<fill value="solid"/>
-	<technique loddistance="0" name="Techniques/Diff.xml" quality="0"/>
+	<parameter name="MatDiffColor" value="1 1 1 1"/>
+	<parameter name="MatSpecColor" value="0 0 0 1"/>
+	<parameter name="MatEmissiveColor" value="0 0 0"/>
+	<parameter name="UOffset" value="30.0 0 0 0"/>
+	<parameter name="VOffset" value="0 60.0 0 0"/>
+	<technique loddistance="0" name="Techniques/DiffVCol.xml" quality="0"/>
 </material>

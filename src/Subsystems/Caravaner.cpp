@@ -9,16 +9,62 @@ Caravaner::Caravaner(Context* ctx)
     : Object(ctx),
       mRunning(true),
       mGameOver(false),
-      mSelectionMode(false)
+      mSelectionMode(false),
+      uiInitialize(false)
 {
     mGameLogic = GetSubsystem<GameLogic>();
     SubscribeToEvent(E_UPDATE,URHO3D_HANDLER(Caravaner,HandleUpdate));
     SubscribeToEvent(E_ANIMATIONTRIGGER,URHO3D_HANDLER(Caravaner,HandleSoundTrigger));
+    SubscribeToEvent(E_CARAVAN_FINISHED,URHO3D_HANDLER(Caravaner,HandleFinish));
 
+}
+
+void Caravaner::CreateUI()
+{
+    auto mUiRoot = GetSubsystem<UI>()->GetRoot();
+    auto* cache = GetSubsystem<ResourceCache>();
+    auto* style = cache->GetResource<XMLFile>("UI/DefaultStyle.xml");
+    mUiRoot->SetDefaultStyle(style);
+
+
+    Window* mWindow = new Window(context_);
+    mUiRoot->AddChild(mWindow);
+
+    // Set Window size and layout settings
+    mWindow->SetMinWidth(800);
+    mWindow->SetLayout(LM_VERTICAL, 6, IntRect(6, 6, 6, 6));
+    mWindow->SetAlignment(HA_CENTER, VA_BOTTOM);
+    mWindow->SetName("progress");
+
+    // Create Window 'titlebar' container
+    auto* titleBar = new UIElement(context_);
+    titleBar->SetMinSize(0, 24);
+    titleBar->SetVerticalAlignment(VA_TOP);
+    titleBar->SetLayoutMode(LM_HORIZONTAL);
+
+    // Create the Window title Text
+    mProgressbar = new ProgressBar(context_);
+    mProgressbar->SetRange(100);
+    mProgressbar->SetValue(0);
+    mProgressbar->SetMinSize(600,55);
+
+    titleBar->AddChild(mProgressbar);
+
+
+    mWindow->AddChild(titleBar);
+
+    // Apply styles
+    mWindow->SetStyleAuto();
+    mProgressbar->SetStyleAuto();
+
+    uiInitialize = true;
 }
 
 void Caravaner::InitLevel(String sceneName)
 {
+    if (!uiInitialize) {
+        CreateUI();
+    }
     // Create scene subsystem components
     mGameLogic->LoadFromFile(sceneName);
     GameNavigation* gameNavigation = GetSubsystem<GameNavigation>();
@@ -76,6 +122,7 @@ void Caravaner::StartLevel()
 {
     mRunning=true;
     mGameOver=false;
+    mWon = false;
     mCart->SetMoving(true);
     mScene->GetComponents<Guy>(mGuys,true);
     mCart->status.livePower=100.0f;
@@ -105,10 +152,24 @@ Node* Caravaner::GetNearestGuyCart(Node *from,float maxDist)
     return node;
 }
 
-void Caravaner::RemoveGuy(Guy *guy)
+void Caravaner::HandleFinish(StringHash eventType, VariantMap &data)
+{
+    mRunning = false;
+    mGameOver = true;
+    mWon = true;
+    GameLogic* gl = GetSubsystem<GameLogic>();
+    gl->PlaySound("applause.ogg");
+
+}
+
+void Caravaner::RemoveGuy(Guy *guy,bool playSound)
 {
     mGuys.Remove(guy);
     guy->GetNode()->Remove();
+    if (playSound) {
+        GameLogic* gl = GetSubsystem<GameLogic>();
+        gl->PlaySound("die.ogg");
+    }
 }
 
 void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
@@ -124,12 +185,16 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
 
         int power = CeilToInt(mCart->status.livePower);
         Color col = Color::WHITE;
-        if (power < 10)
+        if (power < 30)
             col = Color::RED;
-        else if (power < 20)
+        else if (power < 50)
             col = Color::MAGENTA;
 
-        gl->SetUIText("Cart Condition:"+String(power)+"    (green=>attack bandits/mills,orange=>trees)", col );
+        gl->SetUIText("Cart Condition:"+String(power)+"    (green=>attack bandits/mills,orange=>trees)      Music by Kevin MacLeod", col );
+        if (mProgressbar) {
+            mProgressbar->SetValue(power);
+            mProgressbar->SetColor(col);
+        }
 
         if (mCart->status.livePower <= 0){
             mGameOver = true;
@@ -147,7 +212,7 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
         }
 
 
-        if (input->GetMouseButtonPress(MOUSEB_LEFT)){
+        if (input->GetMouseButtonPress(MOUSEB_LEFT) || input->GetNumTouches()){
             RigidBody* hitbody;
             Vector3 hitPos;
             // TODO?
@@ -185,10 +250,19 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
 
         Vector3 newCampos = mCameraNode->GetWorldPosition().Lerp(mCamTarget,0.05);
         mCameraNode->SetWorldPosition(newCampos);
+        if (mCart){
+            mCameraNode->LookAt(mCart->GetNode()->GetWorldPosition());
+            //mCameraNode->Rotate(Quaternion(0,0,0));
+        }
         mLastCartPos = cartPos;
 
         for (Guy* guy : mGuys) {
             guy->Tick(dt);
+        }
+    } else {
+        if (mWon) {
+            GameLogic* gl = GetSubsystem<GameLogic>();
+            gl->SetUIText("Hooray! You made it to the Finish!!! You and the cargo you carried saved us all! ;)  Thx for playing...   Restart with Enter/Touch");
         }
     }
 }

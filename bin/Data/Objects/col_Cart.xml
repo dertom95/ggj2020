@@ -113,7 +113,7 @@
 		</node>
 		<node id="16777234">
 			<attribute name="Name" value="s_slot1"/>
-			<attribute name="Position" value="-7.08141e-07 0 -20.6886"/>
+			<attribute name="Position" value="-7.2542e-07 0 -21.1934"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -132,7 +132,7 @@
 		</node>
 		<node id="16777235">
 			<attribute name="Name" value="s_slot2"/>
-			<attribute name="Position" value="-8.24444 0 -30.3813"/>
+			<attribute name="Position" value="-8.24444 0 -22.4142"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -150,7 +150,7 @@
 		</node>
 		<node id="16777236">
 			<attribute name="Name" value="s_slot3"/>
-			<attribute name="Position" value="8.68639 0 -30.9103"/>
+			<attribute name="Position" value="8.68639 0 -21.3356"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -168,7 +168,7 @@
 		</node>
 		<node id="16777237">
 			<attribute name="Name" value="s_slot4"/>
-			<attribute name="Position" value="-14.724 0 -20.6056"/>
+			<attribute name="Position" value="-14.724 0 -23.3424"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -186,7 +186,7 @@
 		</node>
 		<node id="16777238">
 			<attribute name="Name" value="s_slot5"/>
-			<attribute name="Position" value="15.623 0 -20.431"/>
+			<attribute name="Position" value="15.623 0 -20.6073"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -204,7 +204,7 @@
 		</node>
 		<node id="16777239">
 			<attribute name="Name" value="slot1"/>
-			<attribute name="Position" value="-13.1759 0 -50.1405"/>
+			<attribute name="Position" value="-13.1759 0 -41.8352"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -222,7 +222,7 @@
 		</node>
 		<node id="16777240">
 			<attribute name="Name" value="slot2"/>
-			<attribute name="Position" value="16.302 0 -47.598"/>
+			<attribute name="Position" value="16.302 0 -39.2927"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -240,7 +240,7 @@
 		</node>
 		<node id="16777241">
 			<attribute name="Name" value="slot3"/>
-			<attribute name="Position" value="-0.23704 0 -69.8438"/>
+			<attribute name="Position" value="-5.43058 0 -42.3515"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -258,7 +258,7 @@
 		</node>
 		<node id="16777242">
 			<attribute name="Name" value="slot4"/>
-			<attribute name="Position" value="0.224576 0 -44.9065"/>
+			<attribute name="Position" value="0.224576 0 -39.3502"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -276,7 +276,7 @@
 		</node>
 		<node id="16777243">
 			<attribute name="Name" value="slot5"/>
-			<attribute name="Position" value="-13.7848 0 -64.3088"/>
+			<attribute name="Position" value="-13.7848 0 -47.7847"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -294,7 +294,7 @@
 		</node>
 		<node id="16777244">
 			<attribute name="Name" value="slot6"/>
-			<attribute name="Position" value="1.00636 0 -58.7027"/>
+			<attribute name="Position" value="1.00636 0 -42.8037"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>
@@ -312,7 +312,7 @@
 		</node>
 		<node id="16777245">
 			<attribute name="Name" value="slot7"/>
-			<attribute name="Position" value="15.4356 0 -64.4285"/>
+			<attribute name="Position" value="9.33322 0 -39.9125"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
 			<attribute name="Scale" value="1 1 1"/>
 			<attribute name="Variables"/>

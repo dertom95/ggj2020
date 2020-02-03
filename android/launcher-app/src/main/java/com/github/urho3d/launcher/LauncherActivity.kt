@@ -69,6 +69,10 @@ class LauncherActivity : ExpandableListActivity() {
         ))
         setContentView(R.layout.activity_launcher)
 
+        if (libraryNames.size == 1){
+            launch( libraryNames[0] )
+        }
+
         // Pass the argument to the main activity, if any
         launch(intent.getStringExtra(MainActivity.argument))
     }

@@ -18,6 +18,7 @@ using namespace Urho3D;
 namespace Urho3D {
     class Scene;
     class ParticleEmitter;
+    class ProgressBar;
 }
 
 
@@ -31,16 +32,20 @@ public:
     void StartLevel();
     void HandleUpdate(StringHash eventType,VariantMap& data);
     void HandleSoundTrigger(StringHash eventType, VariantMap &data);
+    void HandleFinish(StringHash eventType,VariantMap& data);
 
     inline void SetRunning(bool running) { mRunning = running; }
     inline bool IsRunning() { return mRunning; }
     inline bool IsGameOver() { return mGameOver; }
     void SetSelectionMode(bool setit,bool gathererOnly=false);
     Node* GetNearestGuyCart(Node* from,float maxDist);
-    void RemoveGuy(Guy* guy);
+    void RemoveGuy(Guy* guy,bool playSound=false);
+
+    Vector3 mCamTarget;
 private:
     void CheckSelectedGuyWork(Node* n);
-
+    void CreateUI();
+    SharedPtr<ProgressBar> mProgressbar;
     SharedPtr<Scene> mScene;
     SharedPtr<GameLogic> mGameLogic;
     SharedPtr<Cart> mCart;
@@ -53,6 +58,9 @@ private:
 
     bool mRunning;
     bool mGameOver;
+    bool mWon;
+
+    bool uiInitialize;
 
     SharedPtr<Node> mPathMaster;
     PODVector<Node*> mPath;
@@ -63,7 +71,7 @@ private:
 
     Node* mCameraNode;
     Vector3 mLastCartPos;
-    Vector3 mCamTarget;
+
 
     SharedPtr<Guy> mSelectedGuy;
 

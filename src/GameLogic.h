@@ -43,6 +43,7 @@ public:
     bool MouseOrTouchPhysicsRaycast(float maxDistance, Vector3& hitPos, RigidBody*& hitRigidbody,String tag="");
 
     void SetCameraNode(Node* cameraNode);
+    inline Node* GetCameraNode() { return mCameraNode; }
 
 private:
     void SubscribeToEvents();

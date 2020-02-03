@@ -132,6 +132,10 @@ void GameLogic::HandleUpdate(StringHash eventType, VariantMap &eventData)
         Start();
     }
 
+    if (mCaravaner->IsGameOver() && input->GetNumTouches()){
+        Start();
+    }
+
     if (input->GetKeyPress(KEY_F3)){
         mRenderPhysics = !mRenderPhysics;
         if (mGameNavigation){
@@ -430,12 +434,16 @@ bool GameLogic::PhysicsRaycast(IntVector2 screenPos,float maxDistance, Vector3& 
 
 bool GameLogic::TouchPhysicsRaycast(int fingerIdx, float maxDistance, Vector3 &hitPos, RigidBody *&hitRigidbody,String tag)
 {
+    URHO3D_LOGINFO("TRY TOUCH!");
     hitRigidbody = nullptr;
 
     Input* input = GetSubsystem<Input>();
+
     if (!input->GetNumTouches()) return false;
 
+
     IntVector2 pos = input->GetTouch(fingerIdx)->position_;
+    URHO3D_LOGINFOF("TOUCH:  %i  vec:%s",fingerIdx,pos.ToString().CString());
 
     return PhysicsRaycast(pos,maxDistance,hitPos,hitRigidbody,tag);
 }
@@ -452,6 +460,9 @@ bool GameLogic::MousePhysicsRaycast(float maxDistance, Vector3 &hitPos, RigidBod
 
 bool GameLogic::MouseOrTouchPhysicsRaycast(float maxDistance, Vector3 &hitPos, RigidBody *&hitRigidbody, String tag)
 {
+    Input* input = GetSubsystem<Input>();
+
+    URHO3D_LOGINFOF("TOUCHES:%i",input->GetNumTouches());
     if (MousePhysicsRaycast(maxDistance,hitPos,hitRigidbody,tag)){
         return true;
     }

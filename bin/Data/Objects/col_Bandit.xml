@@ -13,7 +13,8 @@
 			<string value="Bandit_recursive"/>
 		</attribute>
 		<component id="16777239" type="CollisionShape">
-			<attribute name="Size" value="5.0 7.0 5.0"/>
+			<attribute name="Shape Type" value="Sphere"/>
+			<attribute name="Size" value="8.0 8.0 8.0"/>
 			<attribute name="Offset Position" value="0.0 2.5 0.0"/>
 		</component>
 		<component id="16777240" type="RigidBody">
@@ -80,7 +81,7 @@
 			</component>
 		</node>
 	</node>
-	<node id="16777255">
+	<node id="16777256">
 		<attribute name="Name" value="Particle.002"/>
 		<attribute name="Position" value="0.0869646 7.16829 153.27"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -90,7 +91,7 @@
 			<string value="Bandit"/>
 			<string value="Bandit_recursive"/>
 		</attribute>
-		<component id="16777294" type="ParticleEmitter">
+		<component id="16777297" type="ParticleEmitter">
 			<attribute name="Is Enabled" value="False"/>
 			<attribute name="Effect" value="ParticleEffect;Particle/Dust.xml"/>
 		</component>
