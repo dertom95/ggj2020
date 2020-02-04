@@ -1,9 +1,9 @@
 <material>
-	<texture name="Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg" unit="diffuse"/>
+	<texture name="Textures/detail.jpg" unit="diffuse"/>
 	<cull value="ccw"/>
 	<shadowcull value="ccw"/>
 	<fill value="solid"/>
-	<parameter name="MatDiffColor" value="1 1 1 1"/>
+	<parameter name="MatDiffColor" value="0.982495 0.886231 1 1"/>
 	<parameter name="MatSpecColor" value="0 0 0 1"/>
 	<parameter name="MatEmissiveColor" value="0 0 0"/>
 	<parameter name="UOffset" value="30.0 0 0 0"/>

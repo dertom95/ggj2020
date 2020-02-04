@@ -89,6 +89,10 @@ void Guy::Select(bool select)
     }
 }
 
+bool Guy::IsSelected(){
+    return mSelector->IsEnabled();
+}
+
 void Guy::RequestWorkMode(WorkMode newMode, bool force)
 {
     mRequestedWorkmode = newMode;
@@ -118,6 +122,7 @@ bool Guy::CheckModeChange(bool force=false)
             else if (mGuyType == GT_Gatherer) {
                 Cart* cart = GetSubsystem<Cart>();
                 mWorkTarget = cart->GetFreeSlot();
+                Caravaner* cv = GetSubsystem<Caravaner>();
             }
             else if (mGuyType == GT_Soldier) {
                 Cart* cart = GetSubsystem<Cart>();
@@ -405,6 +410,9 @@ void Cart::ReleaseSlot(Node *node){
 void Cart::AddResource(float f)
 {
     status.livePower += f;
+    if (status.livePower > 100) {
+        status.livePower = 100;
+    }
     EnableParticleBurst();
 }
 

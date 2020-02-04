@@ -40,8 +40,10 @@ public:
     void SetSelectionMode(bool setit,bool gathererOnly=false);
     Node* GetNearestGuyCart(Node* from,float maxDist);
     void RemoveGuy(Guy* guy,bool playSound=false);
+    void DeselectAllGuys();
 
     Vector3 mCamTarget;
+    SharedPtr<Guy> mSelectedGuy;
 private:
     void CheckSelectedGuyWork(Node* n);
     void CreateUI();
@@ -73,7 +75,7 @@ private:
     Vector3 mLastCartPos;
 
 
-    SharedPtr<Guy> mSelectedGuy;
+
 
 
 };

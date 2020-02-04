@@ -79,6 +79,7 @@ public:
 
     Vector3 MoveTo(Node* target);
     void Select(bool select);
+    bool IsSelected();
     void Tick(float dt);
 
 

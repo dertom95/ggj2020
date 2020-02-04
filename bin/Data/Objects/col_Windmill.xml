@@ -1,6 +1,6 @@
 <node>
 	<attribute name="Position" value="0.0 -0.0 -100.0"/>
-	<node id="16777247">
+	<node id="16777246">
 		<attribute name="Name" value="Windmill"/>
 		<attribute name="Position" value="3.42285e-06 0 100"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -16,7 +16,7 @@
 			<string value="Windmill"/>
 			<string value="Windmill_recursive"/>
 		</attribute>
-		<component id="16777279" type="RigidBody">
+		<component id="16777277" type="RigidBody">
 			<attribute name="Mass" value="1.0"/>
 			<attribute name="Anisotropic Friction" value="1.0 1.0 1.0"/>
 			<attribute name="Linear Velocity" value="0.0 0.0 0.0"/>
@@ -27,18 +27,18 @@
 			<attribute name="Is Kinematic" value="True"/>
 			<attribute name="Gravity Override" value="0.0 0.0 0.0"/>
 		</component>
-		<component id="16777280" type="Navigable">
+		<component id="16777278" type="Navigable">
 			<attribute name="Recursive" value="False"/>
 		</component>
-		<component id="16777281" type="CollisionShape">
+		<component id="16777279" type="CollisionShape">
 			<attribute name="Size" value="20.0 35.0 20.0"/>
 			<attribute name="Offset Position" value="0.0 5.0 0.0"/>
 		</component>
-		<component id="16777282" type="CollisionShape">
+		<component id="16777280" type="CollisionShape">
 			<attribute name="Size" value="8.0 35.0 8.0"/>
 			<attribute name="Offset Position" value="0.0 5.0 0.0"/>
 		</component>
-		<node id="16777248">
+		<node id="16777247">
 			<attribute name="Name" value="Cube.001"/>
 			<attribute name="Position" value="0 12.7748 0"/>
 			<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -48,13 +48,13 @@
 				<string value="Windmill"/>
 				<string value="Windmill_recursive"/>
 			</attribute>
-			<component id="16777282" type="StaticModel">
+			<component id="16777280" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Cube.019.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
 		</node>
-		<node id="16777249">
+		<node id="16777248">
 			<attribute name="Name" value="Cube.002"/>
 			<attribute name="Position" value="15.7797 40.0413 0.498756"/>
 			<attribute name="Rotation" value="1 -0 -1.58682e-07 -0"/>
@@ -64,17 +64,17 @@
 				<string value="Windmill"/>
 				<string value="Windmill_recursive"/>
 			</attribute>
-			<component id="16777283" type="StaticModel">
+			<component id="16777281" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Cube.020.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol.xml"/>
 				<attribute name="Cast Shadows" value="true"/>
 			</component>
-			<component id="16777285" type="Rotator">
+			<component id="16777283" type="Rotator">
 				<attribute name="Axis" value="1.0 0.0 0.0"/>
 				<attribute name="Speed" value="20.0"/>
 			</component>
 		</node>
-		<node id="16777250">
+		<node id="16777249">
 			<attribute name="Name" value="Selector.001"/>
 			<attribute name="Position" value="-0.0404095 21.8411 0.633934"/>
 			<attribute name="Rotation" value="1 -0 -4.32406e-09 -0"/>
@@ -86,7 +86,7 @@
 				<string value="Windmill"/>
 				<string value="Windmill_recursive"/>
 			</attribute>
-			<component id="16777285" type="StaticModel">
+			<component id="16777283" type="StaticModel">
 				<attribute name="Model" value="Model;Models/261-Scene-Sphere.001.mdl"/>
 				<attribute name="Material" value="Material;Materials/vcol_add_alpha.xml"/>
 				<attribute name="Cast Shadows" value="true"/>

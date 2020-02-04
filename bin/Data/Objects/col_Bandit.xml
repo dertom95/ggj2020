@@ -81,7 +81,7 @@
 			</component>
 		</node>
 	</node>
-	<node id="16777256">
+	<node id="16777255">
 		<attribute name="Name" value="Particle.002"/>
 		<attribute name="Position" value="0.0869646 7.16829 153.27"/>
 		<attribute name="Rotation" value="1 -0 -0 -0"/>
@@ -91,7 +91,7 @@
 			<string value="Bandit"/>
 			<string value="Bandit_recursive"/>
 		</attribute>
-		<component id="16777297" type="ParticleEmitter">
+		<component id="16777295" type="ParticleEmitter">
 			<attribute name="Is Enabled" value="False"/>
 			<attribute name="Effect" value="ParticleEffect;Particle/Dust.xml"/>
 		</component>

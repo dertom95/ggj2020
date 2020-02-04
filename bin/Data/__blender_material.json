@@ -1414,11 +1414,11 @@
 							"type": "enumPreview",
 							"elements": [
 								{
-									"id": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
-									"name": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
-									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+									"id": "Textures/detail.jpg",
+									"name": "Textures/detail.jpg",
+									"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/detail.jpg",
 									"icon": "COLOR",
-									"number": "475446"
+									"number": "1944827"
 								},
 								{
 									"id": "Textures/SlashTrail.png",
@@ -2309,11 +2309,11 @@
 		],
 		"textures": [
 			{
-				"id": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
-				"name": "Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
-				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/e101b731ba646e3e27493b70d6c97a03--seamless-textures-zero.jpg",
+				"id": "Textures/detail.jpg",
+				"name": "Textures/detail.jpg",
+				"description": "/home/ttrocha/_dev/projects/games/ggj2020/ggj-project/bin/Data/Textures/detail.jpg",
 				"icon": "COLOR",
-				"number": "475446"
+				"number": "1944827"
 			},
 			{
 				"id": "Textures/SlashTrail.png",

@@ -172,6 +172,13 @@ void Caravaner::RemoveGuy(Guy *guy,bool playSound)
     }
 }
 
+void Caravaner::DeselectAllGuys(){
+    for (Guy* guy : mGuys) {
+        if (guy->mGuyType!=Guy::GT_Bandit)
+            guy->Select(false);
+    }
+}
+
 void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
 {
     using namespace Update;
@@ -211,6 +218,10 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
             return;
         }
 
+        if (mSelectedGuy && mSelectedGuy->mGuyType==Guy::GT_Soldier && mSelectedGuy->mWorkmode==Guy::WM_Idle && !mSelectedGuy->IsSelected()){
+            SetSelectionMode(true,false);
+            mSelectedGuy->Select(true);
+        }
 
         if (input->GetMouseButtonPress(MOUSEB_LEFT) || input->GetNumTouches()){
             RigidBody* hitbody;
@@ -224,11 +235,10 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
             //    URHO3D_LOGINFOF("HIT: %s",name.CString());
 
                 Guy* guy = n->GetComponent<Guy>();
+
                 if (guy && guy->mWorkmode==Guy::WM_Idle && ( guy->mGuyType==Guy::GT_Gatherer || guy->mGuyType==Guy::GT_Soldier)){
+                    DeselectAllGuys();
                     SetSelectionMode(true,guy->mGuyType==Guy::GT_Gatherer);
-                    if (mSelectedGuy){
-                        mSelectedGuy->Select(false);
-                    }
                     mSelectedGuy = guy;
                     mSelectedGuy->Select(true);
                 }
@@ -236,10 +246,9 @@ void Caravaner::HandleUpdate(StringHash eventType, VariantMap &data)
                     CheckSelectedGuyWork(n);
                 }
             } else {
+                DeselectAllGuys();
                 SetSelectionMode(false);
-                if (mSelectedGuy){
-                    mSelectedGuy->Select(false);
-                }
+                mSelectedGuy = nullptr;
             }
         }
 
@@ -285,7 +294,7 @@ void Caravaner::CheckSelectedGuyWork(Node* n)
         return;
     }
 
-    if (n->HasTag("bandit")){
+    if (n->HasTag("bandit") && !mTargetsInUse.Contains(n)){
         mSelectedGuy->Select(false);
         SetSelectionMode(false);
         mSelectedGuy->SetRequestWorkTarget(n);
@@ -293,7 +302,7 @@ void Caravaner::CheckSelectedGuyWork(Node* n)
 
         mTargetsInUse.Insert(n);
     }
-    else if (n->HasTag("resource")){
+    else if (n->HasTag("resource") && !mTargetsInUse.Contains(n)){
         mSelectedGuy->Select(false);
         SetSelectionMode(false);
         mSelectedGuy->SetRequestWorkTarget(n);
@@ -330,7 +339,7 @@ void Caravaner::SetSelectionMode(bool setit,bool gatherer){
 
         if ( !gatherer ){
             for (Guy* guy : mGuys){
-                if (guy->mGuyType == Guy::GT_Bandit){
+                if (!mTargetsInUse.Contains(guy->GetNode()) &&  guy->mGuyType == Guy::GT_Bandit){
                     guy->Select(true);
                 }
             }
