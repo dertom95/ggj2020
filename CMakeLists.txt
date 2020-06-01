@@ -30,7 +30,7 @@ option(GAME_RETRIEVE_GIT_HASH "Retrieve current-githash" ON)
 option(GAME_ENABLE_LUA_SCRIPTING "Retrieve current-githash" ON)
 
 if (GAME_ENABLE_DEBUG_TOOLS)
-    set (URHO3D_PACKAGING 0 CACHE BOOL "")
+    set (URHO3D_PACKAGING 1 CACHE BOOL "")
 else()
     set (URHO3D_PACKAGING 1 CACHE BOOL "")
 endif()
@@ -80,3 +80,5 @@ message("All Sources: ${SOURCE_FILES}")
 
 # Setup target with resource copying
 setup_main_executable ()
+
+install(FILES ${CMAKE_BINARY_DIR}/bin/CoreData.pak ${CMAKE_BINARY_DIR}/bin/Data.pak ${CMAKE_BINARY_DIR}/bin/EditorData.pak  DESTINATION bin)
